@@ -22,5 +22,14 @@
   "dependencies": {
     "express": "^4.16.3",
     "if-env": "^1.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivancho277/melee.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ivancho277/melee/issues"
+  },
+  "homepage": "https://github.com/ivancho277/melee#readme"
 }

@@ -1,5 +1,5 @@
-import React from 'react'
-import Navbar from '../components/Navbar';
+import React from "react";
+import Navbar from "../components/Navbar";
 import AboutCard from "../components/AboutCard";
 
 function Home() {
@@ -7,8 +7,7 @@ function Home() {
     <div>
       <AboutCard />
     </div>
-  )
+  );
 }
 
-export default Home
-
+export default Home;
