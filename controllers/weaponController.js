@@ -3,6 +3,8 @@ const db = require("../models");
 //ALL of this is our server side CRUD operations to maniuplate the database.
 module.exports = {
   findAll: function(req, res) {
+    console.log(req.query);
+    console.log("We made it here");
     db.Weapon.find(req.query)
       .then(dbWeapon => res.json(dbWeapon))
       //catches errors
