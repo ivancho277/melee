@@ -6,7 +6,11 @@ const bookRoutes = require("./books");
 const googleRoutes = require("./google");
 
 //brings in both our API routes together
-router.use("/controllers/", bookRoutes);
+
+apirouter.use("/controllers/", bookRoutes);
+
+
+
 router.use("/google", googleRoutes);
 
 //putting everything together and exporting it
