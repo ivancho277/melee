@@ -3,9 +3,6 @@
 // db.getCollection('armor').find({})
 // db.weapon.drop()
 
-
-
-
 // This could be the launch seed code in the mongo db used for the application.  For now we are just doing it via CLI
 // db.Weapon
 //   .remove({})

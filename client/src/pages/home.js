@@ -1,5 +1,5 @@
-import React from 'react'
-import Navbar from '../components/Navbar';
+import React from "react";
+import Navbar from "../components/Navbar";
 import AboutCard from "../components/AboutCard";
 import CharacterCard from '../components/CharacterCard'
 import Jumbotron1 from '../components/Jumbotron1'
@@ -13,8 +13,7 @@ function Home() {
       <Jumbotron1/>
       <Jumbotron2/>
     </div>
-  )
+  );
 }
 
-export default Home
-
+export default Home;
