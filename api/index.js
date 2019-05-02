@@ -6,7 +6,10 @@ const bookRoutes = require("./books");
 const googleRoutes = require("./google");
 
 //brings in both our API routes together
-router.use("/books", bookRoutes);
+
+apirouter.use("/controllers/", bookRoutes);
+
+
 
 router.use("/google", googleRoutes);
 
