@@ -5,7 +5,7 @@ import './style.css'
 function  Jumbotron2(){
   return (
 <div>
- <div class="jumbotron col-6">
+ <div id= 'j2' class="jumbotron col-12">
 </div>
 </div>
   )
