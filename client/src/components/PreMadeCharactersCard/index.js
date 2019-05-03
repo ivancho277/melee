@@ -15,6 +15,7 @@ export function PreMadeChar1(props){
         HP: {props.stats.strength}
      </div>
       </div>
+      <p className= 'card-text'>words words words</p>
       </div>
     </div>
   )
