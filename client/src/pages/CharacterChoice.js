@@ -13,13 +13,13 @@ export default class CharacterChoice extends Component {
         dexterity: 13
       }
       let src = 'https://placeimg.com/640/480/people'
-
+      let src1 = 'https://placeimg.com/641/481/people'
       return (
         <div>
         <Container>
           <Row>
             <Col size='4'>
-              <Jumbotron1 stats={stats} />
+              <Jumbotron1 stats={stats} src={src1} />
             </Col>
             <Col size='4'>
             <CharacterCard stats={stats} src={src} />
