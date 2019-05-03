@@ -12,9 +12,9 @@ function Home() {
   }
 let src = "https://placeimg.com/640/480/people" 
    return (
-    <div>
-      <CharacterCard stats={stats} src={src} />
+    <div> 
       <Jumbotron1/>
+      <CharacterCard stats={stats} src={src} />
       <Jumbotron2/>
     </div>
   );
