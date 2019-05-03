@@ -4,12 +4,16 @@ import React from 'react';
 function  CharacterCard(props){
   return (
 <div>
-  <div class="card" style={{width: 18 + 'rem'}}>
-    <h3 class= 'card-text'>Crazy Ivan</h3>
-    <img class="card-img-top" src={ props.src } alt="Card image cap"/>
-     <div class="card-body">
-     <div class= 'card'>stats</div>
-      <p class="card-text">Is Cold and Dangerous in Mother Russia</p>
+  <div className="card" style={{width: 18 + 'rem'}}>
+    <h3 className= 'card-text'>Name: {props.name}</h3>
+    <img className="card-img-top" src={ props.src } alt="Card cap"/>
+     <div className="card-body">
+     <div  className= 'card'><u>Stats</u>
+     Strength: {props.stats.strength}<br></br>
+     Dexterity: {props.stats.dexterity}<br></br>
+     HP: {props.stats.strength}
+     </div>
+      <p className="card-text">Is Cold and Dangerous in Mother Russia</p>
      </div>
   </div>
 </div>
