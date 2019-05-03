@@ -6,7 +6,7 @@ function PreMadeChar(props){
   return(
     <div>
       <div className= 'card'>
-      <h3 className= 'card-text'>Name</h3>
+      <h3 className= 'card-text'>{props.name}</h3>
       <img className= 'card-img-top' src= {props.src}/>
       <div className= 'card-body'>
         <div className= 'card'><u>Stats</u>

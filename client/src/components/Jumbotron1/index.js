@@ -8,10 +8,10 @@ function Jumbotron1(props) {
     <div>
       <div id="j1" className="jumbotron " >
         <div>
-          <PreMadeChar stats={props.stats} src={props.src}/>
-          <PreMadeChar stats={props.stats} src={props.src}/>
-          <PreMadeChar stats={props.stats} src={props.src}/>
-          <PreMadeChar stats={props.stats} src={props.src}/>
+          <PreMadeChar stats={props.stats} src={props.src} name={props.name}/>
+          <PreMadeChar stats={props.stats} src={props.src} name={props.name}/>
+          <PreMadeChar stats={props.stats} src={props.src} name={props.name}/>
+          <PreMadeChar stats={props.stats} src={props.src} name={props.name}/>
         </div>
       </div>
     </div>

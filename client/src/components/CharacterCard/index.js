@@ -5,7 +5,7 @@ function  CharacterCard(props){
   return (
 <div>
   <div className="card" style={{width: 22 + 'rem'}}>
-    <h3 className= 'card-text'>Name: {props.name}</h3>
+    <h3 className= 'card-text'>{props.name}</h3>
     <img className="card-img-top" src={ props.src } alt="Card cap"/>
      <div className="card-body">
      <div  className= 'card'><u>Stats</u>
