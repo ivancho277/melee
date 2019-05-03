@@ -10,7 +10,7 @@ function  CharacterCard(props){
      <div className="card-body">
      <div  className= 'card'><u>Stats</u>
      Strength: {props.stats.strength}<br></br>
-     Dexterity: {props.stats.dexterity}<br></br>
+     Dexterity: {props.stats.strength}<br></br>
      HP: {props.stats.strength}
      </div>
       <p className="card-text">Is Cold and Dangerous in Mother Russia</p>

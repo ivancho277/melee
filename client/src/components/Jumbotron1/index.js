@@ -1,14 +1,17 @@
 import React from 'react';
 import './style.css'
+import PreMadeChar from '../PreMadeCharactersCard'
 
 
-function Jumbotron1() {
+function Jumbotron1(props) {
   return (
     <div>
-      <div id="j1" className="jumbotron">
-        <h5 className="display-4">Character Select</h5>
-        <div id= 'preMadeCharCard' className = 'card'>
-        words
+      <div id="j1" className="jumbotron " >
+        <div>
+          <PreMadeChar stats={props.stats}/>
+          <PreMadeChar stats={props.stats}/>
+          <PreMadeChar stats={props.stats}/>
+          <PreMadeChar stats={props.stats}/>
         </div>
       </div>
     </div>
