@@ -6,10 +6,14 @@ import Jumbotron1 from '../components/Jumbotron1'
 import Jumbotron2 from '../components/Jumbotron2'
 
 function Home() {
-  let  = "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj3jNvW0v3hAhW2CjQIHa26Cv8QjRx6BAgBEAU&url=http%3A%2F%2Fmilitary-fail.com%2Fcrazy-ivan%2F&psig=AOvVaw1xBjGk0ZZJulH05poMYguL&ust=1556913966451867"
-    return (
+  let stats = {
+    strength: 11,
+    dexterity: 13
+  }
+let src = "https://placeimg.com/640/480/people" 
+   return (
     <div>
-      <CharacterCard src = 'image'/>
+      <CharacterCard stats={stats} src={src} />
       <Jumbotron1/>
       <Jumbotron2/>
     </div>
