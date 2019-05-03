@@ -2,12 +2,16 @@ import React from 'react';
 import './style.css'
 
 
-function  Jumbotron1(){
+function Jumbotron1() {
   return (
-<div>
- <div class="jumbotron col-6">
-</div>
-</div>
+    <div>
+      <div id="j1" className="jumbotron">
+        <h5 className="display-4">Character Select</h5>
+        <div id= 'preMadeCharCard' className = 'card'>
+        words
+        </div>
+      </div>
+    </div>
   )
 }
 

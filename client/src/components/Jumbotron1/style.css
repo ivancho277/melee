@@ -3,3 +3,7 @@
   float: left;
 }
 
+#preMadeCharCard{
+  display:flex;
+  clear: both;
+}
