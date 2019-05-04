@@ -1,5 +1,11 @@
 .jumbotron {
   display: flex;
   float: left;
+  width: 100vw;
 }
 
+#preMadeCharCard{
+  display:flex;
+  clear: both;
+  width: 100vw
+}

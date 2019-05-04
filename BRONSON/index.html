@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MELEÉ FIGHT</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/javascript/game.js"></script>
+  </head>
+
+  <body>
+    <main role="main">
+      <section class="container" id="informationSection">
+        <!--Show message here-->
+      </section>
+
+      <div class="album py-5 bg-white" id="playArea">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 mx-auto" id="column-0">
+              <div class="card mb-4 box-shadow" id="obi-card">
+                <div class="card-header text-center font-weight-bold">
+                  Thundarr
+                </div>
+                <img
+                  class="card-img-top"
+                  src="assets/images/thundarr.jpeg"
+                  alt="Thundarr"
+                  style="cursor: pointer"
+                  id="obi-img"
+                />
+                <div id="Player1Stats" style="display: none">
+                  <div>
+                    HP
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 100%"
+                        aria-valuenow="10"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        id="hp-progress-0"
+                      ></div>
+                    </div>
+                  </div>
+                  <div>
+                    AP
+                    <div class="progress ">
+                      <div
+                        class="progress-bar bg-danger"
+                        role="progressbar"
+                        style="width: 10%"
+                        aria-valuenow="10"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        id="ap-progress-0"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-sm btn-outline-secondary collapsed float-right"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="false"
+                      aria-controls="collapseOne"
+                      id="obi-button"
+                    >
+                      PROPERTIES
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseOne"
+                  class="collapse"
+                  aria-labelledby="headingOne"
+                  data-parent="#accordion"
+                >
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Fighter
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Hit Points (HP)
+                      <span class="badge badge-primary badge-pill">12</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Strength (ST)
+                      <span class="badge badge-primary badge-pill">12</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Dexterity (DX)
+                      <span class="badge badge-primary badge-pill">12</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Weapon
+                      <span class="badge badge-primary badge-pill"
+                        >Broadsword (2d6)</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Armor
+                      <span class="badge badge-primary badge-pill">none</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Movement Allowance (MA)
+                      <span class="badge badge-primary badge-pill">10</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 mx-auto" id="column-1">
+              <div class="card mb-4 box-shadow" id="luke-card">
+                <div class="card-header text-center font-weight-bold">
+                  Wuf
+                </div>
+                <img
+                  class="card-img-top"
+                  src="assets/images/wuf.jpeg"
+                  alt="Wuf"
+                  style="cursor: pointer"
+                  id="luke-img"
+                />
+                <div id="Player2Stats" style="display: none">
+                  <div>
+                    HP
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 100%"
+                        aria-valuenow="10"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        id="hp-progress-1"
+                      ></div>
+                    </div>
+                  </div>
+                  <div>
+                    AP
+                    <div class="progress ">
+                      <div
+                        class="progress-bar bg-danger"
+                        role="progressbar"
+                        style="width: 10%"
+                        aria-valuenow="10"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        id="ap-progress-1"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-sm btn-outline-secondary collapsed float-right"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseOne"
+                      id="luke-button"
+                    >
+                      PROPERTIES
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseTwo"
+                  class="collapse"
+                  aria-labelledby="headingTwo"
+                  data-parent="#accordion"
+                >
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Beast
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Hit Points (HP)
+                      <span class="badge badge-primary badge-pill">10</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Dexterity (DX)
+                      <span class="badge badge-primary badge-pill">14</span>
+                    </li>
+
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Weapon
+                      <span class="badge badge-primary badge-pill"
+                        >Teeph! (1d+1)</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Armor
+                      <span class="badge badge-primary badge-pill"
+                        >Pelt (1 hit)</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Movement Allowance (MA)
+                      <span class="badge badge-primary badge-pill">12</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Strength (ST)
+                      <span class="badge badge-primary badge-pill">10</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 mx-auto" id="column-2">
+              <div class="card mb-4 box-shadow" id="sidious-card">
+                <div class="card-header text-center font-weight-bold">
+                  Bear
+                </div>
+                <img
+                  class="card-img-top"
+                  src="assets/images/bear.jpeg"
+                  alt="Bear"
+                  style="cursor: pointer"
+                  id="sidious-img"
+                />
+                <div id="Player3Stats" style="display: none">
+                  <div>
+                    HP
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 100%"
+                        aria-valuenow="10"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        id="hp-progress-2"
+                      ></div>
+                    </div>
+                  </div>
+                  <div>
+                    AP
+                    <div class="progress ">
+                      <div
+                        class="progress-bar bg-danger"
+                        role="progressbar"
+                        style="width: 10%"
+                        aria-valuenow="10"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        id="ap-progress-2"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-sm btn-outline-secondary collapsed float-right"
+                      data-toggle="collapse"
+                      data-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                      id="sidious-button"
+                    >
+                      PROPERTIES
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseThree"
+                  class="collapse"
+                  aria-labelledby="headingThree"
+                  data-parent="#accordion"
+                >
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Beast
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Hit Points (HP)
+                      <span class="badge badge-primary badge-pill">30</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Dexterity (DX)
+                      <span class="badge badge-primary badge-pill">11</span>
+                    </li>
+
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Weapon
+                      <span class="badge badge-primary badge-pill"
+                        >Claw (2d+2)</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Armor
+                      <span class="badge badge-primary badge-pill"
+                        >Hide (2 hits)</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Movement Allowance (MA)
+                      <span class="badge badge-primary badge-pill">8</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Strength (ST)
+                      <span class="badge badge-primary badge-pill">30</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 mx-auto" id="column-3">
+              <div class="card mb-4 box-shadow" id="maul-card">
+                <div class="card-header text-center font-weight-bold">
+                  Snek
+                </div>
+                <img
+                  class="card-img-top"
+                  src="assets/images/snek.jpeg"
+                  alt="Snek"
+                  style="cursor: pointer"
+                  id="maul-img"
+                />
+                <div id="Player4Stats" style="display: none">
+                  <div>
+                    HP
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 100%"
+                        aria-valuenow="10"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        id="hp-progress-3"
+                      ></div>
+                    </div>
+                  </div>
+                  <div>
+                    AP
+                    <div class="progress ">
+                      <div
+                        class="progress-bar bg-danger"
+                        role="progressbar"
+                        style="width: 10%"
+                        aria-valuenow="10"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        id="ap-progress-3"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-sm btn-outline-secondary collapsed float-right"
+                      data-toggle="collapse"
+                      data-target="#collapseFour"
+                      aria-expanded="false"
+                      aria-controls="collapseFour"
+                      id="maul-button"
+                    >
+                      PROPERTIES
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseFour"
+                  class="collapse"
+                  aria-labelledby="headingFour"
+                  data-parent="#accordion"
+                >
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Beast
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Hit Points (HP)
+                      <span class="badge badge-primary badge-pill">8</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Dexterity (DX)
+                      <span class="badge badge-primary badge-pill">16</span>
+                    </li>
+
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Weapon
+                      <span class="badge badge-primary badge-pill"
+                        >Fangs (1d+1)</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Armor
+                      <span class="badge badge-primary badge-pill">none</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Movement Allowance (MA)
+                      <span class="badge badge-primary badge-pill">6</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Strength (ST)
+                      <span class="badge badge-primary badge-pill">8</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron bg-white pt-1 pb-1">
+        <!--Game comments on this row-->
+        <div>
+          <div class="display-5 pb-5" id="information">
+            <h1 class="display-5 text-center" id="presentation">
+              FIGHT!!!!
+            </h1>
+          </div>
+          <ul class="col-md-8 mx-auto" style="display: none" id="gameActions">
+            <li class="list-group-item" id="attacker"></li>
+            <li class="list-group-item" id="defender"></li>
+          </ul>
+        </div>
+        <!--Buttons on this row-->
+        <div class="row">
+          <button
+            type="button"
+            class="btn btn-danger  btn-lg pl-5 pr-5 mx-auto"
+            id="attackButton"
+            style="display: none"
+          >
+            Attack
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger  btn-lg pl-5 pr-5 mx-auto"
+            id="restartButton"
+            style="display: none"
+          >
+            Restart
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          id="dice-pic"
+          src="./assets/images/dice.png"
+          alt="turn dice throws"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Data Roll</h5>
+          <p class="card-text">
+            Attacker Dexterity: <span id="to-hit-roll"></span>
+            3d6 Roll to hit:
+            <span id="attacker-roll"></span> Roll Result:
+            <span id="to-hit-result"></span> Weapon Damage (raw):
+            <span id="weapon-damage-raw"></span> Weapon Damage (adjusted):
+            <span id="weapon-damage-adjusted"></span> Defender Armor Protec:
+            <span id="defender-armor-protection"></span> Adjusted Damage:
+            <span id="defender-damage"></span> Defender Strength:
+            <span id="defender-strength"></span> Defender Hit Points:
+            <span id="defender-hit-points"></span>
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

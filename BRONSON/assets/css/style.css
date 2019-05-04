@@ -1,0 +1,18 @@
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+body {
+  background-image: url(../images/melee.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+span {
+  border: 1 solid black;
+}
+
+#dice-pic {
+  width: 300px;
+}
