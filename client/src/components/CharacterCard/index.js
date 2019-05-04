@@ -15,6 +15,7 @@ function  CharacterCard(props){
      </div>
       <p className="card-text">Is Cold and Dangerous in Mother Russia</p>
      </div>
+     <button type="button" class="btn btn-warning">Select</button>
   </div>
 </div>
   )
