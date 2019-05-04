@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Navbar from "../components/Navbar";
-
-import AboutCard from "../components/AboutCard";
 import CharacterCard from '../components/CharacterCard';
 import Jumbotron1 from '../components/Jumbotron1';
 import Jumbotron2 from '../components/Jumbotron2';

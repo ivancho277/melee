@@ -11,7 +11,6 @@ function Home() {
   return (
     <div>
           <AboutCard />
-        
     </div>
   );
 }
