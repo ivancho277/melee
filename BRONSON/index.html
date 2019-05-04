@@ -27,15 +27,6 @@
 
   <body>
     <main role="main">
-      <section class="container-fluid">
-        <img
-          class="img-fluid max-width: 100%"
-          src="assets/images/melee.png"
-          alt="melee"
-          id="melee-banner"
-        />
-      </section>
-
       <section class="container" id="informationSection">
         <!--Show message here-->
       </section>
@@ -528,6 +519,29 @@
           >
             Restart
           </button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          id="dice-pic"
+          src="./assets/images/dice.png"
+          alt="turn dice throws"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Data Roll</h5>
+          <p class="card-text">
+            Attacker Dexterity: <span id="to-hit-roll"></span>
+            3d6 Roll to hit:
+            <span id="attacker-roll"></span> Roll Result:
+            <span id="to-hit-result"></span> Weapon Damage (raw):
+            <span id="weapon-damage-raw"></span> Weapon Damage (adjusted):
+            <span id="weapon-damage-adjusted"></span> Defender Armor Protec:
+            <span id="defender-armor-protection"></span> Adjusted Damage:
+            <span id="defender-damage"></span> Defender Strength:
+            <span id="defender-strength"></span> Defender Hit Points:
+            <span id="defender-hit-points"></span>
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </main>
