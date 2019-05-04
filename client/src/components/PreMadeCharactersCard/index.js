@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css'
 
+
 export function PreMadeChar1(props) {
   return (
     <div>
@@ -16,10 +17,12 @@ export function PreMadeChar1(props) {
           <p className='card-text'>words words words</p>
         </div>
         <button type="button" class="btn btn-warning">Select</button>
+
       </div>
     </div>
   )
 }
+
 
 export function PreMadeChar2(props) {
   return (
@@ -60,6 +63,7 @@ export function PreMadeChar3(props) {
     </div>
   )
 }
+
 
 export function PreMadeChar4(props) {
   return (
