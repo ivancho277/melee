@@ -1,17 +1,25 @@
 //------------------DATA-------------------//
 
-let broadsword = () => {
-  return Math.floor(Math.random() * 12) + 1;
-};
+// let broadsword = function() {
+//   let damage = Math.floor(Math.random() * 12) + 1;
+//   return damage;
+// };
+
+const broadSword = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+function broadSwordRand() {
+  let damage = broadSword[Math.floor(Math.random() * broadSword.length)];
+  return damage;
+}
 
 let player1 = {
   playerId: 0,
   maxLifePoints: 120,
   currentLifePoints: 120,
   initialAttackPower: 8,
-  currentAttackPower: broadsword(),
+  currentAttackPower: broadSwordRand(),
   playerName: "Thundarr",
   playerSide: "Fighter",
+  dexterity: 15,
 
   updateAttackPower: function() {
     // this.currentAttackPower += this.initialAttackPower;
@@ -47,6 +55,8 @@ const player2 = {
   currentAttackPower: 5,
   playerName: "Wuf",
   playerSide: "Beast",
+  dexterity: 14,
+  armor: 1,
 
   updateAttackPower: function() {
     this.currentAttackPower += this.initialAttackPower;
@@ -204,19 +214,57 @@ function selectPlayers(selectedPlayer) {
 }
 
 function attackEnemy() {
+  const rollToHit = Math.floor(Math.random() * 16) + 3;
+  let attackResult = 0;
+  if (rollToHit === 3) {
+    attackResult = 3;
+  } else if (rollToHit === 4) {
+    attackResult = 2;
+  } else if (rollToHit === 5) {
+    attackResult = 1;
+  } else if (rollToHit === 16) {
+    attackResult = 0;
+  } else if (rollToHit === 17) {
+    attackResult = -2;
+  } else if (rollToHit === 18) {
+    attackResult = -3;
+  } else if (rollToHit <= game.playerSelected.dexterity) {
+    attackResult = 1;
+    console.log(
+      `You roll 3d6 to hit versus damage your dexterity of ${
+        game.playerSelected.dexterity
+      } and get a ${rollToHit}.`
+    );
+    console.log("YOU HIT!!!!");
+  } else {
+    attackResult = 0;
+    console.log(
+      `You roll 3d6 to hit versus damage your dexterity of ${
+        game.playerSelected.dexterity
+      } and get a ${rollToHit}.`
+    );
+    console.log("you missed");
+  }
+
   //   var enemyDamage = game.enemySelected.currentAttackPower;
   //   var playerDamage = game.playerSelected.currentAttackPower;
-  let enemyDamage = game.enemySelected.currentAttackPower;
-  //   let playerDamage = game.playerSelected.currentAttackPower;
-  let playerDamage = game.playerSelected.currentAttackPower;
+  var enemyDamage = game.enemySelected.currentAttackPower;
+  // let playerDamage = game.playerSelected.currentAttackPower;
+  var playerDamage = Math.max(broadSwordRand() * attackResult, 0);
+  var adjPlayerDamage = Math.max(playerDamage - game.enemySelected.armor, 0);
   //   const playerDamage = broadswordDamage();
-  console.log(`Tack damage is ${playerDamage}`);
+  console.log(`playerDamage damage is ${playerDamage}`);
+  console.log(`adjPlayerDamage damage is ${adjPlayerDamage}`);
 
-  updateMessages(enemyDamage, playerDamage);
-
-  game.enemySelected.updateCurrentLifePoints(
-    game.playerSelected.currentAttackPower
+  updateMessages(
+    rollToHit,
+    enemyDamage,
+    playerDamage,
+    adjPlayerDamage,
+    attackResult
   );
+
+  game.enemySelected.updateCurrentLifePoints(adjPlayerDamage);
   game.playerSelected.updateAttackPower();
 
   if (!game.enemySelected.isAlive()) {
@@ -373,24 +421,80 @@ function updatePlayerStats() {
   $("#ap-progress-" + game.enemySelected.playerId).css("width", "100%");
 }
 
-function updateMessages(enemyDamage, playerDamage) {
+function updateMessages(
+  rollToHit,
+  enemyDamage,
+  playerDamage,
+  adjPlayerDamage,
+  attackResult
+) {
   if (game.firstAttack) {
     $("#gameActions").css("visibility", "visible");
     game.firstAttack = false;
   }
-
-  $("#attacker").text(
-    "You attacked " +
-      game.enemySelected.playerName +
-      " for " +
-      playerDamage +
-      " damage."
+  let textAttackResult;
+  switch (attackResult) {
+    case 1:
+      textAttackResult = "Hit!";
+      break;
+    case 0:
+      textAttackResult = "missed....";
+      break;
+    case 2:
+      textAttackResult = "Hit for Double Damage!!";
+      break;
+    case 3:
+      textAttackResult = "HIT FOR TRIPLE DAMAGE!!!";
+      break;
+    case -2:
+      textAttackResult = "DROPPED YOUR WEAPON...";
+      break;
+    case -3:
+      textAttackResult = "BROKE YOUR WEAPON!!!!";
+      break;
+    default:
+      textAttackResult = "YOU SHOULDN'T SEE THIS";
+      break;
+  }
+  $("#attacker").empty();
+  $("#attacker").append(
+    `You roll 3d6 to hit versus damage your dexterity of ${
+      game.playerSelected.dexterity
+    } and get a ${rollToHit}.<br />
+    You attacked ${
+      game.enemySelected.playerName
+    } and ${textAttackResult} for ${playerDamage} damage.<br />His armor stops ${
+      game.enemySelected.armor
+    } hit(s) of damage. Therefore the adjusted damage is ${adjPlayerDamage}.<br />The ${
+      game.enemySelected.playerName
+    }'s Strength is ${game.enemySelected.maxLifePoints} and HPs are now ${game
+      .enemySelected.currentLifePoints - adjPlayerDamage}.`
   );
   $("#defender").text(
     game.enemySelected.playerName +
       " attacked you back for " +
       enemyDamage +
       " damage."
+  );
+  $("to-hit-roll").empty();
+  $("#attacker-roll").empty();
+  $("#to-hit-result").empty();
+  $("#weapon-damage-raw").empty();
+  $("#weapon-damage-adjusted").empty();
+  $("#defender-armor-protection").empty();
+  $("#defender-damage").empty();
+  $("#defender-strength").empty();
+  $("#defender-hit-points").empty();
+  $("#to-hit-roll").html(game.playerSelected.dexterity);
+  $("#attacker-roll").html(rollToHit);
+  $("#to-hit-result").html(textAttackResult);
+  $("#weapon-damage-raw").html("tbd");
+  $("#weapon-damage-adjusted").html(playerDamage);
+  $("#defender-armor-protection").html(game.enemySelected.armor);
+  $("#defender-damage").html(adjPlayerDamage);
+  $("#defender-strength").html(game.enemySelected.maxLifePoints);
+  $("#defender-hit-points").html(
+    game.enemySelected.currentLifePoints - adjPlayerDamage
   );
 }
 
@@ -465,3 +569,33 @@ function resetGameControls() {
   $("#maul-card").removeClass("border border-success");
   $("#maul-card").removeClass("border border-danger");
 }
+
+const fist = [0, 0, 1, 2, 3, 4];
+const dagger = [0, 1, 2, 3, 4, 5];
+const rapier = [1, 2, 3, 4, 5, 6];
+const hammer = [2, 3, 4, 5, 6, 7];
+const saber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const shortsword = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+const mace = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+const smallAx = [3, 4, 5, 6, 7, 8];
+
+const morningStar = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+const twoHandedSword = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+const battleaxe = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+const javelin = [0, 1, 2, 3, 4, 5];
+const spear = [3, 4, 5, 6, 7];
+const halberd = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const pikeAxe = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+const rock = [0, 0, 0, 0, 1, 2];
+const sling = [0, 0, 1, 2, 3, 4];
+const smallBow = [0, 1, 2, 3, 4, 5];
+const horsebow = [1, 2, 3, 4, 5, 6];
+const longbow = [3, 4, 5, 6, 7, 8];
+const lightCrossbow = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const heavyCrossbow = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+const bearClaw = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+const wolfBite = [2, 3, 4, 5, 6, 7];
+const gnakeBite = [2, 3, 4, 5, 6, 7];
+const giantClub = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+const gargoyleFist = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const dragonFire = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
