@@ -7,12 +7,6 @@ import Jumbotron2 from '../components/Jumbotron2'
 import DiceComponent from '../components/DiceRoller'
 
 function Home() {
-<<<<<<< HEAD
-
-  return (
-    <div>
-          <AboutCard />
-=======
   let stats = {
     strength: 11,
     dexterity: 13
@@ -27,7 +21,6 @@ let src = "https://placeimg.com/640/480/people"
       <DiceComponent
       numDice={numDice}
       />
->>>>>>> 102f5564c0a18669d4e4e5c73d31eabaacc0c3d1
     </div>
   );
 }
