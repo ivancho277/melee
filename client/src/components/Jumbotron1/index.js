@@ -1,6 +1,6 @@
 import React from 'react';
-import './style.css'
-import {PreMadeChar1, PreMadeChar2, PreMadeChar3, PreMadeChar4}  from '../PreMadeCharactersCard'
+import './style.css';
+import {PreMadeChar1, PreMadeChar2, PreMadeChar3, PreMadeChar4}  from "../PreMadeCharactersCard"
 
 
 
