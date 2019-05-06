@@ -155,8 +155,8 @@ const player4 = {
 
 const game = {
   playerSelected: "",
-  enemySelected: "",
-  isPlayerSelected: false,
+  defenderSelected: "",
+  isAttackerSelected: false,
   avaliablePlayers: [true, true, true, true],
   firstAttack: true,
 
@@ -166,9 +166,9 @@ const game = {
     this.playerSelected.resetPlayer();
   },
   activateEnemy: function(enemy) {
-    this.enemySelected = enemy;
+    this.defenderSelected = enemy;
     this.avaliablePlayers[enemy.playerId] = false;
-    this.enemySelected.resetPlayer();
+    this.defenderSelected.resetPlayer();
   },
   resetAvaliablePlayers: function() {
     for (let index = 0; index < this.avaliablePlayers.length; index++) {
@@ -186,26 +186,26 @@ const game = {
 };
 //--------------GAME FUNTIONS--------------------
 function selectPlayers(selectedPlayer) {
-  if (selectedPlayer.id === "obi-img") {
-    if (!game.isPlayerSelected) {
+  if (selectedPlayer.id === "player1-img") {
+    if (!game.isAttackerSelected) {
       game.activatePlayer(player1);
     } else {
       game.activateEnemy(player1);
     }
-  } else if (selectedPlayer.id === "luke-img") {
-    if (!game.isPlayerSelected) {
+  } else if (selectedPlayer.id === "player2-img") {
+    if (!game.isAttackerSelected) {
       game.activatePlayer(player2);
     } else {
       game.activateEnemy(player2);
     }
-  } else if (selectedPlayer.id === "sidious-img") {
-    if (!game.isPlayerSelected) {
+  } else if (selectedPlayer.id === "player3-img") {
+    if (!game.isAttackerSelected) {
       game.activatePlayer(player3);
     } else {
       game.activateEnemy(player3);
     }
-  } else if (selectedPlayer.id === "maul-img") {
-    if (!game.isPlayerSelected) {
+  } else if (selectedPlayer.id === "player4-img") {
+    if (!game.isAttackerSelected) {
       game.activatePlayer(player4);
     } else {
       game.activateEnemy(player4);
@@ -246,12 +246,12 @@ function attackEnemy() {
     console.log("you missed");
   }
 
-  //   var enemyDamage = game.enemySelected.currentAttackPower;
+  //   var enemyDamage = game.defenderSelected.currentAttackPower;
   //   var playerDamage = game.playerSelected.currentAttackPower;
-  var enemyDamage = game.enemySelected.currentAttackPower;
+  var enemyDamage = game.defenderSelected.currentAttackPower;
   // let playerDamage = game.playerSelected.currentAttackPower;
   var playerDamage = Math.max(broadSwordRand() * attackResult, 0);
-  var adjPlayerDamage = Math.max(playerDamage - game.enemySelected.armor, 0);
+  var adjPlayerDamage = Math.max(playerDamage - game.defenderSelected.armor, 0);
   //   const playerDamage = broadswordDamage();
   console.log(`playerDamage damage is ${playerDamage}`);
   console.log(`adjPlayerDamage damage is ${adjPlayerDamage}`);
@@ -264,10 +264,10 @@ function attackEnemy() {
     attackResult
   );
 
-  game.enemySelected.updateCurrentLifePoints(adjPlayerDamage);
+  game.defenderSelected.updateCurrentLifePoints(adjPlayerDamage);
   game.playerSelected.updateAttackPower();
 
-  if (!game.enemySelected.isAlive()) {
+  if (!game.defenderSelected.isAlive()) {
     updatePlayerStats();
     if (game.existAvaliablePlayers()) {
       moveToNextPlayer();
@@ -276,7 +276,7 @@ function attackEnemy() {
     }
   } else {
     game.playerSelected.updateCurrentLifePoints(
-      game.enemySelected.currentAttackPower
+      game.defenderSelected.currentAttackPower
     );
     updatePlayerStats();
     if (!game.playerSelected.isAlive()) {
@@ -287,8 +287,8 @@ function attackEnemy() {
 
 function newGame() {
   game.playerSelected = "";
-  game.enemySelected = "";
-  game.isPlayerSelected = false;
+  game.defenderSelected = "";
+  game.isAttackerSelected = false;
   game.firstAttack = true;
   game.resetAvaliablePlayers();
 
@@ -297,19 +297,19 @@ function newGame() {
 
 $(document).ready(function() {
   //------------SELECTING THE PLAYER AND THE ENEMY-------------//
-  $("#obi-img").on("click", function() {
+  $("#player1-img").on("click", function() {
     selectPlayers(this);
     updatePlayer("obi");
   });
-  $("#luke-img").on("click", function() {
+  $("#player2-img").on("click", function() {
     selectPlayers(this);
     updatePlayer("luke");
   });
-  $("#sidious-img").on("click", function() {
+  $("#player3-img").on("click", function() {
     selectPlayers(this);
     updatePlayer("sidious");
   });
-  $("#maul-img").on("click", function() {
+  $("#player4-img").on("click", function() {
     selectPlayers(this);
     updatePlayer("maul");
   });
@@ -339,10 +339,10 @@ function updatePlayer(player) {
     $("#collapseFour").collapse("hide");
   }
 
-  if (!game.isPlayerSelected) {
+  if (!game.isAttackerSelected) {
     $("#" + player + "-card").addClass("border border-success");
-    game.isPlayerSelected = true;
-    $("#presentation").text("Select your Enemy!");
+    game.isAttackerSelected = true;
+    $("#presentation").text("Select the Defender");
   } else {
     $("#" + player + "-card").addClass("border border-danger");
     //hide other cards.
@@ -373,7 +373,7 @@ function showAvaliableCharacters() {
 }
 
 function hideDefeatedCharacter() {
-  $("#column-" + game.enemySelected.playerId).css("display", "all");
+  $("#column-" + game.defenderSelected.playerId).css("display", "all");
 }
 
 function showControls() {
@@ -389,7 +389,7 @@ function showControls() {
   );
 
   //show progress defender
-  $("#Player" + (game.enemySelected.playerId + 1) + "Stats").css(
+  $("#Player" + (game.defenderSelected.playerId + 1) + "Stats").css(
     "display",
     "block"
   );
@@ -414,11 +414,11 @@ function updatePlayerStats() {
   );
 
   //Update defender
-  $("#hp-progress-" + game.enemySelected.playerId).css(
+  $("#hp-progress-" + game.defenderSelected.playerId).css(
     "width",
-    game.enemySelected.lifePercentage() + "%"
+    game.defenderSelected.lifePercentage() + "%"
   );
-  $("#ap-progress-" + game.enemySelected.playerId).css("width", "100%");
+  $("#ap-progress-" + game.defenderSelected.playerId).css("width", "100%");
 }
 
 function updateMessages(
@@ -462,16 +462,18 @@ function updateMessages(
       game.playerSelected.dexterity
     } and get a ${rollToHit}.<br />
     You attacked ${
-      game.enemySelected.playerName
+      game.defenderSelected.playerName
     } and ${textAttackResult} for ${playerDamage} damage.<br />His armor stops ${
-      game.enemySelected.armor
+      game.defenderSelected.armor
     } hit(s) of damage. Therefore the adjusted damage is ${adjPlayerDamage}.<br />The ${
-      game.enemySelected.playerName
-    }'s Strength is ${game.enemySelected.maxLifePoints} and HPs are now ${game
-      .enemySelected.currentLifePoints - adjPlayerDamage}.`
+      game.defenderSelected.playerName
+    }'s Strength is ${
+      game.defenderSelected.maxLifePoints
+    } and HPs are now ${game.defenderSelected.currentLifePoints -
+      adjPlayerDamage}.`
   );
   $("#defender").text(
-    game.enemySelected.playerName +
+    game.defenderSelected.playerName +
       " attacked you back for " +
       enemyDamage +
       " damage."
@@ -490,18 +492,18 @@ function updateMessages(
   $("#to-hit-result").html(textAttackResult);
   $("#weapon-damage-raw").html("tbd");
   $("#weapon-damage-adjusted").html(playerDamage);
-  $("#defender-armor-protection").html(game.enemySelected.armor);
+  $("#defender-armor-protection").html(game.defenderSelected.armor);
   $("#defender-damage").html(adjPlayerDamage);
-  $("#defender-strength").html(game.enemySelected.maxLifePoints);
+  $("#defender-strength").html(game.defenderSelected.maxLifePoints);
   $("#defender-hit-points").html(
-    game.enemySelected.currentLifePoints - adjPlayerDamage
+    game.defenderSelected.currentLifePoints - adjPlayerDamage
   );
 }
 
 function gameOver() {
   $("#presentation").text(
     "You have been defeated by " +
-      game.enemySelected.playerName +
+      game.defenderSelected.playerName +
       ". GAME OVER!!!"
   );
   hideControls();
@@ -518,7 +520,7 @@ function moveToNextPlayer() {
   hideControls();
   $("#presentation").text(
     "You defeated " +
-      game.enemySelected.playerName +
+      game.defenderSelected.playerName +
       ". Select your next opponent!"
   );
   hideDefeatedCharacter();
@@ -545,26 +547,26 @@ function resetGameControls() {
     $("#Player" + index + "Stats").css("display", "none");
   }
 
-  $("#obi-img").css("pointer-events", "auto");
-  $("#obi-img").css("cursor", "pointer");
+  $("#player1-img").css("pointer-events", "auto");
+  $("#player1-img").css("cursor", "pointer");
   $("#obi-button").css("display", "block");
   $("#obi-card").removeClass("border border-success");
   $("#obi-card").removeClass("border border-danger");
 
-  $("#luke-img").css("pointer-events", "auto");
-  $("#luke-img").css("cursor", "pointer");
+  $("#player2-img").css("pointer-events", "auto");
+  $("#player2-img").css("cursor", "pointer");
   $("#luke-button").css("display", "block");
   $("#luke-card").removeClass("border border-success");
   $("#luke-card").removeClass("border border-danger");
 
-  $("#sidious-img").css("pointer-events", "auto");
-  $("#sidious-img").css("cursor", "pointer");
+  $("#player3-img").css("pointer-events", "auto");
+  $("#player3-img").css("cursor", "pointer");
   $("#sidious-button").css("display", "block");
   $("#sidious-card").removeClass("border border-success");
   $("#sidious-card").removeClass("border border-danger");
 
-  $("#maul-img").css("pointer-events", "auto");
-  $("#maul-img").css("cursor", "pointer");
+  $("#player4-img").css("pointer-events", "auto");
+  $("#player4-img").css("cursor", "pointer");
   $("#maul-button").css("display", "block");
   $("#maul-card").removeClass("border border-success");
   $("#maul-card").removeClass("border border-danger");

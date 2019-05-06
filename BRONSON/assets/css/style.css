@@ -13,6 +13,79 @@ span {
   border: 1 solid black;
 }
 
+.card-image-top {
+	height: 100px;	
+}
+
+#play-area {
+	padding: 1px;
+}
+
+.card-header {
+	padding: 1px;
+	margin: 1px;
+}
+
 #dice-pic {
   width: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+.card-text,
+#to-hit-roll,
+#attacker-roll,
+#to-hit-result,
+#weapon-damage-raw,
+#weapon-damage-adjusted,
+#defender-armor-protection,
+#defender-damage,
+#defender-strength,
+#defender-hit-points {
+  border: 1px solid black;
+	padding 1px;
+	min-height: 60px;
+}
+#attacker-roll {
+  border: ;
+}
+/* DivTable.com */
+.divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+	min-height: 60px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+	background-color: white;
+  min-height: 60px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
 }

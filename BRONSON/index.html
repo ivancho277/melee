@@ -31,7 +31,7 @@
         <!--Show message here-->
       </section>
 
-      <div class="album py-5 bg-white" id="playArea">
+      <div class="album bg-white" id="play-area">
         <div class="container">
           <div class="row">
             <div class="col-md-3 mx-auto" id="column-0">
@@ -44,7 +44,7 @@
                   src="assets/images/thundarr.jpeg"
                   alt="Thundarr"
                   style="cursor: pointer"
-                  id="obi-img"
+                  id="player1-img"
                 />
                 <div id="Player1Stats" style="display: none">
                   <div>
@@ -155,7 +155,7 @@
                   src="assets/images/wuf.jpeg"
                   alt="Wuf"
                   style="cursor: pointer"
-                  id="luke-img"
+                  id="player2-img"
                 />
                 <div id="Player2Stats" style="display: none">
                   <div>
@@ -269,7 +269,7 @@
                   src="assets/images/bear.jpeg"
                   alt="Bear"
                   style="cursor: pointer"
-                  id="sidious-img"
+                  id="player3-img"
                 />
                 <div id="Player3Stats" style="display: none">
                   <div>
@@ -383,7 +383,7 @@
                   src="assets/images/snek.jpeg"
                   alt="Snek"
                   style="cursor: pointer"
-                  id="maul-img"
+                  id="player4-img"
                 />
                 <div id="Player4Stats" style="display: none">
                   <div>
@@ -487,40 +487,26 @@
           </div>
         </div>
       </div>
-
-      <div class="jumbotron bg-white pt-1 pb-1">
-        <!--Game comments on this row-->
-        <div>
-          <div class="display-5 pb-5" id="information">
-            <h1 class="display-5 text-center" id="presentation">
-              FIGHT!!!!
-            </h1>
-          </div>
-          <ul class="col-md-8 mx-auto" style="display: none" id="gameActions">
-            <li class="list-group-item" id="attacker"></li>
-            <li class="list-group-item" id="defender"></li>
-          </ul>
-        </div>
-        <!--Buttons on this row-->
-        <div class="row">
-          <button
-            type="button"
-            class="btn btn-danger  btn-lg pl-5 pr-5 mx-auto"
-            id="attackButton"
-            style="display: none"
-          >
-            Attack
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger  btn-lg pl-5 pr-5 mx-auto"
-            id="restartButton"
-            style="display: none"
-          >
-            Restart
-          </button>
-        </div>
+      <!--Buttons on this row-->
+      <div class="row">
+        <button
+          type="button"
+          class="btn btn-danger  btn-lg pl-5 pr-5 mx-auto"
+          id="attackButton"
+          style="display: none"
+        >
+          Attack
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger  btn-lg pl-5 pr-5 mx-auto"
+          id="restartButton"
+          style="display: none"
+        >
+          Restart
+        </button>
       </div>
+
       <div class="card">
         <img
           id="dice-pic"
@@ -529,21 +515,64 @@
         />
         <div class="card-body">
           <h5 class="card-title">Data Roll</h5>
-          <p class="card-text">
-            Attacker Dexterity: <span id="to-hit-roll"></span>
-            3d6 Roll to hit:
-            <span id="attacker-roll"></span> Roll Result:
-            <span id="to-hit-result"></span> Weapon Damage (raw):
-            <span id="weapon-damage-raw"></span> Weapon Damage (adjusted):
-            <span id="weapon-damage-adjusted"></span> Defender Armor Protec:
-            <span id="defender-armor-protection"></span> Adjusted Damage:
-            <span id="defender-damage"></span> Defender Strength:
-            <span id="defender-strength"></span> Defender Hit Points:
-            <span id="defender-hit-points"></span>
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="card-text">
+            <div class="row">
+              <div class="divTable">
+                <div class="divTableBody">
+                  <div class="divTableRow">
+                    <div class="divTableCell">Attacker Dexterity</div>
+                    <div class="divTableCell">3d6 Roll to hit:</div>
+                    <div class="divTableCell">Roll Result:</div>
+                    <div class="divTableCell">Weapon Damage (raw):</div>
+                    <div class="divTableCell">Weapon Damage (adjusted):</div>
+                    <div class="divTableCell">Defender Armor Protec:</div>
+                    <div class="divTableCell">Adjusted Damage:</div>
+                    <div class="divTableCell">Defender Strength:</div>
+                    <div class="divTableCell">Defender Hit Points:</div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell" id="to-hit-roll">&nbsp;</div>
+                    <div class="divTableCell" id="attacker-roll">&nbsp;</div>
+                    <div class="divTableCell" id="to-hit-result">&nbsp;</div>
+                    <div class="divTableCell" id="weapon-damage-raw">
+                      &nbsp;
+                    </div>
+                    <div class="divTableCell" id="weapon-damage-adjusted">
+                      &nbsp;
+                    </div>
+                    <div class="divTableCell" id="defender-armor-protection">
+                      &nbsp;
+                    </div>
+                    <div class="divTableCell" id="defender-damage">&nbsp;</div>
+                    <div class="divTableCell" id="defender-strength">
+                      &nbsp;
+                    </div>
+                    <div class="divTableCell" id="defender-hit-points">
+                      &nbsp;
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="jumbotron bg-white pt-1 pb-1">
+        <!--Game comments on this row-->
+        <div>
+          <div class="display" id="information">
+            <h1 class="display" id="presentation">
+              Pick the attacker
+            </h1>
+          </div>
+          <ul class="col-md-8 mx-auto" style="display: none" id="gameActions">
+            <li class="list-group-item" id="attacker"></li>
+            <li class="list-group-item" id="defender"></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- DivTable.com -->
     </main>
   </body>
 </html>
