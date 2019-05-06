@@ -24,7 +24,8 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.5.5",
     "prop-types": "^15.7.2",
-    "react-dice": "^1.0.1"
+    "react-dice": "^1.0.1",
+    "react-hexgrid": "^1.0.3"
   },
   "repository": {
     "type": "git",
