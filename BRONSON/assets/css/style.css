@@ -1,3 +1,14 @@
+  .grey-dead {
+		background-color: black;
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE5+ */
+    -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+    -webkit-transition: all .5s ease-in-out;
+  }
+
+
+
+
 .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
@@ -13,8 +24,9 @@ span {
   border: 1 solid black;
 }
 
-.card-image-top {
-	height: 100px;	
+img {
+	max-height: 200px;	
+	max-width: 200px;	
 }
 
 #play-area {
@@ -31,14 +43,6 @@ span {
 }
 
 
-
-
-
-
-
-
-
-
 .card-text,
 #to-hit-roll,
 #attacker-roll,
@@ -53,9 +57,7 @@ span {
 	padding 1px;
 	min-height: 60px;
 }
-#attacker-roll {
-  border: ;
-}
+
 /* DivTable.com */
 .divTable{
 	display: table;

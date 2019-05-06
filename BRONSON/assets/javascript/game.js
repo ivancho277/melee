@@ -9,35 +9,37 @@ const broadSword = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 function broadSwordRand() {
   let damage = broadSword[Math.floor(Math.random() * broadSword.length)];
   return damage;
+  console.log(`Raw Damage from the broadSwordRand f(x) is ${damage}`);
 }
 
 let player1 = {
   playerId: 0,
-  maxLifePoints: 120,
-  currentLifePoints: 120,
+  strength: 120,
+  dexterity: 15,
+  hitPoints: 120,
+  armor: 0,
   initialAttackPower: 8,
   currentAttackPower: broadSwordRand(),
   playerName: "Thundarr",
   playerSide: "Fighter",
-  dexterity: 15,
 
   updateAttackPower: function() {
     // this.currentAttackPower += this.initialAttackPower;
     this.currentAttackPower += 0;
   },
-  updateCurrentLifePoints: function(attackerPower) {
-    this.currentLifePoints -= attackerPower;
+  updatehitPoints: function(attackerPower) {
+    this.hitPoints -= attackerPower;
   },
   isAlive: function() {
-    return this.currentLifePoints > 0;
+    return this.hitPoints > 0;
   },
   resetPlayer: function() {
     this.currentAttackPower = this.initialAttackPower;
-    this.currentLifePoints = this.maxLifePoints;
+    this.hitPoints = this.strength;
   },
   lifePercentage: function() {
-    if (this.currentLifePoints > 0) {
-      return (this.currentLifePoints / this.maxLifePoints) * 100;
+    if (this.hitPoints > 0) {
+      return (this.hitPoints / this.strength) * 100;
     } else {
       return 0;
     }
@@ -49,31 +51,31 @@ let player1 = {
 
 const player2 = {
   playerId: 1,
-  maxLifePoints: 100,
-  currentLifePoints: 100,
+  strength: 13,
+  dexterity: 14,
+  hitPoints: 13,
+  armor: 1,
   initialAttackPower: 5,
   currentAttackPower: 5,
   playerName: "Wuf",
   playerSide: "Beast",
-  dexterity: 14,
-  armor: 1,
 
   updateAttackPower: function() {
     this.currentAttackPower += this.initialAttackPower;
   },
-  updateCurrentLifePoints: function(attackerPower) {
-    this.currentLifePoints -= attackerPower;
+  updatehitPoints: function(attackerPower) {
+    this.hitPoints -= attackerPower;
   },
   isAlive: function() {
-    return this.currentLifePoints > 0;
+    return this.hitPoints > 0;
   },
   resetPlayer: function() {
     this.currentAttackPower = this.initialAttackPower;
-    this.currentLifePoints = this.maxLifePoints;
+    this.hitPoints = this.strength;
   },
   lifePercentage: function() {
-    if (this.currentLifePoints > 0) {
-      return (this.currentLifePoints / this.maxLifePoints) * 100;
+    if (this.hitPoints > 0) {
+      return (this.hitPoints / this.strength) * 100;
     } else {
       return 0;
     }
@@ -85,8 +87,10 @@ const player2 = {
 
 const player3 = {
   playerId: 2,
-  maxLifePoints: 150,
-  currentLifePoints: 150,
+  strength: 150,
+  dexterity: 11,
+  hitPoints: 150,
+  armor: 2,
   initialAttackPower: 20,
   currentAttackPower: 20,
   playerName: "Bear",
@@ -95,19 +99,19 @@ const player3 = {
   updateAttackPower: function() {
     this.currentAttackPower += this.initialAttackPower;
   },
-  updateCurrentLifePoints: function(attackerPower) {
-    this.currentLifePoints -= attackerPower;
+  updatehitPoints: function(attackerPower) {
+    this.hitPoints -= attackerPower;
   },
   isAlive: function() {
-    return this.currentLifePoints > 0;
+    return this.hitPoints > 0;
   },
   resetPlayer: function() {
     this.currentAttackPower = this.initialAttackPower;
-    this.currentLifePoints = this.maxLifePoints;
+    this.hitPoints = this.strength;
   },
   lifePercentage: function() {
-    if (this.currentLifePoints > 0) {
-      return (this.currentLifePoints / this.maxLifePoints) * 100;
+    if (this.hitPoints > 0) {
+      return (this.hitPoints / this.strength) * 100;
     } else {
       return 0;
     }
@@ -119,8 +123,10 @@ const player3 = {
 
 const player4 = {
   playerId: 3,
-  maxLifePoints: 180,
-  currentLifePoints: 180,
+  strength: 15,
+  dexterity: 13,
+  hitPoints: 15,
+  armor: 0,
   initialAttackPower: 25,
   currentAttackPower: 25,
   playerName: "Snek",
@@ -129,19 +135,19 @@ const player4 = {
   updateAttackPower: function() {
     this.currentAttackPower += this.initialAttackPower;
   },
-  updateCurrentLifePoints: function(attackerPower) {
-    this.currentLifePoints -= attackerPower;
+  updatehitPoints: function(attackerPower) {
+    this.hitPoints -= attackerPower;
   },
   isAlive: function() {
-    return this.currentLifePoints > 0;
+    return this.hitPoints > 0;
   },
   resetPlayer: function() {
     this.currentAttackPower = this.initialAttackPower;
-    this.currentLifePoints = this.maxLifePoints;
+    this.hitPoints = this.strength;
   },
   lifePercentage: function() {
-    if (this.currentLifePoints > 0) {
-      return (this.currentLifePoints / this.maxLifePoints) * 100;
+    if (this.hitPoints > 0) {
+      return (this.hitPoints / this.strength) * 100;
     } else {
       return 0;
     }
@@ -154,18 +160,18 @@ const player4 = {
 //-------------- GLOBAL  -----------------------
 
 const game = {
-  playerSelected: "",
+  attackerSelected: "",
   defenderSelected: "",
   isAttackerSelected: false,
   avaliablePlayers: [true, true, true, true],
   firstAttack: true,
 
-  activatePlayer: function(player) {
-    this.playerSelected = player;
+  activateAttacker: function(player) {
+    this.attackerSelected = player;
     this.avaliablePlayers[player.playerId] = false;
-    this.playerSelected.resetPlayer();
+    this.attackerSelected.resetPlayer();
   },
-  activateEnemy: function(enemy) {
+  activateDefender: function(enemy) {
     this.defenderSelected = enemy;
     this.avaliablePlayers[enemy.playerId] = false;
     this.defenderSelected.resetPlayer();
@@ -188,34 +194,42 @@ const game = {
 function selectPlayers(selectedPlayer) {
   if (selectedPlayer.id === "player1-img") {
     if (!game.isAttackerSelected) {
-      game.activatePlayer(player1);
+      game.activateAttacker(player1);
+      console.log("Attacker is: " + this.player1);
     } else {
-      game.activateEnemy(player1);
+      game.activateDefender(player1);
+      console.log("Defender is: " + this.player1);
     }
   } else if (selectedPlayer.id === "player2-img") {
     if (!game.isAttackerSelected) {
-      game.activatePlayer(player2);
+      game.activateAttacker(player2);
+      console.log("Attacker is: " + this.player2);
     } else {
-      game.activateEnemy(player2);
+      game.activateDefender(player2);
+      console.log("Defender is: " + this.player2);
     }
   } else if (selectedPlayer.id === "player3-img") {
     if (!game.isAttackerSelected) {
-      game.activatePlayer(player3);
+      game.activateAttacker(player3);
+      console.log("Attacker is: " + player3);
     } else {
-      game.activateEnemy(player3);
+      game.activateDefender(player3);
+      console.log("Defender is: " + player3);
     }
   } else if (selectedPlayer.id === "player4-img") {
     if (!game.isAttackerSelected) {
-      game.activatePlayer(player4);
+      game.activateAttacker(player4);
+      console.log("Attacker is: " + player4);
     } else {
-      game.activateEnemy(player4);
+      game.activateDefender(player4);
+      console.log("Defender is: " + player4);
     }
   }
 }
 
 function attackEnemy() {
   const rollToHit = Math.floor(Math.random() * 16) + 3;
-  let attackResult = 0;
+  let attackResult;
   if (rollToHit === 3) {
     attackResult = 3;
   } else if (rollToHit === 4) {
@@ -228,44 +242,38 @@ function attackEnemy() {
     attackResult = -2;
   } else if (rollToHit === 18) {
     attackResult = -3;
-  } else if (rollToHit <= game.playerSelected.dexterity) {
+  } else if (rollToHit <= game.attackerSelected.dexterity) {
     attackResult = 1;
-    console.log(
-      `You roll 3d6 to hit versus damage your dexterity of ${
-        game.playerSelected.dexterity
-      } and get a ${rollToHit}.`
-    );
-    console.log("YOU HIT!!!!");
   } else {
     attackResult = 0;
-    console.log(
-      `You roll 3d6 to hit versus damage your dexterity of ${
-        game.playerSelected.dexterity
-      } and get a ${rollToHit}.`
-    );
-    console.log("you missed");
   }
 
-  //   var enemyDamage = game.defenderSelected.currentAttackPower;
-  //   var playerDamage = game.playerSelected.currentAttackPower;
-  var enemyDamage = game.defenderSelected.currentAttackPower;
-  // let playerDamage = game.playerSelected.currentAttackPower;
-  var playerDamage = Math.max(broadSwordRand() * attackResult, 0);
-  var adjPlayerDamage = Math.max(playerDamage - game.defenderSelected.armor, 0);
-  //   const playerDamage = broadswordDamage();
-  console.log(`playerDamage damage is ${playerDamage}`);
-  console.log(`adjPlayerDamage damage is ${adjPlayerDamage}`);
+  //   const enemyDamage = game.defenderSelected.currentAttackPower;
+  //   const rawAttackerDamage = game.attackerSelected.currentAttackPower;
+  const enemyDamage = game.defenderSelected.currentAttackPower;
+  // let rawAttackerDamage = game.attackerSelected.currentAttackPower;
+  const weaponDamage = broadSwordRand();
+  const rawAttackerDamage = Math.max(weaponDamage * attackResult, 0);
+  const adjAttackerDamage = Math.max(
+    rawAttackerDamage - game.defenderSelected.armor,
+    0
+  );
+  //   const rawAttackerDamage = broadswordDamage();
+  console.log(`weaponDamage damage is ${weaponDamage}`);
+  console.log(`rawAttackerDamage damage is ${rawAttackerDamage}`);
+  console.log(`adjAttackerDamage damage is ${adjAttackerDamage}`);
 
   updateMessages(
     rollToHit,
     enemyDamage,
-    playerDamage,
-    adjPlayerDamage,
+    weaponDamage,
+    rawAttackerDamage,
+    adjAttackerDamage,
     attackResult
   );
 
-  game.defenderSelected.updateCurrentLifePoints(adjPlayerDamage);
-  game.playerSelected.updateAttackPower();
+  game.defenderSelected.updatehitPoints(adjAttackerDamage);
+  game.attackerSelected.updateAttackPower();
 
   if (!game.defenderSelected.isAlive()) {
     updatePlayerStats();
@@ -275,18 +283,18 @@ function attackEnemy() {
       winGame();
     }
   } else {
-    game.playerSelected.updateCurrentLifePoints(
+    game.attackerSelected.updatehitPoints(
       game.defenderSelected.currentAttackPower
     );
     updatePlayerStats();
-    if (!game.playerSelected.isAlive()) {
+    if (!game.attackerSelected.isAlive()) {
       gameOver();
     }
   }
 }
 
 function newGame() {
-  game.playerSelected = "";
+  game.attackerSelected = "";
   game.defenderSelected = "";
   game.isAttackerSelected = false;
   game.firstAttack = true;
@@ -345,15 +353,16 @@ function updatePlayer(player) {
     $("#presentation").text("Select the Defender");
   } else {
     $("#" + player + "-card").addClass("border border-danger");
+
     //hide other cards.
-    hideRemainingCharacters();
+    // hideRemainingCharacters();
     showControls();
     updatePlayerStats();
   }
 }
 
 function hideRemainingCharacters() {
-  var avaliablePlayers = game.avaliablePlayers;
+  const avaliablePlayers = game.avaliablePlayers;
 
   for (let index = 0; index < avaliablePlayers.length; index++) {
     if (avaliablePlayers[index] === true) {
@@ -363,7 +372,7 @@ function hideRemainingCharacters() {
 }
 
 function showAvaliableCharacters() {
-  var avaliablePlayers = game.avaliablePlayers;
+  const avaliablePlayers = game.avaliablePlayers;
 
   for (let index = 0; index < avaliablePlayers.length; index++) {
     if (avaliablePlayers[index] === true) {
@@ -373,7 +382,8 @@ function showAvaliableCharacters() {
 }
 
 function hideDefeatedCharacter() {
-  $("#column-" + game.defenderSelected.playerId).css("display", "all");
+  // $("#column-" + game.defenderSelected.playerId).css("display", "all");
+  $("#column-" + game.defenderSelected.playerId).addClass("grey-dead");
 }
 
 function showControls() {
@@ -383,7 +393,7 @@ function showControls() {
   $("#gameActions").css("visibility", "hidden");
 
   //show progress attacker
-  $("#Player" + (game.playerSelected.playerId + 1) + "Stats").css(
+  $("#Player" + (game.attackerSelected.playerId + 1) + "Stats").css(
     "display",
     "block"
   );
@@ -404,13 +414,13 @@ function hideControls() {
 
 function updatePlayerStats() {
   //Update attacker
-  $("#hp-progress-" + game.playerSelected.playerId).css(
+  $("#hp-progress-" + game.attackerSelected.playerId).css(
     "width",
-    game.playerSelected.lifePercentage() + "%"
+    game.attackerSelected.lifePercentage() + "%"
   );
-  $("#ap-progress-" + game.playerSelected.playerId).css(
+  $("#ap-progress-" + game.attackerSelected.playerId).css(
     "width",
-    game.playerSelected.attackerPowerPercentage() + "%"
+    game.attackerSelected.attackerPowerPercentage() + "%"
   );
 
   //Update defender
@@ -424,8 +434,9 @@ function updatePlayerStats() {
 function updateMessages(
   rollToHit,
   enemyDamage,
-  playerDamage,
-  adjPlayerDamage,
+  weaponDamage,
+  rawAttackerDamage,
+  adjAttackerDamage,
   attackResult
 ) {
   if (game.firstAttack) {
@@ -441,16 +452,16 @@ function updateMessages(
       textAttackResult = "missed....";
       break;
     case 2:
-      textAttackResult = "Hit for Double Damage!!";
+      textAttackResult = "DHit!!";
       break;
     case 3:
-      textAttackResult = "HIT FOR TRIPLE DAMAGE!!!";
+      textAttackResult = "THIT!!!";
       break;
     case -2:
-      textAttackResult = "DROPPED YOUR WEAPON...";
+      textAttackResult = "drop...";
       break;
     case -3:
-      textAttackResult = "BROKE YOUR WEAPON!!!!";
+      textAttackResult = "broke!";
       break;
     default:
       textAttackResult = "YOU SHOULDN'T SEE THIS";
@@ -459,18 +470,16 @@ function updateMessages(
   $("#attacker").empty();
   $("#attacker").append(
     `You roll 3d6 to hit versus damage your dexterity of ${
-      game.playerSelected.dexterity
+      game.attackerSelected.dexterity
     } and get a ${rollToHit}.<br />
     You attacked ${
       game.defenderSelected.playerName
-    } and ${textAttackResult} for ${playerDamage} damage.<br />His armor stops ${
+    } and ${textAttackResult} for ${rawAttackerDamage} damage.<br />His armor stops ${
       game.defenderSelected.armor
-    } hit(s) of damage. Therefore the adjusted damage is ${adjPlayerDamage}.<br />The ${
+    } hit(s) of damage. Therefore the adjusted damage is ${adjAttackerDamage}.<br />The ${
       game.defenderSelected.playerName
-    }'s Strength is ${
-      game.defenderSelected.maxLifePoints
-    } and HPs are now ${game.defenderSelected.currentLifePoints -
-      adjPlayerDamage}.`
+    }'s Strength is ${game.defenderSelected.strength} and HPs are now ${game
+      .defenderSelected.hitPoints - adjAttackerDamage}.`
   );
   $("#defender").text(
     game.defenderSelected.playerName +
@@ -478,6 +487,22 @@ function updateMessages(
       enemyDamage +
       " damage."
   );
+  emptyBins();
+  // appendBins();
+  $("#to-hit-roll").html(game.attackerSelected.dexterity);
+  $("#attacker-roll").html(rollToHit);
+  $("#to-hit-result").html(textAttackResult);
+  $("#weapon-damage-raw").html(weaponDamage);
+  $("#weapon-damage-adjusted").html(rawAttackerDamage);
+  $("#defender-armor-protection").html(game.defenderSelected.armor);
+  $("#defender-damage").html(adjAttackerDamage);
+  $("#defender-strength").html(game.defenderSelected.strength);
+  $("#defender-hit-points").html(
+    game.defenderSelected.hitPoints - adjAttackerDamage
+  );
+}
+
+function emptyBins() {
   $("to-hit-roll").empty();
   $("#attacker-roll").empty();
   $("#to-hit-result").empty();
@@ -487,16 +512,19 @@ function updateMessages(
   $("#defender-damage").empty();
   $("#defender-strength").empty();
   $("#defender-hit-points").empty();
-  $("#to-hit-roll").html(game.playerSelected.dexterity);
+}
+
+function appendBins() {
+  $("#to-hit-roll").html(game.attackerSelected.dexterity);
   $("#attacker-roll").html(rollToHit);
   $("#to-hit-result").html(textAttackResult);
-  $("#weapon-damage-raw").html("tbd");
-  $("#weapon-damage-adjusted").html(playerDamage);
+  $("#weapon-damage-raw").html(weaponDamage);
+  $("#weapon-damage-adjusted").html(rawAttackerDamage);
   $("#defender-armor-protection").html(game.defenderSelected.armor);
-  $("#defender-damage").html(adjPlayerDamage);
-  $("#defender-strength").html(game.defenderSelected.maxLifePoints);
+  $("#defender-damage").html(adjAttackerDamage);
+  $("#defender-strength").html(game.defenderSelected.strength);
   $("#defender-hit-points").html(
-    game.defenderSelected.currentLifePoints - adjPlayerDamage
+    game.defenderSelected.hitPoints - adjAttackerDamage
   );
 }
 
@@ -518,6 +546,7 @@ function winGame() {
 
 function moveToNextPlayer() {
   hideControls();
+  emptyBins();
   $("#presentation").text(
     "You defeated " +
       game.defenderSelected.playerName +
