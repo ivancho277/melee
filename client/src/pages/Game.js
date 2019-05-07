@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { HexGrid } from 'react-hexgrid';
 import GameLayout from '../components/GameLayout'
 import TilesLayout from '../components/TilesLayout'
+import './Game.css'
 export default class Game extends Component {
   render() {
     return (
