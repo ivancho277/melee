@@ -11,7 +11,7 @@ export function PreMadeChar1(props) {
         <div className='card-body'>
           <div className='card'><u>Stats</u>
             Strength:{props.stats.strength} <br></br>
-            Dexterity: {props.stats.strength}<br></br>
+            Dexterity: {props.stats.dexterity}<br></br>
             HP: {props.stats.strength}
           </div>
           <p className='card-text'>words words words</p>
