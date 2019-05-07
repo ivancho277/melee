@@ -197,18 +197,18 @@ function selectPlayers(selectedPlayer) {
   if (selectedPlayer.id === "player1-img") {
     if (!game.isAttackerSelected) {
       game.activateAttacker(player1);
-      console.log("Attacker is: " + this.player1);
+      console.log("Attacker is: " + this.attackerSelected);
     } else {
       game.activateDefender(player1);
-      console.log("Defender is: " + this.player1);
+      console.log("Defender is: " + this.defenderSelected);
     }
   } else if (selectedPlayer.id === "player2-img") {
     if (!game.isAttackerSelected) {
       game.activateAttacker(player2);
-      console.log("Attacker is: " + this.player2);
+      console.log("Attacker is: " + this.attackerSelected);
     } else {
       game.activateDefender(player2);
-      console.log("Defender is: " + this.player2);
+      console.log("Defender is: " + this.defenderSelected);
     }
   } else if (selectedPlayer.id === "player3-img") {
     if (!game.isAttackerSelected) {
@@ -293,9 +293,31 @@ function attackEnemy() {
       gameOver();
     }
   }
+  nextRound();
 }
 
 function newGame() {
+  game.attackerSelected = "";
+  game.defenderSelected = "";
+  game.isAttackerSelected = false;
+  game.firstAttack = true;
+  game.resetAvaliablePlayers();
+
+  resetGameControls();
+}
+
+function nextRound() {
+  game.attackerSelected = "";
+  game.defenderSelected = "";
+  game.isAttackerSelected = false;
+  game.firstAttack = true;
+
+  $("#presentation").text(
+    "It is currently dexterity X combat round, there are Y combat rounds remaining.  Pick who is attacking next"
+  );
+}
+
+function nextTurn() {
   game.attackerSelected = "";
   game.defenderSelected = "";
   game.isAttackerSelected = false;
@@ -575,7 +597,7 @@ function resetGameControls() {
   showAvaliableCharacters();
 
   for (let index = 1; index <= 4; index++) {
-    $("#Player" + index + "Stats").css("display", "none");
+    $("#Player" + index + "Stats").css("display", "all");
   }
 
   $("#player1-img").css("pointer-events", "auto");
@@ -583,24 +605,28 @@ function resetGameControls() {
   $("#obi-button").css("display", "block");
   $("#obi-card").removeClass("border border-success");
   $("#obi-card").removeClass("border border-danger");
+  $("#column-0").removeClass("grey-dead");
 
   $("#player2-img").css("pointer-events", "auto");
   $("#player2-img").css("cursor", "pointer");
   $("#luke-button").css("display", "block");
   $("#luke-card").removeClass("border border-success");
   $("#luke-card").removeClass("border border-danger");
+  $("#column-1").removeClass("grey-dead");
 
   $("#player3-img").css("pointer-events", "auto");
   $("#player3-img").css("cursor", "pointer");
   $("#sidious-button").css("display", "block");
   $("#sidious-card").removeClass("border border-success");
   $("#sidious-card").removeClass("border border-danger");
+  $("#column-2").removeClass("grey-dead");
 
   $("#player4-img").css("pointer-events", "auto");
   $("#player4-img").css("cursor", "pointer");
   $("#maul-button").css("display", "block");
   $("#maul-card").removeClass("border border-success");
   $("#maul-card").removeClass("border border-danger");
+  $("#column-3").removeClass("grey-dead");
 }
 
 const fist = [0, 0, 1, 2, 3, 4];
