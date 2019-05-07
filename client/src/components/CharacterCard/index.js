@@ -15,7 +15,7 @@ function  CharacterCard(props){
      </div>
       <p className="card-text">Is Cold and Dangerous in Mother Russia</p>
      </div>
-     <button type="button" class="btn btn-warning">Select</button>
+     <button type="button" onClick={props.onCharacterSelect} class="btn btn-warning">Select</button>
   </div>
 </div>
   )
