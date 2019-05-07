@@ -6,7 +6,6 @@ import CharacterCard from '../components/CharacterCard';
 import Jumbotron1 from '../components/Jumbotron1';
 import Jumbotron2 from '../components/Jumbotron2';
 import { Col, Row, Container } from "../components/Grid";
-
 export default class CharacterChoice extends Component {
   render() {
     let name = 'Crazy Ivan'
