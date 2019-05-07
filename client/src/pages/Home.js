@@ -16,7 +16,7 @@ let src = "https://placeimg.com/640/480/people"
    return (
     <div> 
       {/* <Jumbotron1/> */}
-      <CharacterCard stats={stats} src={src} />
+      <AboutCard />
       {/* <Jumbotron2/> */}
       <DiceComponent
       numDice={numDice}

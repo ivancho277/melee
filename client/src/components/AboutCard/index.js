@@ -3,10 +3,10 @@ import React from "react";
 function AboutCard() {
   return (
     <div>
-      <div class="card text-left">
-        <div class="card-body">
-          <h4 class="card-title">About the Melee!</h4>
-          <p class="card-text">
+      <div className="card text-left">
+        <div className="card-body">
+          <h4 className="card-title">About the Melee!</h4>
+          <p className="card-text">
             I'm beginning to feel like a Rap God, Rap God. All my people from
             the front to the back nod, back nod. Now who thinks their arms are
             long enough to slap box, slap box?. Let me show you maintaining this
