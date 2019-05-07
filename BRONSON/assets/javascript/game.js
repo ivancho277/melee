@@ -1,3 +1,5 @@
+/// THIS IS A CHANGE//// 1
+
 //------------------DATA-------------------//
 
 // let broadsword = function() {
@@ -23,10 +25,10 @@ let player1 = {
   playerName: "Thundarr",
   playerSide: "Fighter",
 
-  updateAttackPower: function() {
-    // this.currentAttackPower += this.initialAttackPower;
-    this.currentAttackPower += 0;
-  },
+  // updateAttackPower: function() {
+  //   // this.currentAttackPower += this.initialAttackPower;
+  //   this.currentAttackPower += 0;
+  // },
   updatehitPoints: function(attackerPower) {
     this.hitPoints -= attackerPower;
   },
@@ -60,9 +62,9 @@ const player2 = {
   playerName: "Wuf",
   playerSide: "Beast",
 
-  updateAttackPower: function() {
-    this.currentAttackPower += this.initialAttackPower;
-  },
+  // updateAttackPower: function() {
+  // this.currentAttackPower += this.initialAttackPower;
+  // },
   updatehitPoints: function(attackerPower) {
     this.hitPoints -= attackerPower;
   },
@@ -96,9 +98,9 @@ const player3 = {
   playerName: "Bear",
   playerSide: "Beast",
 
-  updateAttackPower: function() {
-    this.currentAttackPower += this.initialAttackPower;
-  },
+  // updateAttackPower: function() {
+  //   this.currentAttackPower += this.initialAttackPower;
+  // },
   updatehitPoints: function(attackerPower) {
     this.hitPoints -= attackerPower;
   },
@@ -132,9 +134,9 @@ const player4 = {
   playerName: "Snek",
   playerSide: "Beast",
 
-  updateAttackPower: function() {
-    this.currentAttackPower += this.initialAttackPower;
-  },
+  // updateAttackPower: function() {
+  //   this.currentAttackPower += this.initialAttackPower;
+  // },
   updatehitPoints: function(attackerPower) {
     this.hitPoints -= attackerPower;
   },
@@ -160,6 +162,8 @@ const player4 = {
 //-------------- GLOBAL  -----------------------
 
 const game = {
+  turnCounter: 1,
+  dxRoundMarker: 18,
   attackerSelected: "",
   defenderSelected: "",
   isAttackerSelected: false,
@@ -169,12 +173,12 @@ const game = {
   activateAttacker: function(player) {
     this.attackerSelected = player;
     this.avaliablePlayers[player.playerId] = false;
-    this.attackerSelected.resetPlayer();
+    // this.attackerSelected.resetPlayer();
   },
   activateDefender: function(enemy) {
     this.defenderSelected = enemy;
     this.avaliablePlayers[enemy.playerId] = false;
-    this.defenderSelected.resetPlayer();
+    // this.defenderSelected.resetPlayer();
   },
   resetAvaliablePlayers: function() {
     for (let index = 0; index < this.avaliablePlayers.length; index++) {
@@ -192,23 +196,23 @@ const game = {
 };
 //--------------GAME FUNTIONS--------------------
 function selectPlayers(selectedPlayer) {
-  if (selectedPlayer.id === "player1-img") {
+  if (selectedPlayer.id === "player0-img") {
     if (!game.isAttackerSelected) {
       game.activateAttacker(player1);
-      console.log("Attacker is: " + this.player1);
+      console.log("Attacker is: " + this.attackerSelected);
     } else {
       game.activateDefender(player1);
-      console.log("Defender is: " + this.player1);
+      console.log("Defender is: " + this.defenderSelected);
     }
-  } else if (selectedPlayer.id === "player2-img") {
+  } else if (selectedPlayer.id === "player1-img") {
     if (!game.isAttackerSelected) {
       game.activateAttacker(player2);
-      console.log("Attacker is: " + this.player2);
+      console.log("Attacker is: " + this.attackerSelected);
     } else {
       game.activateDefender(player2);
-      console.log("Defender is: " + this.player2);
+      console.log("Defender is: " + this.defenderSelected);
     }
-  } else if (selectedPlayer.id === "player3-img") {
+  } else if (selectedPlayer.id === "player2-img") {
     if (!game.isAttackerSelected) {
       game.activateAttacker(player3);
       console.log("Attacker is: " + player3);
@@ -216,7 +220,7 @@ function selectPlayers(selectedPlayer) {
       game.activateDefender(player3);
       console.log("Defender is: " + player3);
     }
-  } else if (selectedPlayer.id === "player4-img") {
+  } else if (selectedPlayer.id === "player3-img") {
     if (!game.isAttackerSelected) {
       game.activateAttacker(player4);
       console.log("Attacker is: " + player4);
@@ -272,61 +276,105 @@ function attackEnemy() {
     attackResult
   );
 
-  game.defenderSelected.updatehitPoints(adjAttackerDamage);
-  game.attackerSelected.updateAttackPower();
+  // game.defenderSelected.updatehitPoints(adjAttackerDamage);
+  // // game.attackerSelected.updateAttackPower();
 
+  // if (!game.defenderSelected.isAlive()) {
+  //   updatePlayerStats();
+  //   if (game.existAvaliablePlayers()) {
+  //     moveToNextPlayer();
+  //   } else {
+  //     winGame();
+  //   }
+  // } else {
+  //   game.attackerSelected.updatehitPoints(
+  //     game.defenderSelected.currentAttackPower
+  //   );
+  //   updatePlayerStats();
+  //   if (!game.attackerSelected.isAlive()) {
+  //     gameOver();
+  //   } else {
+  //     nextRound();
+  //   }
+  // }
+
+  game.defenderSelected.updatehitPoints(adjAttackerDamage);
+  updatePlayerStats();
+  $("#presentation").empty;
   if (!game.defenderSelected.isAlive()) {
-    updatePlayerStats();
     if (game.existAvaliablePlayers()) {
       moveToNextPlayer();
     } else {
       winGame();
     }
   } else {
-    game.attackerSelected.updatehitPoints(
-      game.defenderSelected.currentAttackPower
-    );
-    updatePlayerStats();
     if (!game.attackerSelected.isAlive()) {
       gameOver();
+    } else {
+      nextRound();
     }
   }
 }
 
 function newGame() {
+  lazarus();
+  location.reload();
+  // game.attackerSelected = "";
+  // game.defenderSelected = "";
+  // game.isAttackerSelected = false;
+  // game.firstAttack = true;
+  // game.resetAvaliablePlayers();
+
+  // resetGameControls();
+}
+
+function nextRound() {
+  game.attackerSelected = "";
+  game.defenderSelected = "";
+  game.isAttackerSelected = false;
+  game.firstAttack = true;
+  resetCardBorders();
+  resetGameControls();
+  $("#presentation").empty;
+  $("#presentation").html(
+    "It is currently dexterity X combat round, there are Y combat rounds remaining. Pick who is attacking next <br>"
+  );
+}
+
+function nextTurn() {
   game.attackerSelected = "";
   game.defenderSelected = "";
   game.isAttackerSelected = false;
   game.firstAttack = true;
   game.resetAvaliablePlayers();
-
-  resetGameControls();
+  resetCardBorders();
+  game.turnCounter++;
 }
 
 $(document).ready(function() {
   //------------SELECTING THE PLAYER AND THE ENEMY-------------//
+  $("#player0-img").on("click", function() {
+    selectPlayers(this);
+    updatePlayer("player0");
+  });
   $("#player1-img").on("click", function() {
     selectPlayers(this);
-    updatePlayer("obi");
+    updatePlayer("player1");
   });
   $("#player2-img").on("click", function() {
     selectPlayers(this);
-    updatePlayer("luke");
+    updatePlayer("player2");
   });
   $("#player3-img").on("click", function() {
     selectPlayers(this);
-    updatePlayer("sidious");
-  });
-  $("#player4-img").on("click", function() {
-    selectPlayers(this);
-    updatePlayer("maul");
+    updatePlayer("player3");
   });
 
-  $("#attackButton").on("click", function() {
+  $("#attack-button").on("click", function() {
     attackEnemy();
   });
 
-  $("#restartButton").on("click", function() {
+  $("#restart-button").on("click", function() {
     newGame();
   });
 });
@@ -337,20 +385,20 @@ function updatePlayer(player) {
   $("#" + player + "-img").css("cursor", "default");
   $("#" + player + "-button").css("display", "none");
 
-  if (player === "obi") {
+  if (player === "player0") {
     $("#collapseOne").collapse("hide");
-  } else if (player === "luke") {
+  } else if (player === "player1") {
     $("#collapseTwo").collapse("hide");
-  } else if (player === "sidious") {
+  } else if (player === "player2") {
     $("#collapseThree").collapse("hide");
-  } else if (player === "maul") {
+  } else if (player === "player3") {
     $("#collapseFour").collapse("hide");
   }
 
   if (!game.isAttackerSelected) {
     $("#" + player + "-card").addClass("border border-success");
     game.isAttackerSelected = true;
-    $("#presentation").text("Select the Defender");
+    $("#presentation").html("Select the Defender<br />");
   } else {
     $("#" + player + "-card").addClass("border border-danger");
 
@@ -387,10 +435,10 @@ function hideDefeatedCharacter() {
 }
 
 function showControls() {
-  $("#information").css("display", "none");
-  $("#attackButton").css("display", "block");
-  $("#gameActions").css("display", "block");
-  $("#gameActions").css("visibility", "hidden");
+  $("#information").css("display", "all");
+  $("#attack-button").css("display", "block");
+  $("#grey").css("display", "all");
+  $("#grey").css("visibility", "show");
 
   //show progress attacker
   $("#Player" + (game.attackerSelected.playerId + 1) + "Stats").css(
@@ -407,9 +455,9 @@ function showControls() {
 
 function hideControls() {
   $("#information").css("display", "block");
-  $("#attackButton").css("display", "none");
-  $("#gameActions").css("display", "none");
-  $("#gameActions").css("visibility", "hidden");
+  $("#attack-button").css("display", "none");
+  $("#grey").css("display", "all");
+  $("#grey").css("visibility", "show");
 }
 
 function updatePlayerStats() {
@@ -418,10 +466,10 @@ function updatePlayerStats() {
     "width",
     game.attackerSelected.lifePercentage() + "%"
   );
-  $("#ap-progress-" + game.attackerSelected.playerId).css(
-    "width",
-    game.attackerSelected.attackerPowerPercentage() + "%"
-  );
+  // $("#ap-progress-" + game.attackerSelected.playerId).css(
+  //   "width",
+  //   game.attackerSelected.attackerPowerPercentage() + "%"
+  // );
 
   //Update defender
   $("#hp-progress-" + game.defenderSelected.playerId).css(
@@ -440,7 +488,7 @@ function updateMessages(
   attackResult
 ) {
   if (game.firstAttack) {
-    $("#gameActions").css("visibility", "visible");
+    $("#grey").css("visibility", "visible");
     game.firstAttack = false;
   }
   let textAttackResult;
@@ -469,23 +517,21 @@ function updateMessages(
   }
   $("#attacker").empty();
   $("#attacker").append(
-    `You roll 3d6 to hit versus damage your dexterity of ${
+    `${
+      game.attackerSelected.playerName
+    }  rolls 3d6 to hit versus damage their dexterity of ${
       game.attackerSelected.dexterity
     } and get a ${rollToHit}.<br />
-    You attacked ${
+    ${game.attackerSelected.playerName} attacked ${
       game.defenderSelected.playerName
-    } and ${textAttackResult} for ${rawAttackerDamage} damage.<br />His armor stops ${
+    } and ${textAttackResult}.  ${rawAttackerDamage} damage.<br />His armor stops ${
       game.defenderSelected.armor
-    } hit(s) of damage. Therefore the adjusted damage is ${adjAttackerDamage}.<br />The ${
-      game.defenderSelected.playerName
-    }'s Strength is ${game.defenderSelected.strength} and HPs are now ${game
-      .defenderSelected.hitPoints - adjAttackerDamage}.`
+    } hit(s) of damage. Therefore the adjusted damage is ${adjAttackerDamage}.`
   );
   $("#defender").text(
-    game.defenderSelected.playerName +
-      " attacked you back for " +
-      enemyDamage +
-      " damage."
+    `The ${game.defenderSelected.playerName}'s Strength is ${
+      game.defenderSelected.strength
+    } and HPs are now ${game.defenderSelected.hitPoints - adjAttackerDamage}.`
   );
   emptyBins();
   // appendBins();
@@ -547,58 +593,70 @@ function winGame() {
 function moveToNextPlayer() {
   hideControls();
   emptyBins();
-  $("#presentation").text(
+  $("#presentation").append(
     "You defeated " +
       game.defenderSelected.playerName +
-      ". Select your next opponent!"
+      ". Select your next opponent! <br />"
   );
   hideDefeatedCharacter();
   showAvaliableCharacters();
-  updatePlayerStats();
-  game.firstAttack = true;
+  nextRound();
+  // updatePlayerStats();
+  // game.firstAttack = true;
 }
 
 function showReStart() {
-  $("#restartButton").css("display", "block");
+  $("#restart-button").css("display", "block");
 }
 
 function hideReStart() {
-  $("#restartButton").css("display", "none");
+  $("#restart-button").css("display", "none");
 }
 
 function resetGameControls() {
   hideReStart();
   hideControls();
-  $("#presentation").text("Fight Again!!!");
+  $("#presentation").append("Pick who attacks next!!! <br />");
   showAvaliableCharacters();
 
   for (let index = 1; index <= 4; index++) {
-    $("#Player" + index + "Stats").css("display", "none");
+    $("#Player" + index + "Stats").css("display", "all");
   }
+
+  resetCardBorders();
+}
+
+function resetCardBorders() {
+  $("#player0-img").css("pointer-events", "auto");
+  $("#player0-img").css("cursor", "pointer");
+  $("#player0-button").css("display", "block");
+  $("#player0-card").removeClass("border border-success");
+  $("#player0-card").removeClass("border border-danger");
 
   $("#player1-img").css("pointer-events", "auto");
   $("#player1-img").css("cursor", "pointer");
-  $("#obi-button").css("display", "block");
-  $("#obi-card").removeClass("border border-success");
-  $("#obi-card").removeClass("border border-danger");
+  $("#player1-button").css("display", "block");
+  $("#player1-card").removeClass("border border-success");
+  $("#player1-card").removeClass("border border-danger");
 
   $("#player2-img").css("pointer-events", "auto");
   $("#player2-img").css("cursor", "pointer");
-  $("#luke-button").css("display", "block");
-  $("#luke-card").removeClass("border border-success");
-  $("#luke-card").removeClass("border border-danger");
+  $("#player2-button").css("display", "block");
+  $("#player2-card").removeClass("border border-success");
+  $("#player2-card").removeClass("border border-danger");
 
   $("#player3-img").css("pointer-events", "auto");
   $("#player3-img").css("cursor", "pointer");
-  $("#sidious-button").css("display", "block");
-  $("#sidious-card").removeClass("border border-success");
-  $("#sidious-card").removeClass("border border-danger");
+  $("#player3-button").css("display", "block");
+  $("#player3-card").removeClass("border border-success");
+  $("#player3-card").removeClass("border border-danger");
+}
 
-  $("#player4-img").css("pointer-events", "auto");
-  $("#player4-img").css("cursor", "pointer");
-  $("#maul-button").css("display", "block");
-  $("#maul-card").removeClass("border border-success");
-  $("#maul-card").removeClass("border border-danger");
+function lazarus() {
+  $("#column-0").removeClass("grey-dead");
+  $("#column-1").removeClass("grey-dead");
+  $("#column-2").removeClass("grey-dead");
+  $("#column-3").removeClass("grey-dead");
 }
 
 const fist = [0, 0, 1, 2, 3, 4];

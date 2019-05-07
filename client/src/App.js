@@ -9,6 +9,9 @@ import Navbar from "./components/Navbar";
 import Game from "./pages/Game"
 
 class App extends Component {
+  toggleModle = () => {
+    
+  }
   render() {
     return (
       <div className="App">

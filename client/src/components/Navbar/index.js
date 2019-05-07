@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import {Component} from "react";
+import InstructionModal from "../InstructionsModal";
 
-function Navbar() {
+class Navbar extends Component {
+
+  render(){
   return (
     <div>
       <nav className="nav">
-        <button className="btn">
-          <span className="badge badge-primary">Instructions</span>
-        </button>
+        <InstructionModal />
         <Link className="navbar-brand" to="/characterSelect">
           Choose Character
         </Link>
@@ -26,6 +28,7 @@ function Navbar() {
       <h1 id="title-id">MELEE!!</h1>
     </div>
   );
+  }
 }
 
 export default Navbar;
