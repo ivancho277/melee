@@ -16,8 +16,6 @@ export default class CharacterChoice extends Component {
         strength: 11,
         dexterity: 13
       } 
-     
-
       let stats1 = {
         strength: 12,
         dexterity: 12

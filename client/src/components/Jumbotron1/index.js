@@ -3,10 +3,6 @@ import './style.css';
 import {PreMadeChar1, PreMadeChar2, PreMadeChar3, PreMadeChar4}  from "../PreMadeCharactersCard"
 
 
-
-
-
-
 function Jumbotron1(props) {
   return (
     <div>

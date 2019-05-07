@@ -6,7 +6,6 @@ import Jumbotron1 from '../components/Jumbotron1'
 import Jumbotron2 from '../components/Jumbotron2'
 import DiceComponent from '../components/DiceRoller'
 
-
 function Home() {
   let stats = {
     strength: 11,
