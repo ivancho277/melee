@@ -30,12 +30,16 @@
       <section class="container" id="informationSection">
         <!--Show message here-->
       </section>
-
+      <div class="display" id="information">
+        <div class="display" id="presentation">
+          Pick the attacker
+        </div>
+      </div>
       <div class="album bg-white" id="play-area">
         <div class="container">
           <div class="row">
             <div class="col-md-3 mx-auto" id="column-0">
-              <div class="card mb-4 box-shadow" id="obi-card">
+              <div class="card mb-4 box-shadow" id="player0">
                 <div class="card-header text-center font-weight-bold">
                   Thundarr
                 </div>
@@ -54,7 +58,7 @@
                       ></div>
                     </div>
                   </div>
-                  <div>
+                  <!-- <div>
                     AP
                     <div class="progress ">
                       <div
@@ -67,14 +71,14 @@
                         id="ap-progress-0"
                       ></div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <img
                   class="card-img-top"
                   src="assets/images/thundarr.jpeg"
                   alt="Thundarr"
                   style="cursor: pointer"
-                  id="player1-img"
+                  id="player0-img"
                 />
 
                 <div class="card-header" id="headingOne">
@@ -85,7 +89,7 @@
                       data-target="#collapseOne"
                       aria-expanded="false"
                       aria-controls="collapseOne"
-                      id="obi-button"
+                      id="player0-button"
                     >
                       PROPERTIES
                     </button>
@@ -147,7 +151,7 @@
             </div>
 
             <div class="col-md-3 mx-auto" id="column-1">
-              <div class="card mb-4 box-shadow" id="luke-card">
+              <div class="card mb-4 box-shadow" id="player1-card">
                 <div class="card-header text-center font-weight-bold">
                   Wuf
                 </div>
@@ -166,7 +170,7 @@
                       ></div>
                     </div>
                   </div>
-                  <div>
+                  <!-- <div>
                     AP
                     <div class="progress ">
                       <div
@@ -179,14 +183,14 @@
                         id="ap-progress-1"
                       ></div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <img
                   class="card-img-top"
                   src="assets/images/wuf.jpeg"
                   alt="Wuf"
                   style="cursor: pointer"
-                  id="player2-img"
+                  id="player1-img"
                 />
 
                 <div class="card-header" id="headingTwo">
@@ -197,7 +201,7 @@
                       data-target="#collapseTwo"
                       aria-expanded="false"
                       aria-controls="collapseOne"
-                      id="luke-button"
+                      id="player1-button"
                     >
                       PROPERTIES
                     </button>
@@ -262,7 +266,7 @@
             </div>
 
             <div class="col-md-3 mx-auto" id="column-2">
-              <div class="card mb-4 box-shadow" id="sidious-card">
+              <div class="card mb-4 box-shadow" id="player2-card">
                 <div class="card-header text-center font-weight-bold">
                   Bear
                 </div>
@@ -281,7 +285,7 @@
                       ></div>
                     </div>
                   </div>
-                  <div>
+                  <!-- <div>
                     AP
                     <div class="progress ">
                       <div
@@ -294,14 +298,14 @@
                         id="ap-progress-2"
                       ></div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <img
                   class="card-img-top"
                   src="assets/images/bear.jpeg"
                   alt="Bear"
                   style="cursor: pointer"
-                  id="player3-img"
+                  id="player2-img"
                 />
 
                 <div class="card-header" id="headingThree">
@@ -312,7 +316,7 @@
                       data-target="#collapseThree"
                       aria-expanded="false"
                       aria-controls="collapseThree"
-                      id="sidious-button"
+                      id="player2-button"
                     >
                       PROPERTIES
                     </button>
@@ -377,7 +381,7 @@
             </div>
 
             <div class="col-md-3 mx-auto" id="column-3">
-              <div class="card mb-4 box-shadow" id="maul-card">
+              <div class="card mb-4 box-shadow" id="player3-card">
                 <div class="card-header text-center font-weight-bold">
                   Snek
                 </div>
@@ -396,7 +400,7 @@
                       ></div>
                     </div>
                   </div>
-                  <div>
+                  <!-- <div>
                     AP
                     <div class="progress ">
                       <div
@@ -409,14 +413,14 @@
                         id="ap-progress-3"
                       ></div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <img
                   class="card-img-top"
                   src="assets/images/snek.jpeg"
                   alt="Snek"
                   style="cursor: pointer"
-                  id="player4-img"
+                  id="player3-img"
                 />
 
                 <div class="card-header" id="headingFour">
@@ -427,7 +431,7 @@
                       data-target="#collapseFour"
                       aria-expanded="false"
                       aria-controls="collapseFour"
-                      id="maul-button"
+                      id="player3-button"
                     >
                       PROPERTIES
                     </button>
@@ -496,7 +500,7 @@
         <button
           type="button"
           class="btn btn-danger  btn-lg pl-5 pr-5 mx-auto"
-          id="attackButton"
+          id="attack-button"
           style="display: none"
         >
           Attack
@@ -504,7 +508,7 @@
         <button
           type="button"
           class="btn btn-danger  btn-lg pl-5 pr-5 mx-auto"
-          id="restartButton"
+          id="restart-button"
           style="display: none"
         >
           Restart
@@ -564,15 +568,16 @@
       <div class="jumbotron bg-white pt-1 pb-1">
         <!--Game comments on this row-->
         <div>
-          <div class="display" id="information">
-            <h1 class="display" id="presentation">
-              Pick the attacker
-            </h1>
+          <div id="game-actions">
+            <ul
+              class="col-md-8 mx-auto"
+              style="display: all"
+              id="game-actions2"
+            >
+              <li class="list-group-item" id="attacker"></li>
+              <li class="list-group-item" id="defender"></li>
+            </ul>
           </div>
-          <ul class="col-md-8 mx-auto" style="display: none" id="gameActions">
-            <li class="list-group-item" id="attacker"></li>
-            <li class="list-group-item" id="defender"></li>
-          </ul>
         </div>
       </div>
 
