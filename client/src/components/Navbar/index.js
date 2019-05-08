@@ -25,7 +25,7 @@ class Navbar extends Component {
         </a>
       </nav>
 
-      <h1 id="title-id">MELEE!!</h1>
+      <div id="title-id"></div>
     </div>
   );
   }
