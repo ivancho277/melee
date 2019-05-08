@@ -15,6 +15,9 @@ function Home() {
 let src = "https://placeimg.com/640/480/people" 
    return (
     <div> 
+      <br></br>
+      <br></br>
+      <br></br>
       {/* <Jumbotron1/> */}
       <AboutCard />
       {/* <Jumbotron2/> */}
