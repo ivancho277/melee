@@ -14,7 +14,7 @@ function PreMadeChar(props) {
           </div>
           <p className='card-text'>words words words</p>
         </div>
-        <button type="button" class="btn btn-warning">Select</button>
+        <button type="button"  onClick={() => props.onClick(props.stats.name)} class="btn btn-warning">Select</button>
 
       </div>
     </div>
