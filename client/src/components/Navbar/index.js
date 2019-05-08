@@ -25,11 +25,7 @@ class Navbar extends Component {
         </a>
       </nav>
 
-      <h1> 
-        
-        <img id="melee_logo" src="../images/" alt="Melee!!"></img> 
-      
-      </h1>
+      <div id="title-id"></div>
     </div>
   );
   }
