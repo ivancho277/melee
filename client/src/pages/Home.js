@@ -13,13 +13,10 @@ function Home() {
 let src = "https://placeimg.com/640/480/people" 
    return (
     <div> 
-<<<<<<< HEAD
-=======
       <br></br>
       <br></br>
       <br></br>
       {/* <Jumbotron1/> */}
->>>>>>> 2585351c39e14a24f86f53fed7ed9b435ebd3342
       <AboutCard />
       <DiceComponent
       numDice={numDice}
