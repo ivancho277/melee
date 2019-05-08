@@ -28,12 +28,9 @@
     "mongoose": "^5.5.5",
     "prop-types": "^15.7.2",
     "react-dice": "^1.0.1",
-<<<<<<< HEAD
     "react-popper": "^0.9.4",
-    "react-transition-group": "^4.0.0"
-=======
+    "react-transition-group": "^4.0.0",
     "react-hexgrid": "^1.0.3"
->>>>>>> 9581a4d8ad9c24596c2971261edae34a4398efe8
   },
   "repository": {
     "type": "git",
