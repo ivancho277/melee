@@ -17,7 +17,9 @@ function InstructionModal() {
                             </button>
                         </div>
                         <div class="modal-body">
+                        <button>
                         <a href="http://bluwiki.com/go/Tft-melee" target="_blank">Melee Instructions</a>
+                        </button>
       </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
