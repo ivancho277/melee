@@ -17,10 +17,6 @@ let player1 = {
 
 class NoMatch extends Component {
 
-  getImage = (src) => {
-    return src;
-  }
-
   render() {
     return (
       // <div>
@@ -36,7 +32,7 @@ class NoMatch extends Component {
       //       </div>
       //   </div>
       // </div>
-      <AttackSelect player={player1} imageFunction={this.getImage} onClick={this.onClick} />
+      <AttackSelect player={player1} onClick={this.onClick} />
     );
   }
 }
