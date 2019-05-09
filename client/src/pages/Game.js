@@ -27,8 +27,29 @@ export default class Game extends Component {
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
           <GameLayout />
           {/* <TilesLayout /> */}
+
+        </HexGrid>
+        <AttackSelect player={player1} />
+
           <AttackSelect player={player1} />
+
+        </HexGrid>
+        {/* <AttackSelect player={player1} /> */}
+    
+
+        <div id="dice-controller">
+        {/* including dice component */}
+
+          <AttackSelect player={player1} />
+<<<<<<< HEAD
           {/* including dice component */}
+=======
+{/* including dice component */}
+
+        <DiceComponent
+      numDice={numDice}
+      />
+>>>>>>> eaf65781e7142b039e65715b74f99453afa3eec3
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
         <div>

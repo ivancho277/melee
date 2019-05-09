@@ -42,10 +42,20 @@ body {
     z-index: 1000;
     /* object-fit: cover; */
     /* margin-right: 15%; */
+
+    float: right; 
+
+
+
+    margin-bottom: 100px;
+    /* padding-bottom: 80vh; */
+    
+
     /* float: right;  */
     /* margin-bottom: 100px; */
     /* padding-bottom: 80vh; */
     
+
 
 }
 
