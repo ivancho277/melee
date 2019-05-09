@@ -6,7 +6,7 @@ class DiceComponent extends React.Component {
 
   render(props) {
     return (
-      <div>
+      <div id="home-dice">
         <ReactDice
           numDice={3}
           rollDone={this.rollDoneCallback}
