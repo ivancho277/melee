@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AttackSelect from "../components/AttackSelect";
-
+import gameimg from "./MeleeGamePieces-02.jpg"
 let player1 = {
   playerId: 0,
   strength: 120,
@@ -10,15 +10,22 @@ let player1 = {
   initialAttackPower: 8,
   playerName: "Thundarr",
   playerSide: "Fighter",
-  src: "http://placeimg.com/480/400/people"
+  src: gameimg 
 };
 
+
+
 class NoMatch extends Component {
+
+  getImage = (src) => {
+    return src;
+  }
+
   render() {
     return (
       // <div>
       //   <div class="jumbotron jumbotron-fluid">
-      //       <div class="container">
+      //       <div cl ass="container">
       //           <h1 class="display-3">YOU SHOULDNT BE HERE</h1>
       //           <p class="lead">LEAVE NOW</p>
       //           <hr class="my-2" />
@@ -29,7 +36,7 @@ class NoMatch extends Component {
       //       </div>
       //   </div>
       // </div>
-      <AttackSelect player={player1} onClick={this.onClick} />
+      <AttackSelect player={player1} imageFunction={this.getImage} onClick={this.onClick} />
     );
   }
 }

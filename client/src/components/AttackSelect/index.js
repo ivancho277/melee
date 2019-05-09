@@ -8,6 +8,7 @@ export default class AttackSelect extends Component {
     HP: this.props.player.hitPoints,
     list: []
   };
+  
   onClick = () => {
     let health = this.state.HP;
     health -= 10;
@@ -15,6 +16,7 @@ export default class AttackSelect extends Component {
       HP: health,
       properties: this.props.player
     });
+    this.buildProperties();
   };
 
   buildProperties = () => {
@@ -58,7 +60,7 @@ export default class AttackSelect extends Component {
 
             <button onClick={this.onClick}>Properties</button>
           </div>
-          <List>{this.list}</List>
+          <List>{this.state.list}</List>
         </div>
       </div>
     );
