@@ -4,6 +4,12 @@ import GameLayout from "../components/GameLayout";
 import TilesLayout from "../components/TilesLayout";
 import AttackSelect from "../components/AttackSelect";
 import "./Game.css";
+import DiceComponent from '../components/DiceRoller'
+
+//number of dice
+let numDice = 3
+
+
 let player1 = {
   playerId: 0,
   strength: 120,
@@ -22,8 +28,17 @@ export default class Game extends Component {
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
           <GameLayout />
           {/* <TilesLayout /> */}
+          <AttackSelect player={player1} />
+{/* including dice component */}
+        <DiceComponent
+      numDice={numDice}
+      />
         </HexGrid>
-        <AttackSelect player={player1} />
+        {/* <AttackSelect player={player1} /> */}
+    
+        <div id="dice-controller">
+        
+      </div>
       </div>
     );
   }
