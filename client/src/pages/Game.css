@@ -27,7 +27,7 @@ body {
     top: 0;
     left: 1em;
     border-right: 1px solid grey;
-    width: 49%;
+    width: 99%;
   }
   
   .tiles {
@@ -37,3 +37,13 @@ body {
     width: 49%;
   }
   
+  #dice-controller {
+
+    z-index: 1000;
+    /* object-fit: cover; */
+    /* margin-right: 15%; */
+    float: right; 
+
+
+
+}
