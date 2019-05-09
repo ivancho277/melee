@@ -8,13 +8,13 @@ body {
 
 #title-id {
 
-    background: url(meleelogo.png) no-repeat center;
+    background: url(meleelogo.png) no-repeat right;
     /* position: absolute;  */
-    /* margin-left: 50%;    */
     z-index: 1000;
     object-fit: cover;
     height: 125px;
     width: 100vw;
-
+    margin-right: 15%;
+    float: right; 
 }
 
