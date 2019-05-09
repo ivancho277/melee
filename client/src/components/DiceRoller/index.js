@@ -8,6 +8,7 @@ class DiceComponent extends React.Component {
     return (
       <div id="home-dice">
         <ReactDice
+         disableIndividual={true}
           numDice={3}
           rollDone={this.rollDoneCallback}
           faceColor="#ffffff"
