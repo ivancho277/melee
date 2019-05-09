@@ -3,7 +3,7 @@ import './style.css';
 import PreMadeChar from "../PreMadeCharactersCard"
 
 
-function Jumbotron1() {
+function Jumbotron1(props) {
 
       let stats1 = {
         strength: 11,
@@ -55,13 +55,13 @@ function Jumbotron1() {
     <div>
       <div id="j1" className="jumbotron col-12" >
         <div>
-          <PreMadeChar stats={stats1}/>
+          <PreMadeChar getName={props.getName} onClick={props.click} stats={stats1}/>
           <br></br>
-          <PreMadeChar stats={stats2}/>
+          <PreMadeChar onClick={props.click}  stats={stats2}/>
           <br></br>
-          <PreMadeChar stats={stats3}/>
+          <PreMadeChar onClick={props.click}  stats={stats3}/>
           <br></br>
-          <PreMadeChar stats={stats4}/>
+          <PreMadeChar onClick={props.click} stats={stats4}/>
           <br></br>
         </div>
       </div>
