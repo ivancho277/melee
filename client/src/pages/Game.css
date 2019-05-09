@@ -43,7 +43,13 @@ body {
     /* object-fit: cover; */
     /* margin-right: 15%; */
     float: right; 
+<<<<<<< Updated upstream
 
+=======
+    margin-bottom: 100px;
+    /* padding-bottom: 80vh; */
+    
+>>>>>>> Stashed changes
 
 
 }
