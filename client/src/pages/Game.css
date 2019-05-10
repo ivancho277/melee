@@ -37,7 +37,7 @@ body {
     width: 49%;
   }
   
-  .dice {
+  #dice-conatiners {
 
     z-index: 1000;
     /* object-fit: cover; */

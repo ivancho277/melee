@@ -5,7 +5,14 @@ import TilesLayout from "../components/TilesLayout";
 import AttackSelect from "../components/AttackSelect";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
+<<<<<<< HEAD
 
+=======
+import RollButton from "../components/RollButton";
+
+
+
+>>>>>>> 2f8d8fc4f62dde44f33e3f68e2b592c2f273d030
 //number of dice
 let numDice = 3;
 
@@ -21,25 +28,27 @@ let player1 = {
   src: "http://placeimg.com/480/400/people"
 };
 export default class Game extends Component {
+  clicked = () => {
+    console.log("hello");
+  };
   render() {
     return (
       <div className="game">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
           <GameLayout />
           {/* <TilesLayout /> */}
-
-        </HexGrid>
-        <AttackSelect player={player1} />
-
-          <AttackSelect player={player1} />
-
-        </HexGrid>
+          
+          {/* <AttackSelect player={player1} /> */}
+          {/* including dice component */}
+        </ HexGrid>
         {/* <AttackSelect player={player1} /> */}
-    
 
+
+  
         <div id="dice-controller">
         {/* including dice component */}
 
+<<<<<<< HEAD
           <AttackSelect player={player1} />
 <<<<<<< HEAD
           {/* including dice component */}
@@ -57,6 +66,18 @@ export default class Game extends Component {
           <button>Roll all</button>
         </div>
       </div>
+=======
+        <div>
+
+          <div id="dice-conatiner">
+            <DiceComponent numDice={numDice} getRoll={this.clicked} />
+           
+
+          </div>
+        </div>
+  
+
+>>>>>>> 2f8d8fc4f62dde44f33e3f68e2b592c2f273d030
     );
   }
 }
