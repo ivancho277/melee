@@ -7,6 +7,8 @@ import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
 import RollButton from "../components/RollButton";
 
+
+
 //number of dice
 let numDice = 3;
 
@@ -34,15 +36,24 @@ export default class Game extends Component {
           
           {/* <AttackSelect player={player1} /> */}
           {/* including dice component */}
-        </HexGrid>
+        </ HexGrid>
         {/* <AttackSelect player={player1} /> */}
+
+
+  
+        <div id="dice-controller">
+        {/* including dice component */}
+
         <div>
+
           <div id="dice-conatiner">
             <DiceComponent numDice={numDice} getRoll={this.clicked} />
            
+
           </div>
         </div>
-      </div>
+  
+
     );
   }
 }
