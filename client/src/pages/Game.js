@@ -70,9 +70,7 @@ export default class Game extends Component {
 
           </div>
         </div>
-  
-
->>>>>>> 2f8d8fc4f62dde44f33e3f68e2b592c2f273d030
+      
     );
   }
 }
