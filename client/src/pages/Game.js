@@ -3,6 +3,8 @@ import { HexGrid } from "react-hexgrid";
 import GameLayout from "../components/GameLayout";
 import TilesLayout from "../components/TilesLayout";
 import AttackSelect from "../components/AttackSelect";
+import CombatSection from "../components/CombatSection";
+//import "bootstrap/dist/css/bootstrap.css";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
 
@@ -28,51 +30,36 @@ export default class Game extends Component {
   };
   render() {
     return (
-      <div className="game">
+      <div className="game" idName="game-wrapper">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
           <GameLayout />
           {/* <TilesLayout /> */}
-          
+
           {/* <AttackSelect player={player1} /> */}
           {/* including dice component */}
-        </ HexGrid>
-        {/* <AttackSelect player={player1} /> */}
-
-
-  
-        <div id="dice-controller">
-        {/* including dice component */}
-
-<<<<<<< HEAD
-          <AttackSelect player={player1} />
-<<<<<<< HEAD
-          {/* including dice component */}
-=======
-{/* including dice component */}
-
-        <DiceComponent
-      numDice={numDice}
-      />
->>>>>>> eaf65781e7142b039e65715b74f99453afa3eec3
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
-        <div>
-          <DiceComponent numDice={numDice} />
-          <button>Roll all</button>
-        </div>
-      </div>
-=======
+     
+        {/* <AttackSelect player={player1} /> */}
+      
+
         <div>
 
           <div id="dice-conatiner">
             <DiceComponent numDice={numDice} getRoll={this.clicked} />
-           
-
           </div>
         </div>
   
 
->>>>>>> 2f8d8fc4f62dde44f33e3f68e2b592c2f273d030
+
+        <div id="dice-container">
+          <DiceComponent numDice={numDice} getRoll={this.clicked} />
+        </div>
+        <div id="combat-section">
+          <CombatSection getRoll={this.clicked} />
+        </div>
+        </div>
+      
     );
   }
 }
