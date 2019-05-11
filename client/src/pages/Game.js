@@ -4,9 +4,10 @@ import GameLayout from "../components/GameLayout";
 import TilesLayout from "../components/TilesLayout";
 import AttackSelect from "../components/AttackSelect";
 import CombatSection from "../components/CombatSection";
-import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap/dist/css/bootstrap.css";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
+
 import RollButton from "../components/RollButton";
 
 //number of dice
@@ -38,6 +39,18 @@ export default class Game extends Component {
           {/* including dice component */}
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
+     
+        {/* <AttackSelect player={player1} /> */}
+      
+
+        <div>
+
+          <div id="dice-conatiner">
+            <DiceComponent numDice={numDice} getRoll={this.clicked} />
+          </div>
+        </div>
+  
+
 
         <div id="dice-container">
           <DiceComponent numDice={numDice} getRoll={this.clicked} />
@@ -45,7 +58,8 @@ export default class Game extends Component {
         <div id="combat-section">
           <CombatSection getRoll={this.clicked} />
         </div>
-      </div>
+        </div>
+      
     );
   }
 }
