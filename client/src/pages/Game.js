@@ -42,9 +42,7 @@ export default class Game extends Component {
      
         {/* <AttackSelect player={player1} /> */}
       
-
         <div>
-
           <div id="dice-conatiner">
             <DiceComponent numDice={numDice} getRoll={this.clicked} />
           </div>
