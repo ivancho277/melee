@@ -4,7 +4,6 @@ import AboutCard from "../components/AboutCard";
 import CharacterCard from '../components/CharacterCard'
 import Jumbotron1 from '../components/Jumbotron1'
 import Jumbotron2 from '../components/Jumbotron2'
-import DiceComponent from '../components/DiceRoller'
 
 
 function Home() {
@@ -18,9 +17,7 @@ let src = "https://placeimg.com/640/480/people"
       <br></br>
       {/* <Jumbotron1/> */}
       <AboutCard />
-      <DiceComponent
-      numDice={numDice}
-      />
+      
     </div>
   );
 }

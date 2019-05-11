@@ -21,19 +21,41 @@ body {
     -khtml-user-drag: element;
     user-drag: element;
   }
-  
+  /* this effects the game board columns and placement of cards */
   .game {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 1em;
     border-right: 1px solid grey;
-    width: 49%;
+    width: 99%;
   }
   
   .tiles {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     right: 1em;
     width: 49%;
   }
   
+  #dice-conatiners {
+
+    z-index: 1000;
+    /* object-fit: cover; */
+    /* margin-right: 15%; */
+
+    float: right; 
+
+
+
+    margin-bottom: 100px;
+    /* padding-bottom: 80vh; */
+    
+
+    /* float: right;  */
+    /* margin-bottom: 100px; */
+    /* padding-bottom: 80vh; */
+    
+
+
+}
+
