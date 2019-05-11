@@ -10,8 +10,8 @@ const weaponsRoute = require("./weapon");
 
 //brings in both our API routes together
 
-router.use("/armors", armorRoute);
-router.use("/players", playerRoute);
+router.use("/armors", armorRoute); //<--- api -armors .. etc
+router.use("/players", playerRoute);// <--- api -players ..etc
 router.use("/thralls", thrallRoute);
 router.use("/users", userRoute);
 router.use("/weapons", weaponsRoute);

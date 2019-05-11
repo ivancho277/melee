@@ -11,3 +11,5 @@ router.use((req, res) =>
 );
 
 module.exports = router;
+
+//all routes will start with -api
