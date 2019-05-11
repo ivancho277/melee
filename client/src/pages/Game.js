@@ -5,14 +5,9 @@ import TilesLayout from "../components/TilesLayout";
 import AttackSelect from "../components/AttackSelect";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
-<<<<<<< HEAD
 
-=======
 import RollButton from "../components/RollButton";
 
-
-
->>>>>>> 2f8d8fc4f62dde44f33e3f68e2b592c2f273d030
 //number of dice
 let numDice = 3;
 
