@@ -3,12 +3,14 @@ import { HexGrid } from "react-hexgrid";
 import GameLayout from "../components/GameLayout";
 import TilesLayout from "../components/TilesLayout";
 import AttackSelect from "../components/AttackSelect";
+import CombatSection from "../components/CombatSection";
+//import "bootstrap/dist/css/bootstrap.css";
 import "./Game.css";
-import DiceComponent from '../components/DiceRoller'
+import DiceComponent from "../components/DiceRoller";
+import CombatButton from "../components/RollButton";
 
 //number of dice
-let numDice = 3
-
+let numDice = 3;
 
 let player1 = {
   playerId: 0,
@@ -22,35 +24,37 @@ let player1 = {
   src: "http://placeimg.com/480/400/people"
 };
 export default class Game extends Component {
+  state = {
+    combat: false
+  };
+
+  isEnemyNear = next => {
+    this.setState({
+      combat: next
+    });
+  };
+
+  clicked = () => {
+    console.log("hello");
+  };
   render() {
     return (
-
-      <div className="game">
+      <div className="game" idName="game-wrapper">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
-          <GameLayout />
+          <GameLayout isEnemyNear={this.isEnemyNear} />
           {/* <TilesLayout /> */}
 
-          </HexGrid>
+          {/* <AttackSelect player={player1} /> */}
+          {/* including dice component */}
+        </HexGrid>
+        {/* <AttackSelect player={player1} /> */}
 
+        {this.state.combat ? <CombatButton /> : null}
 
-
-          <div id="dice-controller">
-            {/* including dice component */}
-
-
-            {/* including dice component */}
-
-            <DiceComponent
-              numDice={numDice}
-            />
-
-            {/* <AttackSelect player={player1} /> */}
-
-            <div id="dice-controller">
-
-            </div>
-          </div>
-          </div>
-          );
-        }
-      }
+        <div id="combat-section">
+          <CombatSection getRoll={this.clicked} />
+        </div>
+      </div>
+    );
+  }
+}
