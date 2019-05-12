@@ -8,8 +8,7 @@ import CombatSection from "../components/CombatSection";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
 import CombatButton from "../components/RollButton";
-import { initialCharacters } from "../components/constants";
-import Defender from "../components/Defender";
+import {initialCharacters} from "../components/constants/index"
 //number of dice
 let numDice = 3;
 
@@ -50,27 +49,9 @@ export default class Game extends Component {
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
 
-        {this.state.combat ? <CombatButton /> : null}
-
+        {this.state.combat ? <CombatButton  /> : null}
         <div id="combat-section">
           <CombatSection elements={initialCharacters} />
-          {initialCharacters.map((defender, i) => {
-            if (i === 0) {
-              return;
-            } else {
-              return (
-                <Defender
-                  key={i}
-                  name={defender.name}
-                  strength={defender.strength}
-                  dexterity={defender.dexterity}
-                  adjDx={defender.adjDx}
-                  weapon={defender.weapon}
-                  wDmg={defender.wDmg}
-                />
-              );
-            }
-          })}
         </div>
       </div>
     );
