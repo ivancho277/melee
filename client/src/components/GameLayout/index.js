@@ -1,16 +1,43 @@
 import React, { Component } from 'react';
 import { GridGenerator, Layout, Hexagon, Text, Pattern, HexUtils } from 'react-hexgrid';
 import './GameLayout.css';
-
+import player from "../../pages/gamePieceImages/MeleeGamePieces-11.jpg"
+import { log } from 'handlebars';
 class GameLayout extends Component {
   constructor(props) {
     super(props);
     const hexagons = GridGenerator.hexagon(5);
     // Add custom prop to couple of hexagons to indicate them being blocked
-    hexagons[0].blocked = true;
+   // hexagons[0].blocked = true;
     hexagons[1].blocked = true;
+    
+    const playerPattern = <Pattern id="player-pat" link={player} />
+    //const playerHex = <Hexagon  q={0} r={0} s={0} fill="player-pat" />
+   // this.state = currenthex; //keep track of where character gets dropped
+    //this.state = HexUtils.neighbours(currenthex) //state of all neighbors to current position.
+    let rand1 = Math.floor(Math.random() * 91 + 1);
+    let rand2 = Math.floor(Math.random() * 91 + 1);
+    let rand3 = Math.floor(Math.random() * 91 + 1);
+    
+    console.log(rand1, rand2, rand3)
+    hexagons[rand1].image = player;
+    hexagons[rand1].text = "monster";
+    console.log(hexagons[rand1].q)
+    hexagons[rand2].image = player;
+    hexagons[rand2].text = "monster";
+    hexagons[rand3].image = player;
+    hexagons[rand3].text = "monster";
+    const monstersArr = [hexagons[rand1], hexagons[rand2], hexagons[rand3]];
+    console.log(monstersArr)
+
+    //console.log(hexagons)
+    hexagons[50].image = player;
+    hexagons[50].text = "player";
     this.state = { hexagons };
   }
+
+  
+
 
   // onDrop you can read information of the hexagon that initiated the drag
   onDrop(event, source, targetProps) {
@@ -23,6 +50,13 @@ class GameLayout extends Component {
       }
       return hex;
     });
+    let neightborsArr = HexUtils.neighbours(source.state.hex);
+    console.log('====================================');
+    console.log(neightborsArr);
+    console.log('====================================');
+
+
+
     this.setState({ hexagons: hexas });
   }
 

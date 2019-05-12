@@ -4,9 +4,10 @@ import GameLayout from "../components/GameLayout";
 import TilesLayout from "../components/TilesLayout";
 import AttackSelect from "../components/AttackSelect";
 import CombatSection from "../components/CombatSection";
-import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap/dist/css/bootstrap.css";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
+
 import RollButton from "../components/RollButton";
 
 //number of dice
