@@ -44,14 +44,14 @@ export default class Game extends Component {
       
         <div>
           <div id="dice-conatiner">
-            <DiceComponent numDice={numDice} getRoll={this.clicked} />
+            <DiceComponent numDice={numDice}  />
           </div>
         </div>
   
 
 
         <div id="dice-container">
-          <DiceComponent numDice={numDice} getRoll={this.clicked} />
+          <DiceComponent numDice={numDice}  />
         </div>
         <div id="combat-section">
           <CombatSection getRoll={this.clicked} />

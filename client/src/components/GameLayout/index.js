@@ -28,12 +28,14 @@ class GameLayout extends Component {
     hexagons[rand3].image = player;
     hexagons[rand3].text = "monster";
     const monstersArr = [hexagons[rand1], hexagons[rand2], hexagons[rand3]];
-    console.log(monstersArr)
-
+    console.log(monstersArr);
+    
+    //console.log(this.state)
     //console.log(hexagons)
     hexagons[50].image = player;
     hexagons[50].text = "player";
-    this.state = { hexagons };
+    this.state = { hexagons , monstersArr};
+    console.log(this.state)
   }
 
   
@@ -41,7 +43,10 @@ class GameLayout extends Component {
 
   // onDrop you can read information of the hexagon that initiated the drag
   onDrop(event, source, targetProps) {
-    const { hexagons } = this.state;
+    const { hexagons } = this.state
+    const { monstersArr } = this.state
+    
+    console.log(hexagons, monstersArr)
     const hexas = hexagons.map(hex => {
       // When hexagon is dropped on this hexagon, copy it's image and text
       if (HexUtils.equals(source.state.hex, hex)) {
@@ -51,6 +56,13 @@ class GameLayout extends Component {
       return hex;
     });
     let neightborsArr = HexUtils.neighbours(source.state.hex);
+    for(let i = 0; i < neightborsArr.length; i++){
+      for(let j = 0; j < monstersArr.length; j++){
+        if(monstersArr[j].q === neightborsArr[i].q && monstersArr[j].r === neightborsArr[i].r && monstersArr[j].s === neightborsArr[i].s){
+          console.log("ENTER COMBAT!");
+        }
+      }
+    }
     console.log('====================================');
     console.log(neightborsArr);
     console.log('====================================');
