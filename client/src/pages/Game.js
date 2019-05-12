@@ -39,22 +39,9 @@ export default class Game extends Component {
           {/* including dice component */}
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
-<<<<<<< HEAD
-     
-        {/* <AttackSelect player={player1} /> */}
-      
-        <div>
-          <div id="dice-conatiner">
-            <DiceComponent numDice={numDice}  />
-          </div>
-        </div>
-  
-
-=======
->>>>>>> 941b6aa79d3acb5adecaabd9ad345216c856b7ca
 
         <div id="dice-container">
-          <DiceComponent numDice={numDice}  />
+          <DiceComponent numDice={numDice} />
         </div>
         <div id="combat-section">
           <CombatSection getRoll={this.clicked} />
