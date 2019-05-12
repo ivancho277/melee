@@ -39,16 +39,6 @@ export default class Game extends Component {
           {/* including dice component */}
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
-     
-        {/* <AttackSelect player={player1} /> */}
-      
-        <div>
-          <div id="dice-conatiner">
-            <DiceComponent numDice={numDice} getRoll={this.clicked} />
-          </div>
-        </div>
-  
-
 
         <div id="dice-container">
           <DiceComponent numDice={numDice} getRoll={this.clicked} />
@@ -56,8 +46,7 @@ export default class Game extends Component {
         <div id="combat-section">
           <CombatSection getRoll={this.clicked} />
         </div>
-        </div>
-      
+      </div>
     );
   }
 }
