@@ -50,6 +50,7 @@ export default class Game extends Component {
         {/* <AttackSelect player={player1} /> */}
 
         {this.state.combat ? <CombatButton /> : null}
+
         <div id="combat-section">
           <CombatSection getRoll={this.clicked} />
         </div>
