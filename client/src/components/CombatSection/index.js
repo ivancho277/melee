@@ -28,6 +28,7 @@ function CombatSection(props) {
               adjMovement: 8
             </div>
           </div>
+          <DiceComponent numDice={numDice}  />
         </div>
         <div className="col-2" idName="attacker-section">
           <div className="card box-shadow" idName="attacker-card">
@@ -48,6 +49,7 @@ function CombatSection(props) {
               armorAbsorbs(hp): 4 <br />
               adjMovement: 8<br /> <br />
               <button variant="danger">ATTACK WUF! </button>
+              <DiceComponent numDice={numDice}  />
             </div>
           </div>
         </div>
@@ -70,6 +72,7 @@ function CombatSection(props) {
               armorAbsorbs(hp): 4 <br />
               adjMovement: 8<br /> <br />
               <button variant="danger">ATTACK BEAR! </button>
+              <DiceComponent numDice={numDice}  />
             </div>
           </div>
         </div>
