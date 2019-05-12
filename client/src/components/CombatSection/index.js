@@ -1,6 +1,7 @@
 import React from "react";
+import DiceComponent from '../DiceRoller/'
 import "./style.css";
-
+let numDice = 3;
 function CombatSection(props) {
   return (
     <div>
@@ -91,6 +92,7 @@ function CombatSection(props) {
               armorAbsorbs(hp): 4 <br />
               adjMovement: 8<br /> <br />
               <button variant="danger">ATTACK SNEK! </button>
+              <DiceComponent numDice={numDice}  />
             </div>
           </div>
         </div>
