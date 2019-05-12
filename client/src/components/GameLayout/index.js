@@ -34,7 +34,7 @@ class GameLayout extends Component {
     //console.log(hexagons)
     hexagons[50].image = player;
     hexagons[50].text = "player";
-    this.state = { hexagons , monstersArr};
+    this.state = { hexagons , monstersArr };
     console.log(this.state)
   }
 
@@ -45,8 +45,9 @@ class GameLayout extends Component {
   onDrop(event, source, targetProps) {
     const { hexagons } = this.state
     const { monstersArr } = this.state
+    const { button } = this.state
     
-    console.log(hexagons, monstersArr)
+    console.log( monstersArr)
     const hexas = hexagons.map(hex => {
       // When hexagon is dropped on this hexagon, copy it's image and text
       if (HexUtils.equals(source.state.hex, hex)) {
@@ -55,14 +56,19 @@ class GameLayout extends Component {
       }
       return hex;
     });
+    
+    let near = false;
     let neightborsArr = HexUtils.neighbours(source.state.hex);
     for(let i = 0; i < neightborsArr.length; i++){
       for(let j = 0; j < monstersArr.length; j++){
         if(monstersArr[j].q === neightborsArr[i].q && monstersArr[j].r === neightborsArr[i].r && monstersArr[j].s === neightborsArr[i].s){
-          console.log("ENTER COMBAT!");
+          console.log("ENTER COMBAT!"); 
+          near = true;
         }
       }
     }
+    debugger
+    this.props.isEnemyNear(near);
     console.log('====================================');
     console.log(neightborsArr);
     console.log('====================================');
@@ -117,7 +123,9 @@ class GameLayout extends Component {
 
   render() {
     let { hexagons } = this.state;
+
     return (
+      
       <Layout className="game" size={{ x: 5, y: 5 }} flat={true} spacing={1.08} origin={{ x: -30, y: 0 }}>
         {
           hexagons.map((hex, i) => (
@@ -136,10 +144,14 @@ class GameLayout extends Component {
             >
               <Text>{hex.text || HexUtils.getID(hex)}</Text>
               { hex.image && <Pattern id={HexUtils.getID(hex)} link={hex.image} /> }
+              
             </Hexagon>
           ))
         }
+        
       </Layout>
+      
+      
     );
   }
 }

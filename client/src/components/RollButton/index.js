@@ -1,6 +1,6 @@
 import React from "react";
 
-function RollButton(props) {
-  return <button onClick={props.onClick}>Roll All</button>;
+function CombatButton(props) {
+  return <button >Would you like to Enter Combat</button>;
 }
-export default RollButton;
+export default CombatButton;

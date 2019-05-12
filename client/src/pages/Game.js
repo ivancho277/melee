@@ -7,8 +7,7 @@ import CombatSection from "../components/CombatSection";
 //import "bootstrap/dist/css/bootstrap.css";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
-
-import RollButton from "../components/RollButton";
+import CombatButton from "../components/RollButton";
 
 //number of dice
 let numDice = 3;
@@ -25,6 +24,16 @@ let player1 = {
   src: "http://placeimg.com/480/400/people"
 };
 export default class Game extends Component {
+  state = {
+    combat: false
+  };
+
+  isEnemyNear = next => {
+    this.setState({
+      combat: next
+    });
+  };
+
   clicked = () => {
     console.log("hello");
   };
@@ -32,7 +41,7 @@ export default class Game extends Component {
     return (
       <div className="game" idName="game-wrapper">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
-          <GameLayout />
+          <GameLayout isEnemyNear={this.isEnemyNear} />
           {/* <TilesLayout /> */}
 
           {/* <AttackSelect player={player1} /> */}
@@ -40,9 +49,8 @@ export default class Game extends Component {
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
 
-        <div id="dice-container">
-          <DiceComponent numDice={numDice} />
-        </div>
+        {this.state.combat ? <CombatButton /> : null}
+
         <div id="combat-section">
           <CombatSection getRoll={this.clicked} />
         </div>

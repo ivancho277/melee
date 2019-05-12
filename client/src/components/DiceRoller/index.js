@@ -18,7 +18,7 @@ class DiceComponent extends React.Component {
           dotColor="#000000"
           ref={dice => (this.reactDice = dice)}
         />
-        <button onClick={this.rollAll}>Roll Dice</button>
+        <button onClick={this.rollAll}>ATTACK!!!</button>
       </div>
     );
   }
