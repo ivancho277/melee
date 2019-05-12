@@ -24,36 +24,33 @@ let player1 = {
 export default class Game extends Component {
   render() {
     return (
+
       <div className="game">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
           <GameLayout />
           {/* <TilesLayout /> */}
 
-        </HexGrid>
-        <AttackSelect player={player1} />
+          </HexGrid>
 
-          <AttackSelect player={player1} />
 
-        </HexGrid>
-        {/* <AttackSelect player={player1} /> */}
-    
 
-        <div id="dice-controller">
-        {/* including dice component */}
+          <div id="dice-controller">
+            {/* including dice component */}
 
-          <AttackSelect player={player1} />
-{/* including dice component */}
 
-        <DiceComponent
-      numDice={numDice}
-      />
-        </HexGrid>
-        {/* <AttackSelect player={player1} /> */}
-    
-        <div id="dice-controller">
-        
-      </div>
-      </div>
-    );
-  }
-}
+            {/* including dice component */}
+
+            <DiceComponent
+              numDice={numDice}
+            />
+
+            {/* <AttackSelect player={player1} /> */}
+
+            <div id="dice-controller">
+
+            </div>
+          </div>
+          </div>
+          );
+        }
+      }
