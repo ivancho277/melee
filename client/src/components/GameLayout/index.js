@@ -9,6 +9,7 @@ import {
 } from "react-hexgrid";
 import "./GameLayout.css";
 import player from "../../pages/gamePieceImages/MeleeGamePieces-01.jpg";
+import snake from './snake.jpg'
 import { log } from "handlebars";
 class GameLayout extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class GameLayout extends Component {
     let rand3 = Math.floor(Math.random() * 90 + 1);
 
     console.log(rand1, rand2, rand3);
-    hexagons[rand1].image = player;
+    hexagons[rand1].image = snake;
     hexagons[rand1].text = "monster";
     console.log(hexagons[rand1].q);
     hexagons[rand2].image = player;

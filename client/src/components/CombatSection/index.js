@@ -2,6 +2,7 @@ import React from "react";
 import DiceComponent from "../DiceRoller/";
 import "./style.css";
 import { element } from "prop-types";
+
 import Defender from "../Defender"
 let numDice = 3;
 function CombatSection(props) {
@@ -45,12 +46,17 @@ function CombatSection(props) {
               return (
                 <Defender
                   key={i}
+                  hp={defender.hp}
                   name={defender.name}
                   strength={defender.strength}
                   dexterity={defender.dexterity}
                   adjDx={defender.adjDx}
                   weapon={defender.weapon}
                   wDmg={defender.wDmg}
+                  armor={defender.armor}
+                  shield={defender.shield}
+                  armorAbsorbs={defender.armorAbsorbs}
+                  adjMovement={defender.adjMovement}
                 />
               );
             }

@@ -3,9 +3,21 @@ import ReactDice from "react-dice-complete";
 import "react-dice-complete/dist/react-dice-complete.css";
 
 class DiceComponent extends React.Component {
-  getRoll = buttonName => {
-    this.props.getRoll = this.rollAll();
-  };
+
+  state={
+    roll: 0
+  }
+  
+  
+  componentWillUpdate= () => {
+   // console.log("HEY YOU ROLL:" + this.state.roll)
+  }
+  componentDidUpdate() {
+    console.log(this.props)
+   // this.props.getNum(this.state.roll)
+    //console.log("HEY YOU ROLL:" + this.state.roll)
+  }
+  
   render(props) {
     return (
       <div id="home-dice">
@@ -18,18 +30,26 @@ class DiceComponent extends React.Component {
           dotColor="#000000"
           ref={dice => (this.reactDice = dice)}
         />
-        <button onClick={this.rollAll}>ATTACK!!!</button>
+        <button onClick={() => this.rollAll()}>ATTACK!!!</button>
       </div>
     );
   }
 
-  rollAll = () => {
-    this.reactDice.rollAll();
-    console.log("hi");
+   rollAll = () => { 
+     this.reactDice.rollAll();  
+    console.log("hi");  
   };
 
+
   rollDoneCallback = num => {
+    this.setState({
+      roll: num
+    })
+    if(this.props.getNum){
+      this.props.getNum(num)
+    }
     console.log(`You rolled a ${num}`);
+   
   };
 }
 export default DiceComponent;
