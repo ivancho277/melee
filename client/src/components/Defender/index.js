@@ -20,7 +20,7 @@ class Defender extends Component {
   render() {
     return (
       
-      <div className="col-2"  idName="attacker-section">
+      <div>
         <div className="card box-shadow" idName="attacker-card">
           <span className="defender-title">{this.props.name}</span>
           <div className="card-header text-center font-weight-bold">Wuf</div>
