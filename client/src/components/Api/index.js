@@ -1,13 +1,11 @@
 // FROM GOOGLE BOOKS THIS IS NOT TAYLORED FOR MELEE
 
-
-//these are our front end methods that link to our server CRUD side operations. 
+//these are our front end methods that link to our server CRUD side operations.
 import axios from "axios";
 
 export default {
-
   getArmors: function() {
-    return axios.get("/api/armors", /*{ params: { q: "title:" + q } }*/);
+    return axios.get("/api/armors");
   },
 
   getSingleArmors: function(id) {
@@ -44,5 +42,5 @@ export default {
 
   getSingleUsers: function(id) {
     return axios.get("/api/users" + id);
-  },
+  }
 };

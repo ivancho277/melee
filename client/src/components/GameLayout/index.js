@@ -8,7 +8,7 @@ import {
   HexUtils
 } from "react-hexgrid";
 import "./GameLayout.css";
-import player from "../../pages/gamePieceImages/MeleeGamePieces-11.jpg";
+import player from "../../pages/gamePieceImages/MeleeGamePieces-01.jpg";
 import { log } from "handlebars";
 class GameLayout extends Component {
   constructor(props) {
