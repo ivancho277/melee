@@ -1,7 +1,7 @@
 import React from "react";
 import DiceComponent from "../DiceRoller/";
 import "./style.css";
-import { element } from "prop-types";
+import { elements } from "../constants/index";
 
 let numDice = 3;
 function CombatSection(props) {
