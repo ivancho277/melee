@@ -7,6 +7,7 @@ const armorSchema = new Schema({
   ma_decrement: { type: Number, required: false }, // Movement penalty on player equipped
   dex_decrement: { type: Number, required: true }, // Dexterity penalty on player equipped
   shield_boolean: { type: Boolean, required: true, default: false }, // 1 is a shield, 0 is body armor
+  img: { type: String, required: true, default: "MeleeGamePieces-02" },
   notes: { type: String, required: false }
 });
 

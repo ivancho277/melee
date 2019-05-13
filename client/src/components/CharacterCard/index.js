@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+// import icon01 from "../../pages/gamePieceImages/MeleeGamePieces-01.jpg";
 
 function CharacterCard(props) {
   return (
@@ -17,6 +18,9 @@ function CharacterCard(props) {
               <br />
               HP: {props.strength}
             </div>
+            {/* <img src={icon01} />
+            <img
+              src={require("../../pages/gamePieceImages/MeleeGamePieces-01.jpg")} */}
             <p className="card-text">Select Character</p>
           </div>
           <button

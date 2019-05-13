@@ -54,6 +54,7 @@ const weaponSeed = [
     throwable: false,
     twohands: false,
     notes: "aka Cutlass, Scimitar",
+    img: "MeleeGamePieces-14",
     date: new Date(Date.now())
   },
   {
@@ -194,6 +195,7 @@ const weaponSeed = [
     throwable: false,
     twohands: true,
     notes: "2 shots/turn if adjDX = 15+",
+    img: "MeleeGamePieces-13",
     date: new Date(Date.now())
   },
   {
@@ -300,6 +302,54 @@ const weaponSeed = [
 
 const thrallSeed = [
   {
+    name: "Crazy Ivan",
+    moveallow: 10,
+    strength: 11,
+    dexterity: 13,
+    hp: 11,
+    weapon: "Shortsword",
+    armor: "",
+    shield: "",
+    life_status: 1,
+    date: new Date(Date.now())
+  },
+  {
+    name: "Jordapeno",
+    moveallow: 10,
+    strength: 12,
+    dexterity: 12,
+    hp: 12,
+    weapon: "Long Bow",
+    armor: "",
+    shield: "",
+    life_status: 1,
+    date: new Date(Date.now())
+  },
+  {
+    name: "Turnson Bronsquist",
+    moveallow: 10,
+    strength: 13,
+    dexterity: 11,
+    hp: 13,
+    weapon: "Morning Star",
+    armor: "",
+    shield: "",
+    life_status: 1,
+    date: new Date(Date.now())
+  },
+  {
+    name: "Chris P. Bacon",
+    moveallow: 10,
+    strength: 14,
+    dexterity: 10,
+    hp: 14,
+    weapon: "2 Handed Sword",
+    armor: "",
+    shield: "",
+    life_status: 1,
+    date: new Date(Date.now())
+  },
+  {
     name: "Myrmidon",
     moveallow: 10,
     strength: 12,
@@ -405,6 +455,7 @@ const thrallSeed = [
     armor: "BearPelt",
     shield: "",
     life_status: 1,
+    img: "MeleeGamePieces-17",
     date: new Date(Date.now())
   },
   {
@@ -417,6 +468,7 @@ const thrallSeed = [
     armor: "WolfHide",
     shield: "",
     life_status: 1,
+    img: "MeleeGamePieces-19",
     date: new Date(Date.now())
   },
   {
@@ -429,6 +481,7 @@ const thrallSeed = [
     armor: "",
     shield: "",
     life_status: 1,
+    img: "MeleeGamePieces-20",
     date: new Date(Date.now())
   },
   {
@@ -441,6 +494,7 @@ const thrallSeed = [
     armor: "GargoyleFlesh",
     shield: "",
     life_status: 1,
+    img: "MeleeGamePieces-26",
     date: new Date(Date.now())
   },
   {
@@ -465,6 +519,7 @@ const thrallSeed = [
     armor: "DragonScales",
     shield: "",
     life_status: 1,
+    img: "MeleeGamePieces-40",
     date: new Date(Date.now())
   }
 ];
