@@ -115,7 +115,7 @@ export default class CharacterChoice extends Component {
   };
 
   state = {
-    characterCard: "zz",
+    characterCard: "",
     thralls: []
   };
 
@@ -174,22 +174,11 @@ export default class CharacterChoice extends Component {
               onCharacterClick={this.onCharacterClick}
               stats={stats4}
             />
-            <PreMadeChar
-              onCharacterClick={this.onCharacterClick}
-              stats={stats5}
-            />
-            <PreMadeChar
-              onCharacterClick={this.onCharacterClick}
-              stats={stats6}
-            />
-            <PreMadeChar
-              onCharacterClick={this.onCharacterClick}
-              stats={stats7}
-            />
+            
           </Col>
           <Col size="4">{this.state.characterCard}</Col>
         </Container>
-        <button onClick={this.getCharacterData}>check if api works</button>
+        {/* <button onClick={this.getCharacterData}>check if api works</button> */}
       </div>
     );
   }
