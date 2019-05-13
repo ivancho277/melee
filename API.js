@@ -21,7 +21,7 @@ export default {
   getSingleWeapons: function(id) {
     return axios.get("/api/weapons" + id);
   },
-
+  
   getPlayers: function() {
     return axios.get("/api/players");
   },
