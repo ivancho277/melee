@@ -9,24 +9,14 @@ import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
 import CombatButton from "../components/RollButton";
 import {initialCharacters} from "../components/constants/index"
-//number of dice
-let numDice = 3;
+import { link } from "fs";
 
-let player1 = {
-  playerId: 0,
-  strength: 120,
-  dexterity: 15,
-  hitPoints: 120,
-  armor: 0,
-  initialAttackPower: 8,
-  playerName: "Thundarr",
-  playerSide: "Fighter",
-  src: "http://placeimg.com/480/400/people"
-};
+
+
 export default class Game extends Component {
   state = {
     combat: false,
-    gameCharcters: initialCharacters,
+    gameCharcters: initialCharacters
     
   };
 
@@ -36,6 +26,15 @@ export default class Game extends Component {
     });
   };
 
+  addLocations = (locations) => {
+    for(let i = 0; i < 3; i++){
+      initialCharacters[i].hex = locations[i]
+    }
+    this.setState({
+      gameCharcters: initialCharacters
+    })
+  }
+
   clicked = () => {
     console.log("hello");
   };
@@ -43,7 +42,7 @@ export default class Game extends Component {
     return (
       <div className="game" idName="game-wrapper">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
-          <GameLayout isEnemyNear={this.isEnemyNear} />
+          <GameLayout location={this.state.gameCharcters} isEnemyNear={this.isEnemyNear} />
           {/* <TilesLayout /> */}
 
           {/* <AttackSelect player={player1} /> */}
@@ -53,7 +52,7 @@ export default class Game extends Component {
 
         {this.state.combat ? <CombatButton  /> : null}
         <div id="combat-section">
-          <CombatSection elements={this.state.gameCharcters} />
+          <CombatSection elements={this.state.gameCharcters} locations={this.addLocations} />
         </div>
       </div>
     );

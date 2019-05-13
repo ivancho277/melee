@@ -35,6 +35,7 @@ class GameLayout extends Component {
     hexagons[monstersArray[2]].image = snake;
     hexagons[monstersArray[2]].text = "monster";
     const monstersArr = [hexagons[monstersArray[0]], hexagons[monstersArray[1]], hexagons[monstersArray[2]]];
+   
     console.log(monstersArr);
 
     //console.log(this.state)
