@@ -14,9 +14,10 @@ class Navbar extends Component {
         <Link className="navbar-brand" to="/characterSelect">
           Choose Character
         </Link>
-        <button className="btn">
-          <span className="badge badge-primary">Start</span>
-        </button>
+
+        <Link className="navbar-brand" to="/">
+          Home
+        </Link>
         <a className="nav-link active" href="#">
           sign in
         </a>
