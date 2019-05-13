@@ -6,7 +6,7 @@ import { element } from "prop-types";
 let numDice = 3;
 function Defender(props) {
   return (
-    <div className="col-2" idName="attacker-section">
+    <div className="col-2 defender-section">
       <div className="card box-shadow" idName="attacker-card">
         <span className="defender-title">{props.name}</span>
         <div className="card-header text-center font-weight-bold">Wuf</div>
