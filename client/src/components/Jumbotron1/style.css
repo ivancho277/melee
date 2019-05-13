@@ -1,12 +1,6 @@
-.jumbotron {
-  display: flex;
-  float: left;
-  width: 100vw;
-  margin-top: 20%;
-}
+
 
 #preMadeCharCard{
-  display:flex;
-  clear: both;
-  width: 100vw
+  width: 100px;
+  z-index: 6;
 }
