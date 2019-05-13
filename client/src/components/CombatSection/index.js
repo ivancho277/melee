@@ -38,7 +38,6 @@ function CombatSection(props) {
             }
           })}
 
-
       </div>
     </div>
   );

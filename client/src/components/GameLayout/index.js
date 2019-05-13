@@ -63,7 +63,7 @@ class GameLayout extends Component {
   onDrop(event, source, targetProps) {
     const { hexagons } = this.state;
     const { monstersArr } = this.state;
-    const { button } = this.state;
+    
 
     console.log(monstersArr);
     const hexas = hexagons.map(hex => {
@@ -84,7 +84,8 @@ class GameLayout extends Component {
           monstersArr[j].r === neightborsArr[i].r &&
           monstersArr[j].s === neightborsArr[i].s
         ) {
-          this.props.location(j)
+          
+          
           console.log("ENTER COMBAT!");
           near = true;
         }

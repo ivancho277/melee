@@ -42,7 +42,7 @@ export default class Game extends Component {
     return (
       <div className="game" idName="game-wrapper">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
-          <GameLayout location={this.addLocations} isEnemyNear={this.isEnemyNear} />
+          <GameLayout locations={this.addLocations} isEnemyNear={this.isEnemyNear} />
           {/* <TilesLayout /> */}
 
           {/* <AttackSelect player={player1} /> */}
@@ -52,7 +52,7 @@ export default class Game extends Component {
 
         {this.state.combat ? <CombatButton  /> : null}
         <div id="combat-section">
-          <CombatSection elements={this.state.gameCharcters} locations={this.addLocations} />
+          <CombatSection elements={initialCharacters} location={this.addLocations} />
         </div>
       </div>
     );
