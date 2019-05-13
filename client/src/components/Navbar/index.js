@@ -14,9 +14,7 @@ class Navbar extends Component {
         <Link className="navbar-brand" to="/characterSelect">
           Choose Character
         </Link>
-        <button className="btn">
-          <span className="badge badge-primary">Start</span>
-        </button>
+        
        
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
       

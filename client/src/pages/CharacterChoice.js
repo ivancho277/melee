@@ -174,30 +174,11 @@ export default class CharacterChoice extends Component {
               onCharacterClick={this.onCharacterClick}
               stats={stats4}
             />
-<<<<<<< HEAD
-            <PreMadeChar
-              onCharacterClick={this.onCharacterClick}
-              stats={stats5}
-            />
-            <PreMadeChar
-              onCharacterClick={this.onCharacterClick}
-              stats={stats6}
-            />
-            <PreMadeChar
-              onCharacterClick={this.onCharacterClick}
-              stats={stats7}
-            />
-          </Col>
-          <Col size="4">{this.state.characterCard}</Col>
-        </Container>
-        <button onClick={this.getCharacterData}>check if api works</button>
-=======
             
           </Col>
           <Col size="4">{this.state.characterCard}</Col>
         </Container>
         {/* <button onClick={this.getCharacterData}>check if api works</button> */}
->>>>>>> 647e7d99010cc94e70683929224eb63be1523b3b
       </div>
     );
   }
