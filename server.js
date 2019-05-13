@@ -16,7 +16,16 @@ app.use(express.json());
 //app.use(logger("dev"));
 app.use(routes);
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/melee_db", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/melee_db", { useNewUrlParser: true });
+mongodb: mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://admin:meleeonline1@ds155626.mlab.com:55626/heroku_ddvb0d4t" ||
+    "mongodb://localhost/melee_db",
+  {
+    useCreateIndex: true,
+    useNewUrlParser: true
+  }
+);
 
 // Send every request to the React app
 // Define any API routes before this runs
