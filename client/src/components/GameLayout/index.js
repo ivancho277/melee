@@ -27,15 +27,14 @@ class GameLayout extends Component {
     let rand2 = Math.floor(Math.random() * 90 + 1);
     let rand3 = Math.floor(Math.random() * 90 + 1);
     
-    console.log(rand1, rand2, rand3);
-    hexagons[rand1].image = snake;
-    hexagons[rand1].text = "monster";
-    console.log(hexagons[rand1].q);
-    hexagons[rand2].image = snake;
-    hexagons[rand2].text = "monster";
-    hexagons[rand3].image = snake;
-    hexagons[rand3].text = "monster";
-    const monstersArr = [hexagons[rand1], hexagons[rand2], hexagons[rand3]];
+    let monstersArray = this.pickRandomMonsters();
+    hexagons[monstersArray[0]].image = snake;
+    hexagons[monstersArray[0]].text = "monster";
+    hexagons[monstersArray[1]].image = snake;
+    hexagons[monstersArray[1]].text = "monster";
+    hexagons[monstersArray[2]].image = snake;
+    hexagons[monstersArray[2]].text = "monster";
+    const monstersArr = [hexagons[monstersArray[0]], hexagons[monstersArray[1]], hexagons[monstersArray[2]]];
     console.log(monstersArr);
 
     //console.log(this.state)
