@@ -27,12 +27,15 @@ export default class Game extends Component {
   };
 
   addLocations = (locations) => {
-    for(let i = 0; i < 3; i++){
+    
+    for(let i = 1; i < 4; i++){
       initialCharacters[i].hex = locations[i]
     }
+
     this.setState({
       gameCharcters: initialCharacters
     })
+   
   }
 
   clicked = () => {
@@ -52,7 +55,7 @@ export default class Game extends Component {
 
         {this.state.combat ? <CombatButton  /> : null}
         <div id="combat-section">
-          <CombatSection elements={initialCharacters} location={this.addLocations} />
+          <CombatSection elements={this.state.gameCharcters} location={this.addLocations} />
         </div>
       </div>
     );

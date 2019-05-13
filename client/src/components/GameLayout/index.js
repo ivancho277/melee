@@ -74,7 +74,8 @@ class GameLayout extends Component {
       }
       return hex;
     });
-
+    this.props.locations(monstersArr)
+   
     let near = false;
     let neightborsArr = HexUtils.neighbours(source.state.hex);
     for (let i = 0; i < neightborsArr.length; i++) {
