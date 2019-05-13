@@ -1,6 +1,13 @@
 .btn-warning{
   justify-content: space-around;
   width: 80%;
-  margin: 0 0 2% 10%
+  margin: 0 0 2% 10%;
+  z-index: 10;
+
   
+  
+}
+
+#centerCard{
+  margin-left: 50%
 }
