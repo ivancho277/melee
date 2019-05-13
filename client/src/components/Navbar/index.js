@@ -14,15 +14,15 @@ class Navbar extends Component {
         <Link className="navbar-brand" to="/characterSelect">
           Choose Character
         </Link>
-        <button className="btn">
-          <span className="badge badge-primary">Start</span>
-        </button>
-        <a className="nav-link active" href="#">
-          sign in
-        </a>
-        <a className="nav-link sctive" href="#">
-          sign up
-        </a>
+        
+       
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+      
+
+        <Link className="navbar-brand" to="/">
+          Home
+        </Link>
+
       </nav>
 
       <div id="title-id"></div>
