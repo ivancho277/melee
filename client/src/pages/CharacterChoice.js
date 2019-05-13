@@ -3,6 +3,8 @@ import CharacterCard from "../components/CharacterCard";
 import { Col, Row, Container } from "../components/Grid";
 import PreMadeChar from "../components/PreMadeCharactersCard";
 import api from "../components/Api";
+import icon from "./gamePieceImages/MeleeGamePieces-01.jpg"
+// import icon from "../../pages/gamePieceImages/MeleeGamePieces-01.jpg"
 
 // import client side api
 // pull all characters from database
@@ -13,6 +15,7 @@ let stats1 = {
   dexterity: 13,
   name: "Crazy Ivan",
   src: "https://placeimg.com/641/481/people",
+  icon: 
   movementAllowance: 10,
   weapon: "",
   armor: "",
