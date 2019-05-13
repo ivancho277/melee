@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { List, ListItem } from "../List";
 import DiceComponent from "../DiceRoller"
-let numDice = 3
+
 export default class AttackSelect extends Component {
   state = {
-    roll: 0
+    roll: 0,
+    numDice: 3
   }
   DiceRollReturn = num => {  
     this.setState({
@@ -42,7 +43,7 @@ export default class AttackSelect extends Component {
               adjMovement: {this.props.elements[0].adjMovement} <br />
               You Rolled: {this.state.roll}
             </div>
-            <DiceComponent numDice={numDice} getNum={this.DiceRollReturn} />
+            <DiceComponent numDice={this.state.numDice} getNum={this.DiceRollReturn} />
           </div>
           
         </div>

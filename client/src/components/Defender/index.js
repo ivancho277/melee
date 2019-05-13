@@ -4,10 +4,10 @@ import DiceComponent1 from "../DiceRoller1";
 import "./style.css";
 import { element } from "prop-types";
 
-let numDice = 3;
 class Defender extends Component {
   state = {
     roll: 0,
+    numDice: 3,
     isEngaged: false,
     engagedStyle: "5px solid green",
     notEngagedStyle: "5px solid red",
@@ -44,7 +44,7 @@ class Defender extends Component {
             adjMovement: {this.props.adjMovement}
             <br /> <br />
             YOU ROLLED : {this.state.roll}
-            <DiceComponent numDice={numDice}  getNum={this.DiceRollReturn}/>
+            <DiceComponent numDice={this.state.numDice}  getNum={this.DiceRollReturn}/>
           </div>
         </div>
       </div>

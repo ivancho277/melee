@@ -25,7 +25,9 @@ let player1 = {
 };
 export default class Game extends Component {
   state = {
-    combat: false
+    combat: false,
+    gameCharcters: initialCharacters,
+    
   };
 
   isEnemyNear = next => {
@@ -51,7 +53,7 @@ export default class Game extends Component {
 
         {this.state.combat ? <CombatButton  /> : null}
         <div id="combat-section">
-          <CombatSection elements={initialCharacters} />
+          <CombatSection elements={this.state.gameCharcters} />
         </div>
       </div>
     );
