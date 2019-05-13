@@ -1,4 +1,7 @@
-.jumbotron {
+#j2 {
+  display: flex;
   float: right;
-  clear: both;
+  width: 100px;
+  margin-top: 20%;
+
 }

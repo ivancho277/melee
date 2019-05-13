@@ -1,11 +1,15 @@
 import React from 'react';
 import './style.css'
+import PreMadeChar from '../PreMadeCharactersCard'
 
 
-function  Jumbotron2(){
+function  Jumbotron2(props){
   return (
 <div>
- <div class="jumbotron col-6">
+ <div id= 'j2' className="jumbotron col-12">
+ <div>
+        
+</div>
 </div>
 </div>
   )

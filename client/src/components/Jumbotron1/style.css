@@ -1,4 +1,6 @@
-.jumbotron {
-  float: left;
-}
 
+
+#preMadeCharCard{
+  width: 100px;
+  z-index: 6;
+}
