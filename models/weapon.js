@@ -8,6 +8,7 @@ const weaponSchema = new Schema({
   type: { type: String, required: true, default: "m" }, // choices are melee (1 hex away), pole (can jab 2 hex away), ranged, and beast
   throwable: { type: Boolean, required: false, default: false }, // Can the item be thrown?
   twohands: { type: Boolean, required: false, default: false }, // Does the item require two hands? (thus, no shield usable)
+  img: { type: String, required: true, default: "MeleeGamePieces-14" },
   notes: { type: String, required: false, default: "moo" }
 });
 const Weapon = mongoose.model("Weapon", weaponSchema);
