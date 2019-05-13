@@ -42,7 +42,7 @@ export default class Game extends Component {
     return (
       <div className="game" idName="game-wrapper">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
-          <GameLayout location={this.state.gameCharcters} isEnemyNear={this.isEnemyNear} />
+          <GameLayout location={this.addLocations} isEnemyNear={this.isEnemyNear} />
           {/* <TilesLayout /> */}
 
           {/* <AttackSelect player={player1} /> */}

@@ -8,6 +8,7 @@ import AttackSelect from "../AttackSelect";
 let numDice = 3;
 function CombatSection(props) {
   //{ elements } = this.props.elements
+
   return (
     <div>
       <div className="row combat-section" idName="tbd">
@@ -30,6 +31,7 @@ function CombatSection(props) {
                   shield={defender.shield}
                   armorAbsorbs={defender.armorAbsorbs}
                   adjMovement={defender.adjMovement}
+                  location={props.location}
                 />
                 
               );

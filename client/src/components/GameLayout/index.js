@@ -84,6 +84,7 @@ class GameLayout extends Component {
           monstersArr[j].r === neightborsArr[i].r &&
           monstersArr[j].s === neightborsArr[i].s
         ) {
+          this.props.location(j)
           console.log("ENTER COMBAT!");
           near = true;
         }
