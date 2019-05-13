@@ -115,11 +115,7 @@ export default class CharacterChoice extends Component {
   };
 
   state = {
-<<<<<<< HEAD
-    characterCard: "zz",
-=======
     characterCard: "",
->>>>>>> 647e7d99010cc94e70683929224eb63be1523b3b
     thralls: []
   };
 
