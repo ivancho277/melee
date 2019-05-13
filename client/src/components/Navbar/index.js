@@ -17,12 +17,9 @@ class Navbar extends Component {
         <button className="btn">
           <span className="badge badge-primary">Start</span>
         </button>
-        <a className="nav-link active" href="#">
-          sign in
-        </a>
-        <a className="nav-link sctive" href="#">
-          sign up
-        </a>
+       
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+      
       </nav>
 
       <div id="title-id"></div>
