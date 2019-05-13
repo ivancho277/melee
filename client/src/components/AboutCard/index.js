@@ -60,6 +60,10 @@ function AboutCard() {
             added in Wizard), and a new ability, Health (which was added to
             address shortcomings in the original damage system).
           </p>
+          <img
+            style={{ width: "300px" }}
+            src={require("../../pages/gamePieceImages/MeleeGamePieces-40.jpg")}
+          />
         </div>
       </div>
     </div>
