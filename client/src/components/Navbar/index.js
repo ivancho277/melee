@@ -20,6 +20,11 @@ class Navbar extends Component {
        
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
       
+
+        <Link className="navbar-brand" to="/">
+          Home
+        </Link>
+
       </nav>
 
       <div id="title-id"></div>
