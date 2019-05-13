@@ -9,6 +9,8 @@ class Defender extends Component {
   state = {
     roll: 0,
     isEngaged: false,
+    engagedStyle: "5px solid green",
+    notEngagedStyle: "5px solid red",
     hp: this.props.hp
   };
 
@@ -21,7 +23,7 @@ class Defender extends Component {
   render() {
     return (
       
-      <div className="defender" style={{border:"5px solid red"}}>
+      <div className="defender" style={this.state.isEngaged ? { border: this.state.engagedStyle} : { border: this.state.notEngagedStyle}}  >
         <div className="card box-shadow" idName="attacker-card">
           <span className="defender-title">{this.props.name}</span>
           <div className="card-header text-center font-weight-bold">Wuf</div>
