@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 // import icon01 from "../../pages/gamePieceImages/MeleeGamePieces-01.jpg";
 
 function CharacterCard(props) {
@@ -23,13 +24,20 @@ function CharacterCard(props) {
               src={require("../../pages/gamePieceImages/MeleeGamePieces-01.jpg")} */}
             <p className="card-text">Select Character</p>
           </div>
+          
+          Choose Character
+        
           <button
             type="button"
             onClick={props.onCharacterSelect}
             class="btn btn-danger"
           >
+            <Link  to="/game"> 
             Start Game
+            </Link>
           </button>
+         
+        
         </div>
       </div>
     </div>

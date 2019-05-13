@@ -9,6 +9,7 @@ import {
 } from "react-hexgrid";
 import "./GameLayout.css";
 import player from "../../pages/gamePieceImages/MeleeGamePieces-01.jpg";
+import snake from './snake.jpg'
 import { log } from "handlebars";
 class GameLayout extends Component {
   constructor(props) {
@@ -25,22 +26,23 @@ class GameLayout extends Component {
     let rand1 = Math.floor(Math.random() * 90 + 1);
     let rand2 = Math.floor(Math.random() * 90 + 1);
     let rand3 = Math.floor(Math.random() * 90 + 1);
-
-    console.log(rand1, rand2, rand3);
-    hexagons[rand1].image = player;
-    hexagons[rand1].text = "monster";
-    console.log(hexagons[rand1].q);
-    hexagons[rand2].image = player;
-    hexagons[rand2].text = "monster";
-    hexagons[rand3].image = player;
-    hexagons[rand3].text = "monster";
-    const monstersArr = [hexagons[rand1], hexagons[rand2], hexagons[rand3]];
+    
+    let monstersArray = this.pickRandomMonsters();
+    hexagons[monstersArray[0]].image = snake;
+    hexagons[monstersArray[0]].text = "monster";
+    hexagons[monstersArray[1]].image = snake;
+    hexagons[monstersArray[1]].text = "monster";
+    hexagons[monstersArray[2]].image = snake;
+    hexagons[monstersArray[2]].text = "monster";
+    const monstersArr = [hexagons[monstersArray[0]], hexagons[monstersArray[1]], hexagons[monstersArray[2]]];
+   
     console.log(monstersArr);
 
     //console.log(this.state)
     //console.log(hexagons)
     hexagons[50].image = player;
     hexagons[50].text = "player";
+    console.log(this.pickRandomMonsters())
     this.state = { hexagons, monstersArr };
     console.log(this.state);
   }
@@ -50,15 +52,18 @@ class GameLayout extends Component {
     let randomArray = [50];
     for(let i = 0; i < 3; i++){
       let rand =  Math.floor(Math.random() * 90 + 1);
-
+      while(randomArray.indexOf(rand) === -1){
+        randomArray.push(rand);
+      }
     }
+    return randomArray.slice(1,4);
   }
 
   // onDrop you can read information of the hexagon that initiated the drag
   onDrop(event, source, targetProps) {
     const { hexagons } = this.state;
     const { monstersArr } = this.state;
-    const { button } = this.state;
+    
 
     console.log(monstersArr);
     const hexas = hexagons.map(hex => {
@@ -69,7 +74,8 @@ class GameLayout extends Component {
       }
       return hex;
     });
-
+    this.props.locations(monstersArr)
+   
     let near = false;
     let neightborsArr = HexUtils.neighbours(source.state.hex);
     for (let i = 0; i < neightborsArr.length; i++) {
@@ -79,6 +85,8 @@ class GameLayout extends Component {
           monstersArr[j].r === neightborsArr[i].r &&
           monstersArr[j].s === neightborsArr[i].s
         ) {
+          
+          
           console.log("ENTER COMBAT!");
           near = true;
         }
