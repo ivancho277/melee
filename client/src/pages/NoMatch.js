@@ -32,7 +32,7 @@ class NoMatch extends Component {
       //       </div>
       //   </div>
       // </div>
-      <AttackSelect player={player1} onClick={this.onClick} />
+      <div></div>
     );
   }
 }
