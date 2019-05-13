@@ -22,9 +22,9 @@ class GameLayout extends Component {
     //const playerHex = <Hexagon  q={0} r={0} s={0} fill="player-pat" />
     // this.state = currenthex; //keep track of where character gets dropped
     //this.state = HexUtils.neighbours(currenthex) //state of all neighbors to current position.
-    let rand1 = Math.floor(Math.random() * 91 + 1);
-    let rand2 = Math.floor(Math.random() * 91 + 1);
-    let rand3 = Math.floor(Math.random() * 91 + 1);
+    let rand1 = Math.floor(Math.random() * 90 + 1);
+    let rand2 = Math.floor(Math.random() * 90 + 1);
+    let rand3 = Math.floor(Math.random() * 90 + 1);
 
     console.log(rand1, rand2, rand3);
     hexagons[rand1].image = player;
@@ -43,6 +43,15 @@ class GameLayout extends Component {
     hexagons[50].text = "player";
     this.state = { hexagons, monstersArr };
     console.log(this.state);
+  }
+
+  //function to pick random numnber not including 50, or other numbers returns array of 3 numbers.
+  pickRandomMonsters = () => {
+    let randomArray = [50];
+    for(let i = 0; i < 3; i++){
+      let rand =  Math.floor(Math.random() * 90 + 1);
+
+    }
   }
 
   // onDrop you can read information of the hexagon that initiated the drag
@@ -75,7 +84,9 @@ class GameLayout extends Component {
         }
       }
     }
-    debugger;
+   
+
+
     this.props.isEnemyNear(near);
     console.log("====================================");
     console.log(neightborsArr);
