@@ -31,6 +31,7 @@ function CombatSection(props) {
                   armorAbsorbs={defender.armorAbsorbs}
                   adjMovement={defender.adjMovement}
                 />
+                
               );
             }
           })}

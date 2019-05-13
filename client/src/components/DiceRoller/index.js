@@ -23,7 +23,7 @@ class DiceComponent extends React.Component {
       <div id="home-dice">
         <ReactDice
           disableIndividual={true}
-          numDice={3}
+          numDice={this.props.numDice}
           rollTime={1}
           rollDone={this.rollDoneCallback}
           faceColor="#ffffff"

@@ -3,6 +3,15 @@ import { List, ListItem } from "../List";
 import DiceComponent from "../DiceRoller"
 let numDice = 3
 export default class AttackSelect extends Component {
+  state = {
+    roll: 0
+  }
+  DiceRollReturn = num => {  
+    this.setState({
+      roll: num
+    })
+  }
+
   render(){
   return(
   
@@ -30,9 +39,10 @@ export default class AttackSelect extends Component {
               Shield: {this.props.elements[0].shield}
               <br />
               armorAbsorbs(hp): {this.props.elements[0].armorAbsorbs} <br />
-              adjMovement: {this.props.elements[0].adjMovement}
+              adjMovement: {this.props.elements[0].adjMovement} <br />
+              You Rolled: {this.state.roll}
             </div>
-            <DiceComponent numDice={numDice} />
+            <DiceComponent numDice={numDice} getNum={this.DiceRollReturn} />
           </div>
           
         </div>

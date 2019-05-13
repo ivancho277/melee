@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DiceComponent from "../DiceRoller/";
+import DiceComponent1 from "../DiceRoller1";
 import "./style.css";
 import { element } from "prop-types";
 
@@ -20,11 +21,11 @@ class Defender extends Component {
   render() {
     return (
       
-      <div>
+      <div className="defender" style={{border:"5px solid red"}}>
         <div className="card box-shadow" idName="attacker-card">
           <span className="defender-title">{this.props.name}</span>
           <div className="card-header text-center font-weight-bold">Wuf</div>
-          <div idName="attacker-stats" style={{ textAlign: "left" }}>
+          <div idName="attacker-stats" style={{ textAlign: "left"}}>
             <br />
             HP: {this.state.hp}
             <br />
