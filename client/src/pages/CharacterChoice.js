@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import Navbar from "../components/Navbar";
-import AboutCard from "../components/AboutCard";
 import CharacterCard from '../components/CharacterCard';
-import Jumbotron1 from '../components/Jumbotron1';
-import Jumbotron2 from '../components/Jumbotron2';
 import { Col, Row, Container } from "../components/Grid";
-import DiceComponent from "../components/DiceRoller"
+import PreMadeChar from '../components/PreMadeCharactersCard';
+import api from '../components/Api';
+
+// import client side api
+// pull all characters from database
+// assign to local objects
+
+
 
 let stats1 = {
   strength: 11,
@@ -74,10 +77,14 @@ export default class CharacterChoice extends Component {
     }
 
     getCharacterData = () => {
-
+      console.log("FUCK YO!!");
+      
+      api.getPlayers((res) => {
+        console.log(res);
+      })
     }
 
-    onCharcterClick = (name) => {
+    onCharacterClick = (name) => {
       console.log(name);
       let selected = this.selectCharacterByName(name);
       console.log(selected)
@@ -89,19 +96,20 @@ export default class CharacterChoice extends Component {
     render(){
       return (
         <div>
-          <Container>
+          <Container >
             <Row>
               <Col size='4'>
-                <Jumbotron1 click={this.onCharcterClick} />
+                <PreMadeChar onCharacterClick={this.onCharacterClick}  stats={stats1}/> 
+                <PreMadeChar onCharacterClick={this.onCharacterClick}  stats={stats2}/>
+                <PreMadeChar onCharacterClick={this.onCharacterClick}  stats={stats3}/>
+                <PreMadeChar onCharacterClick={this.onCharacterClick}  stats={stats4}/>
               </Col>
               <Col size='4'>
                 {this.state.characterCard}
               </Col>
-              <Col size='4'>
-                <Jumbotron2 />
-              </Col>
             </Row>
           </Container>
+          <button onClick={this.getCharacterData}>check if api works</button>
         </div>
       )
     }

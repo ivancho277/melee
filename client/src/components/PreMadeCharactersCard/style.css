@@ -3,5 +3,9 @@ p{
 }
 
 .card{
-  color: black
+  color: black;
+  display: flex;
+  float:left;
+
+  
 }

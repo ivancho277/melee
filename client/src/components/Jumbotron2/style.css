@@ -1,4 +1,7 @@
 #j2 {
+  display: flex;
   float: right;
+  width: 100px;
+  margin-top: 20%;
 
 }
