@@ -45,6 +45,7 @@ class DiceComponent extends React.Component {
     this.setState({
       roll: num
     })
+   
     if(this.props.getNum){
       this.props.getNum(num)
     }
