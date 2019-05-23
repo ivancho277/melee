@@ -1,19 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import DiceComponent from "../DiceRoller/";
 import "./style.css";
 import { element } from "prop-types";
-import Attacker from "../AttackSelect"
-import Defender from "../Defender"
+import Attacker from "../AttackSelect";
+import Defender from "../Defender";
 import AttackSelect from "../AttackSelect";
 let numDice = 3;
-function CombatSection(props) {
+class CombatSection extends Component {
   //{ elements } = this.props.elements
 
-  return (
-    <div>
-      <div className="row combat-section" idName="tbd">
-      <AttackSelect elements={props.elements} />
-        {props.elements.map((defender, i) => {
+  render() {
+    return (
+      <div>
+        <div className="row combat-section" idName="tbd">
+          <AttackSelect elements={this.props.elements} />
+          {this.props.elements.map((defender, i) => {
             if (i === 0) {
               return;
             } else {
@@ -31,16 +32,15 @@ function CombatSection(props) {
                   shield={defender.shield}
                   armorAbsorbs={defender.armorAbsorbs}
                   adjMovement={defender.adjMovement}
-                  location={props.location}
+                  location={this.props.location}
                 />
-                
               );
             }
           })}
-
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default CombatSection;
