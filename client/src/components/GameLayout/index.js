@@ -35,7 +35,7 @@ class GameLayout extends Component {
     hexagons[monstersArray[2]].image = snake;
     hexagons[monstersArray[2]].text = "monster";
     const monstersArr = [hexagons[monstersArray[0]], hexagons[monstersArray[1]], hexagons[monstersArray[2]]];
-   
+    this.props.locations(monstersArr)
     console.log(monstersArr);
 
     //console.log(this.state)
@@ -74,7 +74,7 @@ class GameLayout extends Component {
       }
       return hex;
     });
-    this.props.locations(monstersArr)
+    
    
     let near = false;
     let neightborsArr = HexUtils.neighbours(source.state.hex);
