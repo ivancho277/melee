@@ -8,16 +8,13 @@ import CombatSection from "../components/CombatSection";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
 import CombatButton from "../components/RollButton";
-import {initialCharacters} from "../components/constants/index"
+import { initialCharacters } from "../components/constants/index";
 import { link } from "fs";
-
-
 
 export default class Game extends Component {
   state = {
     combat: false,
     gameCharcters: initialCharacters
-    
   };
 
   isEnemyNear = next => {
@@ -26,17 +23,15 @@ export default class Game extends Component {
     });
   };
 
-  addLocations = (locations) => {
-    
-    for(let i = 1; i < 4; i++){
-      initialCharacters[i].hex = locations[i]
+  addLocations = locations => {
+    for (let i = 1; i < 4; i++) {
+      initialCharacters[i].hex = locations[i-1];
     }
 
     this.setState({
       gameCharcters: initialCharacters
-    })
-   
-  }
+    });
+  };
 
   clicked = () => {
     console.log("hello");
@@ -45,7 +40,10 @@ export default class Game extends Component {
     return (
       <div className="game" idName="game-wrapper">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
-          <GameLayout locations={this.addLocations} isEnemyNear={this.isEnemyNear} />
+          <GameLayout
+            locations={this.addLocations}
+            isEnemyNear={this.isEnemyNear}
+          />
           {/* <TilesLayout /> */}
 
           {/* <AttackSelect player={player1} /> */}
@@ -53,9 +51,12 @@ export default class Game extends Component {
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
 
-        {this.state.combat ? <CombatButton  /> : null}
+        {this.state.combat ? <CombatButton /> : null}
         <div id="combat-section">
-          <CombatSection elements={this.state.gameCharcters} location={this.addLocations} />
+          <CombatSection
+            elements={this.state.gameCharcters}
+            location={this.addLocations}
+          />
         </div>
       </div>
     );
