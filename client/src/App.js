@@ -6,8 +6,12 @@ import CharacterChoice from './pages/CharacterChoice'
 import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Game from "./pages/Game"
 
 class App extends Component {
+  toggleModle = () => {
+    
+  }
   render() {
     return (
       <div className="App">
@@ -17,6 +21,7 @@ class App extends Component {
           <Switch>
             <Route exact path= "/" component={Home} />
             <Route exact path="/characterSelect" component={CharacterChoice} />
+            <Route exact path="/game" component={Game} />
             <Route component={NoMatch} />
             
           </Switch>

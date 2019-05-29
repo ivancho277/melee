@@ -1,0 +1,101 @@
+  .grey-dead {
+		background-color: black;
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE5+ */
+    -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+    -webkit-transition: all .5s ease-in-out;
+  }
+
+.grey-dead:hover  {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.3);
+    border-radius: 50%;
+  }
+#presentation {
+	color: white;
+	font-size: 1.5em;
+}
+
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+body {
+  background-image: url(../images/melee.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+span {
+  border: 1 solid black;
+}
+
+img {
+	max-height: 200px;	
+	max-width: 200px;	
+}
+
+#play-area {
+	padding: 1px;
+}
+
+.card-header {
+	padding: 1px;
+	margin: 1px;
+}
+
+#dice-pic {
+  width: 300px;
+}
+
+
+.card-text,
+#to-hit-roll,
+#attacker-roll,
+#to-hit-result,
+#weapon-damage-raw,
+#weapon-damage-adjusted,
+#defender-armor-protection,
+#defender-damage,
+#defender-strength,
+#defender-hit-points {
+  border: 1px solid black;
+	padding 1px;
+	min-height: 60px;
+}
+
+/* DivTable.com */
+.divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+	min-height: 60px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+	background-color: white;
+  min-height: 60px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
