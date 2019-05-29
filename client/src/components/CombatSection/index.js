@@ -32,7 +32,8 @@ class CombatSection extends Component {
                   shield={defender.shield}
                   armorAbsorbs={defender.armorAbsorbs}
                   adjMovement={defender.adjMovement}
-                  location={this.props.location}
+                  location={defender.hex}
+                  
                 />
               );
             }

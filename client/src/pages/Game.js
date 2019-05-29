@@ -17,21 +17,59 @@ export default class Game extends Component {
     gameCharcters: initialCharacters
   };
 
+  whichEnemyIsNear = () => {
+   
+    if(this.state.gameCharcters[1].hex){
+    for(let i = 1; i < this.state.gameCharcters.length; i++){
+      for(let j = 0; j < 6/* size of neighbors array */; j++){
+        if(this.state.gameCharcters[i].neighbors[j].q === this.state.gameCharcters[0].hex.q &&
+          this.state.gameCharcters[i].neighbors[j].r === this.state.gameCharcters[0].hex.r && 
+          this.state.gameCharcters[i].neighbors[j].s === this.state.gameCharcters[0].hex.s)
+          {
+            console.log("Moo" ,this.state.gameCharcters[i].id)
+            return this.state.gameCharcters[i].id;
+          }
+        }
+    }
+  }
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("ID" ,this.whichEnemyIsNear());
+    
+  }
+
   isEnemyNear = next => {
     this.setState({
       combat: next
     });
   };
 
-  addLocations = locations => {
-    for (let i = 1; i < 4; i++) {
-      initialCharacters[i].hex = locations[i-1];
+  addLocations = (locations, neighbors) => {
+    for (let i = 1; i < this.state.gameCharcters.length; i++) {
+      initialCharacters[i].hex = locations[i - 1];
+      initialCharacters[i].neighbors = neighbors[i - 1];
     }
-
     this.setState({
       gameCharcters: initialCharacters
     });
   };
+
+  PlayerLocation = (DropLocation) => {
+    initialCharacters[0].hex = DropLocation;
+    this.setState({
+      gameCharcters: initialCharacters
+    })
+  }
+
+  //function that checks playerlocation against each
+  //monsters neighbor array, this should return a boolean to 
+  //be passed down to defender component.
+
+
+  
+
+  
 
   clicked = () => {
     console.log("hello");
@@ -43,6 +81,8 @@ export default class Game extends Component {
           <GameLayout
             locations={this.addLocations}
             isEnemyNear={this.isEnemyNear}
+            
+            playerLocation={this.PlayerLocation}
           />
           {/* <TilesLayout /> */}
 
@@ -55,7 +95,9 @@ export default class Game extends Component {
         <div id="combat-section">
           <CombatSection
             elements={this.state.gameCharcters}
-            location={this.addLocations}
+            location={this.whichEnemyIsNear}
+            
+
           />
         </div>
       </div>

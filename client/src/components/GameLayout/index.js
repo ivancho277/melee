@@ -34,8 +34,12 @@ class GameLayout extends Component {
     hexagons[monstersArray[1]].text = "monster";
     hexagons[monstersArray[2]].image = snake;
     hexagons[monstersArray[2]].text = "monster";
+    
+    
     const monstersArr = [hexagons[monstersArray[0]], hexagons[monstersArray[1]], hexagons[monstersArray[2]]];
-    this.props.locations(monstersArr)
+    this.props.playerLocation(hexagons[50])
+    const neighbors = [HexUtils.neighbours(hexagons[monstersArray[0]]), HexUtils.neighbours(hexagons[monstersArray[1]]), HexUtils.neighbours(hexagons[monstersArray[2]])];
+    this.props.locations(monstersArr, neighbors)
     console.log(monstersArr);
 
     //console.log(this.state)
@@ -78,6 +82,8 @@ class GameLayout extends Component {
    
     let near = false;
     let neightborsArr = HexUtils.neighbours(source.state.hex);
+    console.log("LOOKI HERE: " + source.state.hex.q)
+    this.props.playerLocation(source.state.hex)
     for (let i = 0; i < neightborsArr.length; i++) {
       for (let j = 0; j < monstersArr.length; j++) {
         if (
@@ -86,7 +92,9 @@ class GameLayout extends Component {
           monstersArr[j].s === neightborsArr[i].s
         ) {
           
-          
+         
+
+
           console.log("ENTER COMBAT!");
           near = true;
         }
