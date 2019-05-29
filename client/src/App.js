@@ -7,7 +7,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Game from "./pages/Game"
-
+import Instructions from "./pages/Instructions"
 class App extends Component {
   toggleModle = () => {
     
@@ -22,6 +22,7 @@ class App extends Component {
             <Route exact path= "/" component={Home} />
             <Route exact path="/characterSelect" component={CharacterChoice} />
             <Route exact path="/game" component={Game} />
+            <Route exact path="/instructions" component={Instructions} />
             <Route component={NoMatch} />
             
           </Switch>
