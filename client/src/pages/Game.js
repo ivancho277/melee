@@ -102,13 +102,13 @@ export default class Game extends Component {
           <CombatSection
             elements={this.state.gameCharcters}
             location={this.whichEnemyIsNear}
-<<<<<<< HEAD
+
             idSelect={this.state.engagedId}
-=======
+
             
             // <CombatStats/>
 
->>>>>>> 3b00ea0c350196b10d05e464b4ee9bd56e7ad222
+
           />
         </div>
       </div>
