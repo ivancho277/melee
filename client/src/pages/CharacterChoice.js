@@ -122,6 +122,7 @@ export default class CharacterChoice extends Component {
   };
 
   getCharacterData = () => {
+    
     let tempArr = [];
     api.getThralls().then((res, err) => {
       if (err) {
