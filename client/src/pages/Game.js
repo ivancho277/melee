@@ -8,17 +8,37 @@ import CombatSection from "../components/CombatSection";
 import "./Game.css";
 import DiceComponent from "../components/DiceRoller";
 import CombatButton from "../components/RollButton";
-import {initialCharacters} from "../components/constants/index"
+import { initialCharacters } from "../components/constants/index";
 import { link } from "fs";
-
-
+import CombatStats from "../components/CombatStats/"
 
 export default class Game extends Component {
   state = {
     combat: false,
     gameCharcters: initialCharacters
-    
   };
+
+  whichEnemyIsNear = () => {
+   
+    if(this.state.gameCharcters[1].hex){
+    for(let i = 1; i < this.state.gameCharcters.length; i++){
+      for(let j = 0; j < 6/* size of neighbors array */; j++){
+        if(this.state.gameCharcters[i].neighbors[j].q === this.state.gameCharcters[0].hex.q &&
+          this.state.gameCharcters[i].neighbors[j].r === this.state.gameCharcters[0].hex.r && 
+          this.state.gameCharcters[i].neighbors[j].s === this.state.gameCharcters[0].hex.s)
+          {
+            console.log("Moo" ,this.state.gameCharcters[i].id)
+            return this.state.gameCharcters[i].id;
+          }
+        }
+    }
+  }
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("ID" ,this.whichEnemyIsNear());
+    
+  }
 
   isEnemyNear = next => {
     this.setState({
@@ -26,17 +46,31 @@ export default class Game extends Component {
     });
   };
 
-  addLocations = (locations) => {
-    
-    for(let i = 1; i < 4; i++){
-      initialCharacters[i].hex = locations[i]
+  addLocations = (locations, neighbors) => {
+    for (let i = 1; i < this.state.gameCharcters.length; i++) {
+      initialCharacters[i].hex = locations[i - 1];
+      initialCharacters[i].neighbors = neighbors[i - 1];
     }
+    this.setState({
+      gameCharcters: initialCharacters
+    });
+  };
 
+  PlayerLocation = (DropLocation) => {
+    initialCharacters[0].hex = DropLocation;
     this.setState({
       gameCharcters: initialCharacters
     })
-   
   }
+
+  //function that checks playerlocation against each
+  //monsters neighbor array, this should return a boolean to 
+  //be passed down to defender component.
+
+
+  
+
+  
 
   clicked = () => {
     console.log("hello");
@@ -45,7 +79,12 @@ export default class Game extends Component {
     return (
       <div className="game" idName="game-wrapper">
         <HexGrid width={1600} height={1000} viewBox="-50 -50 100 100">
-          <GameLayout locations={this.addLocations} isEnemyNear={this.isEnemyNear} />
+          <GameLayout
+            locations={this.addLocations}
+            isEnemyNear={this.isEnemyNear}
+            
+            playerLocation={this.PlayerLocation}
+          />
           {/* <TilesLayout /> */}
 
           {/* <AttackSelect player={player1} /> */}
@@ -53,9 +92,15 @@ export default class Game extends Component {
         </HexGrid>
         {/* <AttackSelect player={player1} /> */}
 
-        {this.state.combat ? <CombatButton  /> : null}
+        {this.state.combat ? <CombatButton /> : null}
         <div id="combat-section">
-          <CombatSection elements={this.state.gameCharcters} location={this.addLocations} />
+          <CombatSection
+            elements={this.state.gameCharcters}
+            location={this.whichEnemyIsNear}
+            
+            // <CombatStats/>
+
+          />
         </div>
       </div>
     );
