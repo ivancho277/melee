@@ -21,6 +21,8 @@ class Defender extends Component {
     });
   };
 
+ 
+
   CheckifEngaged = () => {
       if (this.props.id === this.props.idSelect) {
         this.setState({
