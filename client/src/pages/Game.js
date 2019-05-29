@@ -10,6 +10,7 @@ import DiceComponent from "../components/DiceRoller";
 import CombatButton from "../components/RollButton";
 import { initialCharacters } from "../components/constants/index";
 import { link } from "fs";
+import CombatStats from "../components/CombatStats/"
 
 export default class Game extends Component {
   state = {
@@ -97,6 +98,7 @@ export default class Game extends Component {
             elements={this.state.gameCharcters}
             location={this.whichEnemyIsNear}
             
+            // <CombatStats/>
 
           />
         </div>
