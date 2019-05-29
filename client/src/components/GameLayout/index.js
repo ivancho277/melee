@@ -78,6 +78,8 @@ class GameLayout extends Component {
    
     let near = false;
     let neightborsArr = HexUtils.neighbours(source.state.hex);
+    console.log("LOOKI HERE: " + source.state.hex.q)
+    this.props.playerLocation(source.state.hex)
     for (let i = 0; i < neightborsArr.length; i++) {
       for (let j = 0; j < monstersArr.length; j++) {
         if (
@@ -86,7 +88,9 @@ class GameLayout extends Component {
           monstersArr[j].s === neightborsArr[i].s
         ) {
           
-          
+         
+
+
           console.log("ENTER COMBAT!");
           near = true;
         }

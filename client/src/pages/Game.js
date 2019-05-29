@@ -17,6 +17,26 @@ export default class Game extends Component {
     gameCharcters: initialCharacters
   };
 
+  whichEnemyIsNear = (myLocation) => {
+    let myBoolean = false;
+    console.log("MyLOCATION: " + myLocation.q + ", " + myLocation.s)
+    let enemyLocationArray = [
+      this.state.gameCharcters[1].hex,
+      this.state.gameCharcters[2].hex,
+      this.state.gameCharcters[3].hex
+    ];
+    for (let i = 0; i < enemyLocationArray.length; i++) {
+      if (
+        myLocation.q === enemyLocationArray[i].q &&
+        myLocation.r === enemyLocationArray[i].r &&
+        myLocation.s === enemyLocationArray[i].s
+      ) {
+        myBoolean = true;
+      } 
+    }
+    return myBoolean;
+  };
+
   isEnemyNear = next => {
     this.setState({
       combat: next
@@ -25,13 +45,23 @@ export default class Game extends Component {
 
   addLocations = locations => {
     for (let i = 1; i < 4; i++) {
-      initialCharacters[i].hex = locations[i-1];
+      initialCharacters[i].hex = locations[i - 1];
     }
-
     this.setState({
       gameCharcters: initialCharacters
     });
   };
+
+  PlayerLocation = (DropLocation) => {
+    initialCharacters[0].hex = DropLocation;
+    this.setState({
+      gameCharcters: initialCharacters
+    })
+  }
+
+  
+
+  
 
   clicked = () => {
     console.log("hello");
@@ -43,6 +73,8 @@ export default class Game extends Component {
           <GameLayout
             locations={this.addLocations}
             isEnemyNear={this.isEnemyNear}
+            whichEnemyIsNear={this.whichEnemyIsNear}
+            playerLocation={this.PlayerLocation}
           />
           {/* <TilesLayout /> */}
 
@@ -55,7 +87,9 @@ export default class Game extends Component {
         <div id="combat-section">
           <CombatSection
             elements={this.state.gameCharcters}
-            location={this.addLocations}
+            location={this.whichEnemyIsNear}
+            whichEnemyIsNear={this.whichEnemyIsNear}
+
           />
         </div>
       </div>
