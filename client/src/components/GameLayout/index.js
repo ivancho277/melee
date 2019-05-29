@@ -116,6 +116,9 @@ class GameLayout extends Component {
     if (!source.props.data.text) {
       event.preventDefault();
     }
+    else if(source.props.data.text == "monster"){
+        event.preventDefault();
+    }
   }
 
   // Decide here if you want to allow drop to this node
