@@ -1,0 +1,20 @@
+body {
+    background-image: url('./armorbackground.jpeg');
+    background-repeat: no-repeat;
+    background-size: auto cover;
+
+
+}
+
+#title-id {
+
+    background: url(meleelogo.png) no-repeat right;
+    /* position: absolute;  */
+    z-index: 1000;
+    object-fit: cover;
+    height: 125px;
+    width: 100vw;
+    margin-right: 15%;
+    float: right; 
+}
+

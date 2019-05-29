@@ -10,6 +10,7 @@ const thrallSchema = new Schema({
   weapon: { type: String, required: false }, // Thralls will have hardcoaded weapons (or claws or teeth)
   armor: { type: String, required: false }, // Thralls will have hardcoded armor (or fur or scales)
   shield: { type: String, required: false }, // Thralls shouldn't have a shield, for now
+  img: { type: String, required: true, default: "MeleeGamePieces-15" },
   life_status: { type: Number, required: true, default: 1 }
 });
 
