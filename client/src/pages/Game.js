@@ -33,7 +33,9 @@ export default class Game extends Component {
           ) {
             console.log("Moo", this.state.gameCharcters[i].id);
 
-            return this.state.gameCharcters[i].id;
+            return this.setState({
+              engagedId: this.state.gameCharcters[i].id
+            })
           }
         }
       }

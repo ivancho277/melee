@@ -21,9 +21,8 @@ class Defender extends Component {
     });
   };
 
-  CheckifEngaged = id => {
-    if (id) {
-      if (this.state.id === id) {
+  CheckifEngaged = () => {
+      if (this.props.id === this.props.idSelect) {
         this.setState({
           isEngaged: true
         });
@@ -32,7 +31,7 @@ class Defender extends Component {
           isEngaged: false
         });
       }
-    }
+    
   };
 
   render() {
@@ -65,7 +64,7 @@ class Defender extends Component {
             adjMovement: {this.props.adjMovement}
             <br /> <br />
             YOU ROLLED : {this.state.roll}
-            <button onClick={this.CheckifEngaged(this.props.idSelect)}>CHECK!</button>
+            <button onClick={this.CheckifEngaged}>CHECK!</button>
             <DiceComponent
               numDice={this.state.numDice}
               getNum={this.DiceRollReturn}
