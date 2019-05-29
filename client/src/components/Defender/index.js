@@ -11,29 +11,45 @@ class Defender extends Component {
     isEngaged: false,
     engagedStyle: "5px solid green",
     notEngagedStyle: "5px solid red",
-    hp: this.props.hp
+    hp: this.props.hp,
+    id: this.props.id
   };
 
-  DiceRollReturn = num => {  
+  DiceRollReturn = num => {
     this.setState({
       roll: num
-    })
-  }
+    });
+  };
 
-  // CheckifEngaged = () => {
-  //   this.setState({
-  //     isEngaged: this.props.whichEnemyIsNear(this.props.location)
-  //   })
-  // }
+ 
+
+  CheckifEngaged = () => {
+      if (this.props.id === this.props.idSelect) {
+        this.setState({
+          isEngaged: true
+        });
+      } else {
+        this.setState({
+          isEngaged: false
+        });
+      }
+    
+  };
 
   render() {
     return (
-      
-      <div className="defender" style={this.state.isEngaged ? { border: this.state.engagedStyle} : { border: this.state.notEngagedStyle}}  >
+      <div
+        className="defender"
+        style={
+          this.state.isEngaged
+            ? { border: this.state.engagedStyle }
+            : { border: this.state.notEngagedStyle }
+        }
+      >
         <div className="card box-shadow" idName="attacker-card">
           <span className="defender-title">{this.props.name}</span>
           <div className="card-header text-center font-weight-bold">Wuf</div>
-          <div idName="attacker-stats" style={{ textAlign: "left"}}>
+          <div idName="attacker-stats" style={{ textAlign: "left" }}>
             <br />
             HP: {this.state.hp}
             <br />
@@ -50,12 +66,14 @@ class Defender extends Component {
             adjMovement: {this.props.adjMovement}
             <br /> <br />
             YOU ROLLED : {this.state.roll}
-            <button >CHECK!</button>
-            <DiceComponent numDice={this.state.numDice}  getNum={this.DiceRollReturn}/>
+            <button onClick={this.CheckifEngaged}>CHECK!</button>
+            <DiceComponent
+              numDice={this.state.numDice}
+              getNum={this.DiceRollReturn}
+            />
           </div>
         </div>
       </div>
-      
     );
   }
 }
