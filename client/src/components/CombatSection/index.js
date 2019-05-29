@@ -21,6 +21,8 @@ class CombatSection extends Component {
             } else {
               return (
                 <Defender
+                  id={defender.id}
+                  idSelect={this.props.idSelect}
                   key={i}
                   hp={defender.hp}
                   name={defender.name}
