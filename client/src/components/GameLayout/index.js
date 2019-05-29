@@ -91,10 +91,6 @@ class GameLayout extends Component {
           monstersArr[j].r === neightborsArr[i].r &&
           monstersArr[j].s === neightborsArr[i].s
         ) {
-          
-         
-
-
           console.log("ENTER COMBAT!");
           near = true;
         }
@@ -102,7 +98,7 @@ class GameLayout extends Component {
     }
    
 
-
+    this.props.whichEnemyIsNear();
     this.props.isEnemyNear(near);
     console.log("====================================");
     console.log(neightborsArr);
