@@ -5,6 +5,7 @@ import { element } from "prop-types";
 import Attacker from "../AttackSelect";
 import Defender from "../Defender";
 import AttackSelect from "../AttackSelect";
+import CombatStats from "../CombatStats"
 let numDice = 3;
 class CombatSection extends Component {
   //{ elements } = this.props.elements
@@ -41,6 +42,7 @@ class CombatSection extends Component {
             }
           })}
         </div>
+        <CombatStats/>
       </div>
     );
   }

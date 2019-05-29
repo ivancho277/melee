@@ -10,6 +10,7 @@ import DiceComponent from "../components/DiceRoller";
 import CombatButton from "../components/RollButton";
 import { initialCharacters } from "../components/constants/index";
 import { link } from "fs";
+import CombatStats from "../components/CombatStats/"
 
 export default class Game extends Component {
   state = {
@@ -101,7 +102,13 @@ export default class Game extends Component {
           <CombatSection
             elements={this.state.gameCharcters}
             location={this.whichEnemyIsNear}
+<<<<<<< HEAD
             idSelect={this.state.engagedId}
+=======
+            
+            // <CombatStats/>
+
+>>>>>>> 3b00ea0c350196b10d05e464b4ee9bd56e7ad222
           />
         </div>
       </div>
