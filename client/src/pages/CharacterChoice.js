@@ -11,6 +11,7 @@ import iconBear from "./gamePieceImages/MeleeGamePieces-17.jpg";
 import iconSnek from "./gamePieceImages/MeleeGamePieces-20.jpg";
 import iconWuf from "./gamePieceImages/MeleeGamePieces-25.jpg";
 import ivan from "./gamePieceImages/crazy-ivan.jpg";
+import{ CharToChoose} from "../components/CharactersToChooseFrom";
 
 // import icon from "../../pages/gamePieceImages/MeleeGamePieces-01.jpg"
 
@@ -45,7 +46,7 @@ let stats2 = {
 let stats3 = {
   strength: 13,
   dexterity: 11,
-  name: "Turnson Bronquist",
+  name: "JnastE",
   // src: "https://placeimg.com/642/482/animal",
   src: icon37,
   movementAllowance: 10,
@@ -67,48 +68,48 @@ let stats4 = {
   shield: "",
   life_status: 1
 };
-let stats5 = {
-  strength: 10,
-  dexterity: 14,
-  name: "Wuf",
-  src: iconWuf,
-  movementAllowance: 12,
-  weapon: "Teeph!",
-  armor: "Pelt",
-  shield: "",
-  life_status: 1
-};
-let stats6 = {
-  strength: 30,
-  dexterity: 11,
-  name: "Bear",
-  src: iconBear,
-  movementAllowance: 10,
-  weapon: "Bear Claw",
-  armor: "Hide",
-  shield: "",
-  life_status: 1
-};
-let stats7 = {
-  strength: 8,
-  dexterity: 12,
-  name: "Snek",
-  src: iconSnek,
-  movementAllowance: 6,
-  weapon: "Fangs",
-  armor: "Pelt",
-  shield: "",
-  life_status: 1
-};
+// let stats5 = {
+//   strength: 10,
+//   dexterity: 14,
+//   name: "Wuf",
+//   src: iconWuf,
+//   movementAllowance: 12,
+//   weapon: "Teeph!",
+//   armor: "Pelt",
+//   shield: "",
+//   life_status: 1
+// };
+// let stats6 = {
+//   strength: 30,
+//   dexterity: 11,
+//   name: "Bear",
+//   src: iconBear,
+//   movementAllowance: 10,
+//   weapon: "Bear Claw",
+//   armor: "Hide",
+//   shield: "",
+//   life_status: 1
+// };
+// let stats7 = {
+//   strength: 8,
+//   dexterity: 12,
+//   name: "Snek",
+//   src: iconSnek,
+//   movementAllowance: 6,
+//   weapon: "Fangs",
+//   armor: "Pelt",
+//   shield: "",
+//   life_status: 1
+// };
 
-let characterArray = [stats1, stats2, stats3, stats4, stats5, stats6, stats7];
+// let characterArray = [stats1, stats2, stats3, stats4];
 
 export default class CharacterChoice extends Component {
   selectCharacterByName = name => {
-    for (let i = 0; i < characterArray.length; i++) {
-      console.log("NAMES: ", name, characterArray[i].name);
-      if (characterArray[i].name === name) {
-        return characterArray[i];
+    for (let i = 0; i < CharToChoose.length; i++) {
+      console.log("NAMES: ", name, CharToChoose[i].name);
+      if (CharToChoose[i].name === name) {
+        return CharToChoose[i];
       }
     }
     return "no such character";
@@ -121,7 +122,6 @@ export default class CharacterChoice extends Component {
   };
 
   getCharacterData = () => {
-    
     let tempArr = [];
     api.getThralls().then((res, err) => {
       if (err) {
@@ -159,7 +159,15 @@ export default class CharacterChoice extends Component {
       <div>
         <Container>
           <Col size="4">
-            <PreMadeChar
+            {CharToChoose.map((character, i) => {
+              return (
+                <PreMadeChar
+                onCharacterClick={this.onCharacterClick}
+                stats={character}
+                />
+              )
+             })}
+            {/* <PreMadeChar
               onCharacterClick={this.onCharacterClick}
               stats={stats1}
             />
@@ -174,7 +182,7 @@ export default class CharacterChoice extends Component {
             <PreMadeChar
               onCharacterClick={this.onCharacterClick}
               stats={stats4}
-            />
+            /> */}
 
           </Col>
           <Col size="4">{this.state.characterCard}</Col>
