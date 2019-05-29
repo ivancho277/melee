@@ -20,11 +20,11 @@ class Defender extends Component {
     })
   }
 
-  CheckifEngaged = () => {
-    this.setState({
-      isEngaged: this.props.whichEnemyIsNear(this.props.location)
-    })
-  }
+  // CheckifEngaged = () => {
+  //   this.setState({
+  //     isEngaged: this.props.whichEnemyIsNear(this.props.location)
+  //   })
+  // }
 
   render() {
     return (
@@ -50,7 +50,7 @@ class Defender extends Component {
             adjMovement: {this.props.adjMovement}
             <br /> <br />
             YOU ROLLED : {this.state.roll}
-            <button onClick={this.CheckifEngaged}>CHECK!</button>
+            <button >CHECK!</button>
             <DiceComponent numDice={this.state.numDice}  getNum={this.DiceRollReturn}/>
           </div>
         </div>

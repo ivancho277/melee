@@ -33,7 +33,7 @@ class CombatSection extends Component {
                   armorAbsorbs={defender.armorAbsorbs}
                   adjMovement={defender.adjMovement}
                   location={defender.hex}
-                  whichEnemyIsNear={this.props.whichEnemyIsNear}
+                  
                 />
               );
             }

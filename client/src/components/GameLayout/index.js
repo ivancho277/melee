@@ -34,8 +34,12 @@ class GameLayout extends Component {
     hexagons[monstersArray[1]].text = "monster";
     hexagons[monstersArray[2]].image = snake;
     hexagons[monstersArray[2]].text = "monster";
+    
+    
     const monstersArr = [hexagons[monstersArray[0]], hexagons[monstersArray[1]], hexagons[monstersArray[2]]];
-    this.props.locations(monstersArr)
+    this.props.playerLocation(hexagons[50])
+    const neighbors = [HexUtils.neighbours(hexagons[monstersArray[0]]), HexUtils.neighbours(hexagons[monstersArray[1]]), HexUtils.neighbours(hexagons[monstersArray[2]])];
+    this.props.locations(monstersArr, neighbors)
     console.log(monstersArr);
 
     //console.log(this.state)

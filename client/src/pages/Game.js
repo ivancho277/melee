@@ -17,25 +17,27 @@ export default class Game extends Component {
     gameCharcters: initialCharacters
   };
 
-  whichEnemyIsNear = (myLocation) => {
-    let myBoolean = false;
-    console.log("MyLOCATION: " + myLocation.q + ", " + myLocation.s)
-    let enemyLocationArray = [
-      this.state.gameCharcters[1].hex,
-      this.state.gameCharcters[2].hex,
-      this.state.gameCharcters[3].hex
-    ];
-    for (let i = 0; i < enemyLocationArray.length; i++) {
-      if (
-        myLocation.q === enemyLocationArray[i].q &&
-        myLocation.r === enemyLocationArray[i].r &&
-        myLocation.s === enemyLocationArray[i].s
-      ) {
-        myBoolean = true;
-      } 
+  whichEnemyIsNear = () => {
+   
+    if(this.state.gameCharcters[1].hex){
+    for(let i = 1; i < this.state.gameCharcters.length; i++){
+      for(let j = 0; j < 6/* size of neighbors array */; j++){
+        if(this.state.gameCharcters[i].neighbors[j].q === this.state.gameCharcters[0].hex.q &&
+          this.state.gameCharcters[i].neighbors[j].r === this.state.gameCharcters[0].hex.r && 
+          this.state.gameCharcters[i].neighbors[j].s === this.state.gameCharcters[0].hex.s)
+          {
+            console.log("Moo" ,this.state.gameCharcters[i].id)
+            return this.state.gameCharcters[i].id;
+          }
+        }
     }
-    return myBoolean;
+  }
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("ID" ,this.whichEnemyIsNear());
+    
+  }
 
   isEnemyNear = next => {
     this.setState({
@@ -43,9 +45,10 @@ export default class Game extends Component {
     });
   };
 
-  addLocations = locations => {
-    for (let i = 1; i < 4; i++) {
+  addLocations = (locations, neighbors) => {
+    for (let i = 1; i < this.state.gameCharcters.length; i++) {
       initialCharacters[i].hex = locations[i - 1];
+      initialCharacters[i].neighbors = neighbors[i - 1];
     }
     this.setState({
       gameCharcters: initialCharacters
@@ -58,6 +61,11 @@ export default class Game extends Component {
       gameCharcters: initialCharacters
     })
   }
+
+  //function that checks playerlocation against each
+  //monsters neighbor array, this should return a boolean to 
+  //be passed down to defender component.
+
 
   
 
@@ -73,7 +81,7 @@ export default class Game extends Component {
           <GameLayout
             locations={this.addLocations}
             isEnemyNear={this.isEnemyNear}
-            whichEnemyIsNear={this.whichEnemyIsNear}
+            
             playerLocation={this.PlayerLocation}
           />
           {/* <TilesLayout /> */}
@@ -88,7 +96,7 @@ export default class Game extends Component {
           <CombatSection
             elements={this.state.gameCharcters}
             location={this.whichEnemyIsNear}
-            whichEnemyIsNear={this.whichEnemyIsNear}
+            
 
           />
         </div>
