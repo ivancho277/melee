@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import './style.css';
-import PreMadeChar from "../PreMadeCharactersCard"
+// import PreMadeChar from "../PreMadeCharactersCard"
 
 
 // function Jumbotron1(props) {

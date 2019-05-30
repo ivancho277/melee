@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import AttackSelect from "../components/AttackSelect";
-import gameimg from "./MeleeGamePieces-02.jpg"
-let player1 = {
-  playerId: 0,
-  strength: 120,
-  dexterity: 15,
-  hitPoints: 120,
-  armor: 0,
-  initialAttackPower: 8,
-  playerName: "Thundarr",
-  playerSide: "Fighter",
-  src: gameimg 
-};
+// import AttackSelect from "../components/AttackSelect";
+// import gameimg from "./MeleeGamePieces-02.jpg"
+// let player1 = {
+//   playerId: 0,
+//   strength: 120,
+//   dexterity: 15,
+//   hitPoints: 120,
+//   armor: 0,
+//   initialAttackPower: 8,
+//   playerName: "Thundarr",
+//   playerSide: "Fighter",
+//   src: gameimg 
+// };
 
 
 

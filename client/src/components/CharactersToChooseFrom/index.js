@@ -2,8 +2,8 @@
 import icon35 from "../../pages/gamePieceImages/MeleeGamePieces-35.jpg";
 import icon37 from "../../pages/gamePieceImages/MeleeGamePieces-37.jpg";
 import icon32 from "../../pages/gamePieceImages/MeleeGamePieces-32.jpg";
-import iconSnek from "../../pages/gamePieceImages/MeleeGamePieces-20.jpg";
-import iconWuf from "../../pages/gamePieceImages/MeleeGamePieces-25.jpg";
+// import iconSnek from "../../pages/gamePieceImages/MeleeGamePieces-20.jpg";
+// import iconWuf from "../../pages/gamePieceImages/MeleeGamePieces-25.jpg";
 import ivan from "../../pages/gamePieceImages/crazy-ivan.jpg";
 
 export const CharToChoose = [

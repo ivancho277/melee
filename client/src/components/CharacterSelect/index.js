@@ -6,7 +6,7 @@ function CharacterSelect() {
       <button
         id="instBox"
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         href="/characterSelect"
         >
           Start Game

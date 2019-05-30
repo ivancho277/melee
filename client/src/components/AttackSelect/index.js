@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, ListItem } from "../List";
+// import { List, ListItem } from "../List";
 import DiceComponent from "../DiceRoller"
 
 export default class AttackSelect extends Component {
@@ -16,13 +16,13 @@ export default class AttackSelect extends Component {
   render(){
   return(
   
-        <div className="col-2" idName="attacker-section">
-          <div className="card box-shadow" idName="attacker-card">
+        <div className="col-2" id="attacker-section">
+          <div className="card box-shadow" id="attacker-card">
             <span className="attacker-title">Attacker</span>
             <div className="card-header text-center font-weight-bold">
               {this.props.elements[0].name}
             </div>
-            <div idName="attackerStats" style={{ textAlign: "left" }}>
+            <div id="attackerStats" style={{ textAlign: "left" }}>
               HP: {this.props.elements[0].hp}
               <br />
               STR: {this.props.elements[0].strength}

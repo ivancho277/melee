@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import DiceComponent from "../DiceRoller/";
+// import DiceComponent from "../DiceRoller/";
 import "./style.css";
-import { element } from "prop-types";
-import Attacker from "../AttackSelect";
+// import { element } from "prop-types";
+// import Attacker from "../AttackSelect";
 import Defender from "../Defender";
 import AttackSelect from "../AttackSelect";
 import CombatStats from "../CombatStats";
-let numDice = 3;
 class CombatSection extends Component {
   //{ elements } = this.props.elements
 
@@ -45,7 +44,7 @@ class CombatSection extends Component {
   render() {
     return (
       <div>
-        <div className="row combat-section" idName="tbd">
+        <div className="row combat-section" id="tbd">
           <AttackSelect elements={this.props.elements} />
           {this.whoIsDefender()}
         </div>
