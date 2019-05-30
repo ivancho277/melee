@@ -5,12 +5,17 @@ import DiceComponent from "../DiceRoller"
 export default class AttackSelect extends Component {
   state = {
     roll: 0,
-    numDice: 3
+    numDice: 3,
+    hit: false
   }
   DiceRollReturn = num => {  
     this.setState({
-      roll: num
+      roll: num,
+      hit: this.props.rollToHit(num, this.props.elements[0].adjDx ),
+      numDice : this.props.howManyDice()
     })
+
+    //this.props.rollToHit(this.state.roll, this.props.elements[0].adjDx )
   }
 
   render(){

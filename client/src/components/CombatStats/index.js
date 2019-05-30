@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import CSS from "./index.css"
 
 class CombatStats extends Component {
+ state = {
+     hit: false
+ }
 
+ didIHit = () => {
+    return this.props.rollToHit()
+ }
 
     render() {
         return (
@@ -25,7 +31,7 @@ class CombatStats extends Component {
                     <tr>
                         <td>statshere</td>
                         {/* cell A */}
-                        <td>statshere</td>
+                        <td>{this.state.hit.toString()}</td>
                         {/* cell B */}
                         <td>statshere</td>
                         {/* cell C */}

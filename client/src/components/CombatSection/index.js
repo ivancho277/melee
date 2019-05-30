@@ -6,12 +6,31 @@ import Attacker from "../AttackSelect";
 import Defender from "../Defender";
 import AttackSelect from "../AttackSelect";
 import CombatStats from "../CombatStats";
+//import DiceComponent from "../DiceRoller"
 let numDice = 3;
 class CombatSection extends Component {
   //{ elements } = this.props.elements
 
+RollToHit = (roll, dex) => {
+  if(roll <= dex){
+    console.log("YOU HIT THIS BIT");
+    return true;
+  }
+  else {
+    console.log("MISSED"); 
+    return false;
+  }
+}
+
+howManyDiceToRender = (didWeHit) => {
+  if(didWeHit){
+    return 2
+  } else return 3
+}
+
+
   whoIsDefender = () => {
-    let component = <div>hi</div>
+    let component = <div></div>
     for (let i = 1; i < 4; i++) {
       if (this.props.idSelect === this.props.elements[i].id) {
         let defender = this.props.elements[i]
@@ -34,8 +53,8 @@ class CombatSection extends Component {
           />
          return component
       } else { 
-        component = <div>hi</div>
-       
+        component = <div></div>
+        
       }
       
     }
@@ -46,10 +65,13 @@ class CombatSection extends Component {
     return (
       <div>
         <div className="row combat-section" idName="tbd">
-          <AttackSelect elements={this.props.elements} />
+          <AttackSelect rollToHit={this.RollToHit}
+          elements={this.props.elements}
+          howManyDice={this.howManyDiceToRender}
+           />
           {this.whoIsDefender()}
         </div>
-        <CombatStats />
+        <CombatStats hit={this.RollToHit} />
       </div>
     );
   }
