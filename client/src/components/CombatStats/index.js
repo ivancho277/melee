@@ -6,8 +6,8 @@ class CombatStats extends Component {
 
     render() {
         return (
-            <div class ="CombatStats">
-            <table class="table table-bordered">
+            <div className ="CombatStats">
+            <table className="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Attacker Dexterity</th>

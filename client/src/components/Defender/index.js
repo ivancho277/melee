@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import DiceComponent from "../DiceRoller/";
-import DiceComponent1 from "../DiceRoller1";
+// import DiceComponent1 from "../DiceRoller1";
 import "./style.css";
-import { element } from "prop-types";
+// import { element } from "prop-types";
 
 class Defender extends Component {
   state = {
@@ -46,10 +46,10 @@ class Defender extends Component {
             : { border: this.state.notEngagedStyle }
         }
       >
-        <div className="card box-shadow" idName="attacker-card">
+        <div className="card box-shadow" id="attacker-card">
           <span className="defender-title">{this.props.name}</span>
           <div className="card-header text-center font-weight-bold">Wuf</div>
-          <div idName="attacker-stats" style={{ textAlign: "left" }}>
+          <div id="attacker-stats" style={{ textAlign: "left" }}>
             <br />
             HP: {this.state.hp}
             <br />

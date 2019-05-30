@@ -63,6 +63,7 @@ function AboutCard() {
           <img
             style={{ width: "300px" }}
             src={require("../../pages/gamePieceImages/MeleeGamePieces-40.jpg")}
+            alt='pic'
           />
         </div>
       </div>

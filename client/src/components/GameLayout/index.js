@@ -10,7 +10,6 @@ import {
 import "./GameLayout.css";
 import player from "../../pages/gamePieceImages/MeleeGamePieces-01.jpg";
 import snake from './snake.jpg'
-import { log } from "handlebars";
 class GameLayout extends Component {
   constructor(props) {
     super(props);
@@ -19,13 +18,13 @@ class GameLayout extends Component {
     // hexagons[0].blocked = true;
     hexagons[1].blocked = true;
 
-    const playerPattern = <Pattern id="player-pat" link={player} />;
+    // const playerPattern = <Pattern id="player-pat" link={player} />;
     //const playerHex = <Hexagon  q={0} r={0} s={0} fill="player-pat" />
     // this.state = currenthex; //keep track of where character gets dropped
     //this.state = HexUtils.neighbours(currenthex) //state of all neighbors to current position.
-    let rand1 = Math.floor(Math.random() * 90 + 1);
-    let rand2 = Math.floor(Math.random() * 90 + 1);
-    let rand3 = Math.floor(Math.random() * 90 + 1);
+    // let rand1 = Math.floor(Math.random() * 90 + 1);
+    // let rand2 = Math.floor(Math.random() * 90 + 1);
+    // let rand3 = Math.floor(Math.random() * 90 + 1);
     
     let monstersArray = this.pickRandomMonsters();
     hexagons[monstersArray[0]].image = snake;
@@ -112,7 +111,7 @@ class GameLayout extends Component {
     if (!source.props.data.text) {
       event.preventDefault();
     }
-    else if(source.props.data.text == "monster"){
+    else if(source.props.data.text === "monster"){
         event.preventDefault();
     }
   }

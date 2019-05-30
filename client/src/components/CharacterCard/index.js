@@ -7,9 +7,9 @@ function CharacterCard(props) {
   return (
     <div className="row char-section" idName="tbd2">
       <div className="col-2" idName="tbd3">
-        <div idName="centerCard" className="card" style={{ width: 22 + "rem" }}>
+        <div id="centerCard" className="card" style={{ width: 22 + "rem" }}>
           <h3 className="card-text">{props.name}</h3>
-          <img className="card-img-top" src={props.src} />
+          <img className="card-img-top" alt='pic' src={props.src} />
           <div className="card-body">
             <div className="card">
               <u>Stats</u>
@@ -30,7 +30,7 @@ function CharacterCard(props) {
           <button
             type="button"
             onClick={props.onCharacterSelect}
-            class="btn btn-danger"
+            className="btn btn-danger"
           >
             <Link  to="/game"> 
             Start Game
