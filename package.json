@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.9.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "create-react-class": "^15.6.3",
     "create-react-context": "^0.2.3",
     "express": "^4.16.3",
